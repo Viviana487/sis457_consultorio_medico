@@ -16,8 +16,6 @@ Espacio acogedor con sillas cómodas.
 
 Área de recepción donde se realiza la gestión de citas y atención administrativa.
 
-Sistema de turnos digital.
-
 
 
 2. Consultorio de Cardiología:
@@ -51,13 +49,79 @@ Historial clínico por paciente.
 
 Registro del personal médico (odontólogos y cardiólogos).
 
-Reportes de atención por especialidad.
-
 
 Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir el uso de papel, minimizar errores en la gestión clínica y brindar una experiencia más cómoda y rápida tanto para pacientes como para el personal de salud.
 
 
 -----
 
-2. Entidades
+2. Entidades tentativas
+1. Paciente
+- id
+- nombre
+- apellidoPaterno
+- apellidoMaterno
+- fechaNacimiento
+- celular
+- direccion
+- usuarioRegistro
+- fechaRegistro
+- estado
 
+----
+
+2. Doctor
+- id
+- idEspecialidad
+- nombre
+- apellidoPaterno
+- apellidoMaterno
+- celular
+- usuarioRegistro
+- fechaRegistro
+- estado
+
+---
+
+3. Especialidad
+- id
+- nombre
+- usuarioRegistro
+- fechaRegistro
+- estado
+
+---
+
+4. Cita
+- id
+- idPaciente
+- idDoctor
+- reconsulta
+- fecha
+- usuarioRegistro
+- fechaRegistro
+- estado
+
+---
+
+5. Pago
+- id
+- idCita
+- monto
+- fechaPago
+- usuarioRegistro
+- fechaRegistro
+- estado
+
+---
+
+6. HistorialClinico
+- id
+- idPaciente
+- idCita
+- diagnostico
+- tratamiento
+- fecha
+- usuarioRegistro
+- fechaRegistro
+- estado
