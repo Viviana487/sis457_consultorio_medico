@@ -56,7 +56,18 @@ Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir 
 -----
 
 2. Entidades tentativas
-1. Paciente
+1. Usuario
+- id
+- idDoctor
+- usuario
+- clave
+- usuarioRegistro
+- fechaRegistro
+- estado
+
+---
+
+2. Paciente
 - id
 - nombre
 - apellidoPaterno
@@ -70,12 +81,13 @@ Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir 
 
 ----
 
-2. Doctor
+3. Doctor
 - id
 - idEspecialidad
 - nombre
 - apellidoPaterno
 - apellidoMaterno
+- direccion
 - celular
 - usuarioRegistro
 - fechaRegistro
@@ -83,7 +95,7 @@ Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir 
 
 ---
 
-3. Especialidad
+4. Especialidad
 - id
 - nombre
 - usuarioRegistro
@@ -92,22 +104,22 @@ Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir 
 
 ---
 
-4. Cita
+5. Cita
 - id
 - idPaciente
 - idDoctor
-- reconsulta
 - fecha
+- hora
 - usuarioRegistro
 - fechaRegistro
 - estado
 
 ---
 
-5. Pago
+6. Pago
 - id
 - idCita
-- monto
+- transaccion
 - fechaPago
 - usuarioRegistro
 - fechaRegistro
@@ -115,7 +127,7 @@ Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir 
 
 ---
 
-6. HistorialClinico
+7. HistorialClinico
 - id
 - idPaciente
 - idCita
