@@ -147,9 +147,20 @@ AS
   WHERE p.estado<>-1 AND p.cedulaIdentidad+p.nombres+p.primerApellido+p.segundoApellido LIKE '%'+REPLACE(@parametro,' ','%')+'%'
   ORDER BY p.estado DESC, p.nombres ASC, p.primerApellido ASC;
 
+--DDL
 
+INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido, segundoApellido, direccion, celular)
+VALUES ('Cardiologia','12345678','Juan', 'Pérez', 'Lopez', 'ave. americas', 11121314);
 
+INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido, segundoApellido, direccion, celular)
+VALUES ('Odontoloia','87654321', 'María', 'González', 'Padilla', ' 6 de agosto', 12131415);
 
+UPDATE Doctor SET nombre='Pedro' WHERE id=1;
+UPDATE Doctor SET estado=-1 WHERE id=2;
 
+INSERT INTO Usuario(usuario, clave, idDoctor)
+VALUES ('hans', '123456', '');
 
+SELECT * FROM Doctor;
+SELECT * FROM Usuario;
 
