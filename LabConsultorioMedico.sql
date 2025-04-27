@@ -132,10 +132,11 @@ AS
 GO
 ALTER PROC paDoctorListar @parametro VARCHAR(100)
 AS
-  SELECT d.*, u.usuario 
+  SELECT d.*, u.usuario, e.nombre
   FROM Doctor d
   LEFT JOIN Usuario u ON d.id = u.idDoctor
-  WHERE d.estado<>-1 AND d.cedulaIdentidad+d.nombres+d.primerApellido+d.segundoApellido LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
+  WHERE d.estado<>-1 AND d.cedulaIdentidad+d.nombres+d.primerApellido+d.segundoApellido+e.nombre LIKE '%'+REPLACE(@parametro,' ','%')+'%'
   ORDER BY d.estado DESC, d.nombres ASC, d.primerApellido ASC;
 
 GO
@@ -147,20 +148,25 @@ AS
   WHERE p.estado<>-1 AND p.cedulaIdentidad+p.nombres+p.primerApellido+p.segundoApellido LIKE '%'+REPLACE(@parametro,' ','%')+'%'
   ORDER BY p.estado DESC, p.nombres ASC, p.primerApellido ASC;
 
---DDL
+INSERT INTO Especialidad (nombre)
+VALUES ('Cardiología')
+
+INSERT INTO Especialidad (nombre)
+VALUES ('Odontología')
 
 INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido, segundoApellido, direccion, celular)
-VALUES ('Cardiologia','12345678','Juan', 'Pérez', 'Lopez', 'ave. americas', 11121314);
+VALUES (1,'12345678','Juan', 'Pérez', 'Lopez', 'ave. americas', 11121314);
 
 INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido, segundoApellido, direccion, celular)
-VALUES ('Odontoloia','87654321', 'María', 'González', 'Padilla', ' 6 de agosto', 12131415);
+VALUES (2,'87654321', 'María', 'González', 'Padilla', ' 6 de agosto', 12131415);
 
-UPDATE Doctor SET nombre='Pedro' WHERE id=1;
-UPDATE Doctor SET estado=-1 WHERE id=2;
+UPDATE Doctor SET nombres='Pedro' WHERE id=4;
 
 INSERT INTO Usuario(usuario, clave, idDoctor)
-VALUES ('hans', '123456', '');
+VALUES ('hans', '123456', 4);
 
 SELECT * FROM Doctor;
 SELECT * FROM Usuario;
 
+EXEC paDoctorListar 'Pedro';
+SELECT * FROM Doctor;
