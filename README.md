@@ -69,6 +69,7 @@ Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir 
 
 2. Paciente
 - id
+- ci
 - nombre
 - apellidoPaterno
 - apellidoMaterno
@@ -83,6 +84,7 @@ Este proyecto está pensado para mejorar la eficiencia del consultorio, reducir 
 
 3. Doctor
 - id
+- ci
 - idEspecialidad
 - nombre
 - apellidoPaterno

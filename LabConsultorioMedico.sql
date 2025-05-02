@@ -29,8 +29,8 @@ CREATE TABLE Especialidad (
 
 CREATE TABLE Paciente (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-  nombres VARCHAR(30) NOT NULL,
   cedulaIdentidad VARCHAR(12) NOT NULL,
+  nombres VARCHAR(30) NOT NULL,
   primerApellido VARCHAR(30) NULL,
   segundoApellido VARCHAR(30) NULL,
   fechaNacimiento DATE NOT NULL,
@@ -41,8 +41,8 @@ CREATE TABLE Paciente (
 CREATE TABLE Doctor (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   idEspecialidad INT NOT NULL,
-  nombres VARCHAR(30) NOT NULL,
   cedulaIdentidad VARCHAR(12) NOT NULL,
+  nombres VARCHAR(30) NOT NULL,
   primerApellido VARCHAR(30) NULL,
   segundoApellido VARCHAR(30) NULL,
   direccion VARCHAR(250) NOT NULL,
@@ -71,7 +71,9 @@ CREATE TABLE Cita (
 CREATE TABLE Pago (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   idCita INT NOT NULL,
-  transaccion INT NOT NULL,
+  concepto VARCHAR(200) NOT NULL,
+  monto INT NOT NULL,
+  cambio INT,
   fecha DATE NOT NULL DEFAULT GETDATE(),
   CONSTRAINT fk_Pago_Cita FOREIGN KEY(idCita) REFERENCES Cita(id)
 );
@@ -140,7 +142,7 @@ AS
   ORDER BY d.estado DESC, d.nombres ASC, d.primerApellido ASC;
 
 GO
-CREATE PROC paHistorialClinicoListar @parametro VARCHAR(100)
+ALTER PROC paHistorialClinicoListar @parametro VARCHAR(100)
 AS
   SELECT p.*, h.* 
   FROM Paciente p
