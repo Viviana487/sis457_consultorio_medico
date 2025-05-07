@@ -10,3 +10,15 @@ C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CadConsultorio
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsu.1F96BFA9.Up2Date
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsultorioMedico.dll
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsultorioMedico.pdb
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\bin\Debug\CadConsultorioMedico.dll.config
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\bin\Debug\CadConsultorioMedico.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\bin\Debug\CadConsultorioMedico.pdb
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\bin\Debug\EntityFramework.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\bin\Debug\EntityFramework.xml
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsultorioMedico.csproj.AssemblyReference.cache
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsultorioMedico.csproj.CoreCompileInputs.cache
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsu.1F96BFA9.Up2Date
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsultorioMedico.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\CadConsultorioMedico\obj\Debug\CadConsultorioMedico.pdb

@@ -14,6 +14,9 @@ namespace CadConsultorioMedico
     
     public partial class Cita
     {
+        public object diagnostico;
+        public object tratamiento;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cita()
         {

@@ -54,8 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CitaCln.cs" />
+    <Compile Include="DoctorCln.cs" />
     <Compile Include="EspecialidadCln.cs" />
+    <Compile Include="HistorialClinicoCln.cs" />
+    <Compile Include="LabConsultorioMedicoEntities.cs" />
+    <Compile Include="PacienteCln.cs" />
+    <Compile Include="PagoCln.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioCln.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CadConsultorioMedico\CadConsultorioMedico.csproj">

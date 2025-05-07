@@ -13,3 +13,18 @@ C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorio
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsu.6388C8AA.Up2Date
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsultorioMedico.dll
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsultorioMedico.pdb
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\ClnConsultorioMedico.dll.config
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\ClnConsultorioMedico.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\ClnConsultorioMedico.pdb
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\CadConsultorioMedico.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\EntityFramework.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\CadConsultorioMedico.pdb
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\CadConsultorioMedico.dll.config
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\EntityFramework.xml
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsultorioMedico.csproj.AssemblyReference.cache
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsultorioMedico.csproj.CoreCompileInputs.cache
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsu.6388C8AA.Up2Date
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsultorioMedico.dll
+C:\Users\PILCO PC\Documents\proyecto457\sis457_consultorio_medico\ConsultorioMedico\ClnConsultorioMedico\obj\Debug\ClnConsultorioMedico.pdb
