@@ -30,7 +30,6 @@ namespace ClnConsultorioMedico
                 existente.segundoApellido = doctor.segundoApellido;
                 existente.direccion = doctor.direccion;
                 existente.celular = doctor.celular;
-                existente.cargo = doctor.cargo;
                 existente.usuarioRegistro = doctor.usuarioRegistro;
                 existente.fechaRegistro = doctor.fechaRegistro;
                 existente.estado = doctor.estado;

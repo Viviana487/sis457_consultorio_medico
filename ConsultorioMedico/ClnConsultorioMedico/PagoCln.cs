@@ -7,8 +7,6 @@ using CadConsultorioMedico;
 
 namespace ClnConsultorioMedico
 {
-    public class PagoCln
-    {
         public class PagoCln
         {
             public static int insertar(Pago pago)
@@ -65,4 +63,3 @@ namespace ClnConsultorioMedico
             }
         }
     }
-}

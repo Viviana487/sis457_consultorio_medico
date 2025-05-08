@@ -14,8 +14,6 @@ namespace CadConsultorioMedico
     
     public partial class Doctor
     {
-        public object cargo;
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Doctor()
         {

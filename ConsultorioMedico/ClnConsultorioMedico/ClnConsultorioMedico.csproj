@@ -58,7 +58,6 @@
     <Compile Include="DoctorCln.cs" />
     <Compile Include="EspecialidadCln.cs" />
     <Compile Include="HistorialClinicoCln.cs" />
-    <Compile Include="LabConsultorioMedicoEntities.cs" />
     <Compile Include="PacienteCln.cs" />
     <Compile Include="PagoCln.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

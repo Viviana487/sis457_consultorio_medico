@@ -24,8 +24,7 @@ namespace ClnConsultorioMedico
             {
                 var existente = context.Cita.Find(cita.id);
                 existente.fecha = cita.fecha;
-                existente.diagnostico = cita.diagnostico;
-                existente.tratamiento = cita.tratamiento;
+                existente.hora = cita.hora;
                 existente.fechaRegistro = cita.fechaRegistro;
                 existente.estado = cita.estado;
                 existente.usuarioRegistro = cita.usuarioRegistro;
@@ -38,7 +37,7 @@ namespace ClnConsultorioMedico
             {
                 var existente = context.Cita.Find(id);
                 existente.estado = -1;
-                existente.usuarioRegistro = usuarioRegistro;
+                existente.usuarioRegistro = usuario;
                 return context.SaveChanges();
             }
         }
@@ -57,5 +56,4 @@ namespace ClnConsultorioMedico
             }
         }
     }
-}
 }
