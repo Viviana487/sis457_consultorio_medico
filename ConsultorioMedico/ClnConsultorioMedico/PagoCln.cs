@@ -54,12 +54,12 @@ namespace ClnConsultorioMedico
                 }
             }
 
-            public static List<Pago> listar()
+        public static List<paPagoListar_Result> listarPa(string parametro)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
             {
-                using (var context = new LabConsultorioMedicoEntities())
-                {
-                    return context.Pago.Where(x => x.estado != -1).ToList();
-                }
+                return context.paPagoListar(parametro).ToList();
             }
         }
+    }
     }

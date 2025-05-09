@@ -120,8 +120,10 @@ ALTER TABLE HistorialClinico ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1:Elimi
 GO
 ALTER PROC paEspecialidadListar @parametro VARCHAR(100)
 AS
-  SELECT * FROM Especialidad
-  WHERE estado<>-1 AND nombre LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  SELECT e.*, d.nombres, d.primerApellido, d.segundoApellido
+  FROM Especialidad e
+  LEFT JOIN Doctor d ON e.id = d.idEspecialidad
+  WHERE e.estado<>-1 AND e.nombre LIKE '%'+REPLACE(@parametro,' ','%')+'%'
   ORDER BY estado DESC, nombre ASC;
 
 GO
@@ -144,11 +146,37 @@ AS
 GO
 ALTER PROC paHistorialClinicoListar @parametro VARCHAR(100)
 AS
-  SELECT p.*, h.* 
+  SELECT p.*, h.* ,e.*
   FROM Paciente p
   LEFT JOIN HistorialClinico h ON p.id = h.idPaciente
-  WHERE p.estado<>-1 AND p.cedulaIdentidad+p.nombres+p.primerApellido+p.segundoApellido LIKE '%'+REPLACE(@parametro,' ','%')+'%'
-  ORDER BY p.estado DESC, p.nombres ASC, p.primerApellido ASC;
+  LEFT JOIN Doctor d ON h.idCita = d.id
+  LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
+  WHERE p.estado<>-1 AND p.cedulaIdentidad+p.nombres+p.primerApellido+p.segundoApellido+e.nombre+d.nombres LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  ORDER BY p.estado DESC, fecha ASC;
+
+GO
+CREATE PROC paCitaListar @parametro VARCHAR(100) 
+AS
+  SELECT p.nombres, p.primerApellido, p.segundoApellido, c.fecha, c.hora, d.nombres, d.primerApellido, d.segundoApellido, e.nombre
+  FROM Paciente p
+  LEFT JOIN Cita c ON p.id = c.idPaciente
+  LEFT JOIN Doctor d ON c.idDoctor = d.id
+  LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
+  WHERE p.estado<>-1 AND p.cedulaIdentidad+p.nombres+p.primerApellido+p.segundoApellido+e.nombre+d.nombres LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  ORDER BY p.estado DESC, fecha ASC;
+
+GO
+CREATE PROC paPagoListar @parametro VARCHAR(100)
+AS 
+SELECT p.nombres, p.primerApellido, p.segundoApellido, pa.concepto, c.fecha, c.hora, d.nombres, d.primerApellido, d.segundoApellido, e.nombre
+FROM Paciente p
+LEFT JOIN Pago pa ON p.id = pa.idCita
+LEFT JOIN Cita c ON pa.idCita = c.id
+LEFT JOIN Doctor d ON c.idDoctor = d.id
+LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
+WHERE p.estado<>-1 AND p.cedulaIdentidad+p.nombres+p.primerApellido+p.segundoApellido+e.nombre+d.nombres LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+ORDER BY p.estado DESC, fecha ASC;
+
 
 INSERT INTO Especialidad (nombre)
 VALUES ('Cardiología')
@@ -160,7 +188,34 @@ INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido, seg
 VALUES (1,'12345678','Juan', 'Pérez', 'Lopez', 'ave. americas', 11121314);
 
 INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido, segundoApellido, direccion, celular)
+VALUES (1,'12345678','Gloria', 'Rosales', 'Cardona', 'Av. Pacífico #456', 77123456);
+
+INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido, segundoApellido, direccion, celular)
 VALUES (2,'87654321', 'María', 'González', 'Padilla', ' 6 de agosto', 12131415);
+
+INSERT INTO Paciente (cedulaIdentidad, nombres, primerApellido, segundoApellido, fechaNacimiento, direccion, celular) VALUES
+('12345678', 'Juan', 'Pérez', 'Gómez', '1990-05-15', 'Av. Siempre Viva 123', 789456123),
+('87654321', 'María', 'López', 'Sánchez', '1985-08-22', 'Calle Falsa 456', 712345678),
+('45678912', 'Carlos', 'Ramírez', 'Salazar', '2000-01-10', 'Av. Central 890', 756789432);
+
+INSERT INTO Cita (idDoctor, idPaciente, fecha, hora) VALUES
+(1, 1, '2025-05-01', '09:00'),
+(2, 2, '2025-05-02', '10:30'),
+(1, 1, '2025-05-08', '11:00'),
+(2, 3, '2025-05-07', '15:00');
+
+INSERT INTO Pago (idCita, concepto, monto, cambio) VALUES
+(1, 'Consulta médica', 100, 0),
+(2, 'Revisión médica', 150, 0),
+(3, 'Chequeo odontológico', 100, 0),
+(4, 'Consulta médica', 150, 0);
+
+INSERT INTO HistorialClinico (idPaciente, idCita, diagnostico, tratamiento) VALUES
+(1, 1, 'Control del corazón normal', 'Reposo, paracetamol 500mg cada 8h'),
+(2, 2, 'Dolor abdominal leve', 'Dieta blanda por 3 días'),
+(1, 3, 'Limpieza dental', 'Continuar hidratación, sin medicamentos'),
+(3, 4, 'Soplo en el corazón', 'Antihistamínico diario por una semana');
+
 
 UPDATE Doctor SET nombres='Pedro' WHERE id=4;
 
@@ -169,6 +224,11 @@ VALUES ('hans', '123456', 4);
 
 SELECT * FROM Doctor;
 SELECT * FROM Usuario;
+SELECT * FROM HistorialClinico;
 
-EXEC paDoctorListar 'Pedro';
-SELECT * FROM Doctor;
+EXEC paDoctorListar 'Gloria';
+EXEC paEspecialidadListar 'Cardiología';
+EXEC paPacienteListar 'María';
+EXEC paHistorialClinicoListar 'Juan';
+EXEC paCitaListar 'Juan';
+EXEC paPagoListar '9';

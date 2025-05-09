@@ -53,11 +53,11 @@ namespace ClnConsultorioMedico
             }
         }
 
-        public static List<HistorialClinico> listar()
+        public static List<paHistorialClinicoListar_Result> listarPa(string parametro)
         {
             using (var context = new LabConsultorioMedicoEntities())
             {
-                return context.HistorialClinico.Where(x => x.estado != -1).ToList();
+                return context.paHistorialClinicoListar(parametro).ToList();
             }
         }
     }

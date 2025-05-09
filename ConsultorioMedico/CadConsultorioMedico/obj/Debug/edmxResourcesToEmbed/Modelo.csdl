@@ -229,5 +229,140 @@
       <End Role="Paciente" EntitySet="Paciente" />
       <End Role="HistorialClinico" EntitySet="HistorialClinico" />
     </AssociationSet>
+    <FunctionImport Name="paCitaListar" ReturnType="Collection(LabConsultorioMedicoModel.paCitaListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paDoctorListar" ReturnType="Collection(LabConsultorioMedicoModel.paDoctorListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paEspecialidadListar" ReturnType="Collection(LabConsultorioMedicoModel.paEspecialidadListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paHistorialClinicoListar" ReturnType="Collection(LabConsultorioMedicoModel.paHistorialClinicoListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paListarCita" ReturnType="Collection(LabConsultorioMedicoModel.paListarCita_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paListarPago" ReturnType="Collection(LabConsultorioMedicoModel.paListarPago_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paPacienteListar" ReturnType="Collection(LabConsultorioMedicoModel.paPacienteListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paPagoListar" ReturnType="Collection(LabConsultorioMedicoModel.paPagoListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="paCitaListar_Result">
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="Time" Name="hora" Nullable="true" />
+    <Property Type="String" Name="nombres1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="primerApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="paDoctorListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="idEspecialidad" Nullable="false" />
+    <Property Type="String" Name="cedulaIdentidad" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="250" />
+    <Property Type="Int64" Name="celular" Nullable="false" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+    <Property Type="String" Name="usuario" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="paEspecialidadListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+    <Property Type="String" Name="nombres" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="paHistorialClinicoListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="cedulaIdentidad" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="fechaNacimiento" Nullable="false" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="250" />
+    <Property Type="Int64" Name="celular" Nullable="false" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+    <Property Type="Int32" Name="id1" Nullable="true" />
+    <Property Type="Int32" Name="idPaciente" Nullable="true" />
+    <Property Type="Int32" Name="idCita" Nullable="true" />
+    <Property Type="String" Name="diagnostico" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="tratamiento" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="String" Name="usuarioRegistro1" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro1" Nullable="true" Precision="23" />
+    <Property Type="Int16" Name="estado1" Nullable="true" />
+    <Property Type="Int32" Name="id2" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="usuarioRegistro2" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro2" Nullable="true" Precision="23" />
+    <Property Type="Int16" Name="estado2" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="paListarCita_Result">
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="Time" Name="hora" Nullable="true" />
+    <Property Type="String" Name="nombres1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="primerApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="paListarPago_Result">
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="concepto" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="Time" Name="hora" Nullable="true" />
+    <Property Type="String" Name="nombres1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="primerApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="paPacienteListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="cedulaIdentidad" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="fechaNacimiento" Nullable="false" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="250" />
+    <Property Type="Int64" Name="celular" Nullable="false" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="paPagoListar_Result">
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="concepto" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="Time" Name="hora" Nullable="true" />
+    <Property Type="String" Name="nombres1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="primerApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+  </ComplexType>
 </Schema>

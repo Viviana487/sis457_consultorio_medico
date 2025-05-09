@@ -48,12 +48,11 @@ namespace ClnConsultorioMedico
                 return context.Especialidad.Find(id);
             }
         }
-        //Listado simple
-        public static List<Especialidad> listar()
+        public static List<paEspecialidadListar_Result> listarPa(string parametro)
         {
             using (var context = new LabConsultorioMedicoEntities())
             {
-                return context.Especialidad.Where(x => x.estado != -1).ToList();
+                return context.paEspecialidadListar(parametro).ToList();
             }
         }
     }

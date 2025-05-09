@@ -39,6 +39,14 @@ namespace ClnConsultorioMedico
                 return context.SaveChanges();
             }
         }
+
+        public static Usuario obtenerUnoPorDoctor(int idDoctor)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                return context.Usuario.Where(x => x.idDoctor == idDoctor).FirstOrDefault();
+            }
+        }
         public static Usuario obtenerUno(int id)
         {
             using (var context = new LabConsultorioMedicoEntities())
@@ -46,11 +54,13 @@ namespace ClnConsultorioMedico
                 return context.Usuario.Find(id);
             }
         }
-        public static List<Usuario> listar()
+        public static Usuario validar(string usuario, string clave)
         {
             using (var context = new LabConsultorioMedicoEntities())
             {
-                return context.Usuario.Where(x => x.estado != -1).ToList();
+                return context.Usuario
+                    .Where(u => u.usuario1 == usuario && u.clave == clave)
+                    .FirstOrDefault();
             }
         }
     }

@@ -38,5 +38,10 @@ namespace CadConsultorioMedico
         public virtual Especialidad Especialidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }
+
+        public Doctor Include(Func<object, object> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
