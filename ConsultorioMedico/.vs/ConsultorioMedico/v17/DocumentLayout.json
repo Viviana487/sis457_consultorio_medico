@@ -1,26 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\",
+  "WorkspaceRootPath": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D0C0CB5E-789D-4C57-A080-B019A794485A}|CadConsultorioMedico\\CadConsultorioMedico.csproj|C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\cadconsultoriomedico\\modelo.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0C0CB5E-789D-4C57-A080-B019A794485A}|CadConsultorioMedico\\CadConsultorioMedico.csproj|solutionrelative:cadconsultoriomedico\\modelo.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmdoctor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D0C0CB5E-789D-4C57-A080-B019A794485A}|CadConsultorioMedico\\CadConsultorioMedico.csproj|c:\\users\\pilco pc\\documents\\proyecto_457\\sis457_consultorio_medico\\consultoriomedico\\cadconsultoriomedico\\modelo.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D0C0CB5E-789D-4C57-A080-B019A794485A}|CadConsultorioMedico\\CadConsultorioMedico.csproj|solutionrelative:cadconsultoriomedico\\modelo.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmdoctor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmdoctor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmpaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmpaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmagregareditardoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmagregareditarpaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmagregareditarpaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\pilco pc\\documents\\proyecto_457\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmpaciente.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmpaciente.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\pilco pc\\documents\\proyecto_457\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmagregareditardoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmagregareditardoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmagregareditardoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmagregareditardoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmagregareditardoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmagregareditardoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,60 +46,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Modelo.Context.tt",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CadConsultorioMedico\\Modelo.Context.tt",
+              "RelativeDocumentMoniker": "CadConsultorioMedico\\Modelo.Context.tt",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CadConsultorioMedico\\Modelo.Context.tt",
+              "RelativeToolTip": "CadConsultorioMedico\\Modelo.Context.tt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-05-27T16:46:42.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmPaciente.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmPaciente.Designer.cs",
+              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmPaciente.Designer.cs",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmPaciente.Designer.cs",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmPaciente.Designer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T16:45:42.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmAgregarEditarPaciente.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarPaciente.cs",
+              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmAgregarEditarPaciente.cs",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarPaciente.cs [Design]",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmAgregarEditarPaciente.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T16:38:42.935Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmPaciente.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmPaciente.cs",
+              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmPaciente.cs",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmPaciente.cs [Design]",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmPaciente.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T16:37:30.497Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Modelo.Context.cs",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CadConsultorioMedico\\Modelo.Context.cs",
+              "RelativeDocumentMoniker": "CadConsultorioMedico\\Modelo.Context.cs",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CadConsultorioMedico\\Modelo.Context.cs",
+              "RelativeToolTip": "CadConsultorioMedico\\Modelo.Context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T23:38:33.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FrmDoctor.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.Designer.cs",
               "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmDoctor.Designer.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.Designer.cs",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.Designer.cs",
               "RelativeToolTip": "CpConsultorioMedico\\FrmDoctor.Designer.cs",
-              "ViewState": "AgIAANEAAAAAAAAAAAAAwOAAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-09T21:07:32.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmDoctor.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
+              "DocumentIndex": 8,
+              "Title": "FrmDoctor.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
               "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmDoctor.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CpConsultorioMedico\\FrmDoctor.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs [Design]",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmDoctor.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T20:54:09.471Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-05-09T20:54:09.471Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmAgregarEditarDoctor.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
-              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CpConsultorioMedico\\FrmAgregarEditarDoctor.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T20:54:04.566Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "FrmAgregarEditarDoctor.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
               "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
               "RelativeToolTip": "CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -92,16 +150,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmDoctor.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
-              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmDoctor.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
-              "RelativeToolTip": "CpConsultorioMedico\\FrmDoctor.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAkwCwAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "FrmAgregarEditarDoctor.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
+              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmAgregarEditarDoctor.cs",
+              "ToolTip": "C:\\Users\\PILCO PC\\Documents\\proyecto_457\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmAgregarEditarDoctor.cs [Design]",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmAgregarEditarDoctor.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T15:07:30.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T20:54:04.566Z"
             }
           ]
         }

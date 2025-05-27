@@ -49,8 +49,7 @@ namespace CadConsultorioMedico
             var parametroParameter = parametro != null ?
                 new ObjectParameter("parametro", parametro) :
                 new ObjectParameter("parametro", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paDoctorListar_Result>("paDoctorListar", parametroParameter);
+                return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paDoctorListar_Result>("paDoctorListar", parametroParameter);
         }
     
         public virtual ObjectResult<paEspecialidadListar_Result> paEspecialidadListar(string parametro)
