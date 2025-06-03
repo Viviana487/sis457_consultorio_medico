@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDoctor));
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.pnlAcciones = new System.Windows.Forms.Panel();
@@ -41,8 +42,6 @@
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.lblParametro = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblFEspecialidad = new System.Windows.Forms.Label();
-            this.cbxFEspecialidad = new System.Windows.Forms.ComboBox();
             this.lblAgregarEditar = new System.Windows.Forms.Label();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -55,15 +54,27 @@
             this.txtCelular = new System.Windows.Forms.TextBox();
             this.lblCelular = new System.Windows.Forms.Label();
             this.lblEspecilaidad = new System.Windows.Forms.Label();
-            this.txtNombres = new System.Windows.Forms.TextBox();
-            this.lblNombreCompleto = new System.Windows.Forms.Label();
+            this.txtDoctor = new System.Windows.Forms.TextBox();
+            this.lblDoctor = new System.Windows.Forms.Label();
             this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
             this.lblCedulaIdentidad = new System.Windows.Forms.Label();
+            this.erpCedulaIdentidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpDoctor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpEspecialidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpDireccion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpCelular = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpUsuario = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.pnlAcciones.SuspendLayout();
             this.gbxLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gbxDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDoctor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpEspecialidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDireccion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCelular)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // pbxLogo
@@ -84,7 +95,7 @@
             this.pnlAcciones.Controls.Add(this.btnEliminar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnNuevo);
-            this.pnlAcciones.Location = new System.Drawing.Point(16, 392);
+            this.pnlAcciones.Location = new System.Drawing.Point(16, 369);
             this.pnlAcciones.Name = "pnlAcciones";
             this.pnlAcciones.Size = new System.Drawing.Size(789, 47);
             this.pnlAcciones.TabIndex = 19;
@@ -154,7 +165,7 @@
             this.gbxLista.BackColor = System.Drawing.Color.Transparent;
             this.gbxLista.Controls.Add(this.dgvLista);
             this.gbxLista.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxLista.Location = new System.Drawing.Point(11, 198);
+            this.gbxLista.Location = new System.Drawing.Point(11, 175);
             this.gbxLista.Name = "gbxLista";
             this.gbxLista.Size = new System.Drawing.Size(803, 188);
             this.gbxLista.TabIndex = 18;
@@ -222,33 +233,14 @@
             this.lblTitulo.Text = "Doctores";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblFEspecialidad
-            // 
-            this.lblFEspecialidad.AutoSize = true;
-            this.lblFEspecialidad.BackColor = System.Drawing.Color.Transparent;
-            this.lblFEspecialidad.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFEspecialidad.Location = new System.Drawing.Point(15, 174);
-            this.lblFEspecialidad.Name = "lblFEspecialidad";
-            this.lblFEspecialidad.Size = new System.Drawing.Size(122, 17);
-            this.lblFEspecialidad.TabIndex = 20;
-            this.lblFEspecialidad.Text = "Filtrar por Especialidad:";
-            // 
-            // cbxFEspecialidad
-            // 
-            this.cbxFEspecialidad.FormattingEnabled = true;
-            this.cbxFEspecialidad.Location = new System.Drawing.Point(137, 171);
-            this.cbxFEspecialidad.Name = "cbxFEspecialidad";
-            this.cbxFEspecialidad.Size = new System.Drawing.Size(167, 21);
-            this.cbxFEspecialidad.TabIndex = 21;
-            // 
             // lblAgregarEditar
             // 
             this.lblAgregarEditar.BackColor = System.Drawing.Color.Transparent;
             this.lblAgregarEditar.Font = new System.Drawing.Font("Wide Latin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregarEditar.Location = new System.Drawing.Point(-5, 454);
+            this.lblAgregarEditar.Location = new System.Drawing.Point(-5, 431);
             this.lblAgregarEditar.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblAgregarEditar.Name = "lblAgregarEditar";
-            this.lblAgregarEditar.Size = new System.Drawing.Size(896, 39);
+            this.lblAgregarEditar.Size = new System.Drawing.Size(836, 39);
             this.lblAgregarEditar.TabIndex = 69;
             this.lblAgregarEditar.Text = "Agregar/Editar Doctor";
             this.lblAgregarEditar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,12 +258,12 @@
             this.gbxDatos.Controls.Add(this.txtCelular);
             this.gbxDatos.Controls.Add(this.lblCelular);
             this.gbxDatos.Controls.Add(this.lblEspecilaidad);
-            this.gbxDatos.Controls.Add(this.txtNombres);
-            this.gbxDatos.Controls.Add(this.lblNombreCompleto);
+            this.gbxDatos.Controls.Add(this.txtDoctor);
+            this.gbxDatos.Controls.Add(this.lblDoctor);
             this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
             this.gbxDatos.Controls.Add(this.lblCedulaIdentidad);
             this.gbxDatos.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxDatos.Location = new System.Drawing.Point(16, 496);
+            this.gbxDatos.Location = new System.Drawing.Point(16, 473);
             this.gbxDatos.Name = "gbxDatos";
             this.gbxDatos.Size = new System.Drawing.Size(798, 170);
             this.gbxDatos.TabIndex = 89;
@@ -281,7 +273,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(521, 80);
+            this.txtUsuario.Location = new System.Drawing.Point(476, 77);
             this.txtUsuario.MaxLength = 100;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(173, 22);
@@ -292,7 +284,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(417, 83);
+            this.lblUsuario.Location = new System.Drawing.Point(414, 80);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(48, 17);
             this.lblUsuario.TabIndex = 100;
@@ -303,7 +295,7 @@
             this.cbxEspecialidad.DisplayMember = "nombre";
             this.cbxEspecialidad.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEspecialidad.FormattingEnabled = true;
-            this.cbxEspecialidad.Location = new System.Drawing.Point(118, 49);
+            this.cbxEspecialidad.Location = new System.Drawing.Point(118, 77);
             this.cbxEspecialidad.Name = "cbxEspecialidad";
             this.cbxEspecialidad.Size = new System.Drawing.Size(207, 25);
             this.cbxEspecialidad.TabIndex = 99;
@@ -321,6 +313,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -335,14 +328,15 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(118, 80);
+            this.txtDireccion.Location = new System.Drawing.Point(476, 21);
             this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(293, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(313, 22);
             this.txtDireccion.TabIndex = 96;
             // 
             // lblDirección
@@ -350,7 +344,7 @@
             this.lblDirección.AutoSize = true;
             this.lblDirección.BackColor = System.Drawing.Color.Transparent;
             this.lblDirección.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirección.Location = new System.Drawing.Point(6, 83);
+            this.lblDirección.Location = new System.Drawing.Point(414, 24);
             this.lblDirección.Name = "lblDirección";
             this.lblDirección.Size = new System.Drawing.Size(56, 17);
             this.lblDirección.TabIndex = 95;
@@ -359,7 +353,7 @@
             // txtCelular
             // 
             this.txtCelular.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(521, 49);
+            this.txtCelular.Location = new System.Drawing.Point(476, 49);
             this.txtCelular.MaxLength = 100;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(173, 22);
@@ -370,7 +364,7 @@
             this.lblCelular.AutoSize = true;
             this.lblCelular.BackColor = System.Drawing.Color.Transparent;
             this.lblCelular.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelular.Location = new System.Drawing.Point(417, 52);
+            this.lblCelular.Location = new System.Drawing.Point(414, 52);
             this.lblCelular.Name = "lblCelular";
             this.lblCelular.Size = new System.Drawing.Size(46, 17);
             this.lblCelular.TabIndex = 93;
@@ -381,31 +375,31 @@
             this.lblEspecilaidad.AutoSize = true;
             this.lblEspecilaidad.BackColor = System.Drawing.Color.Transparent;
             this.lblEspecilaidad.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEspecilaidad.Location = new System.Drawing.Point(6, 52);
+            this.lblEspecilaidad.Location = new System.Drawing.Point(6, 80);
             this.lblEspecilaidad.Name = "lblEspecilaidad";
             this.lblEspecilaidad.Size = new System.Drawing.Size(72, 17);
             this.lblEspecilaidad.TabIndex = 92;
             this.lblEspecilaidad.Text = "Especialidad:";
             // 
-            // txtNombres
+            // txtDoctor
             // 
-            this.txtNombres.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombres.Location = new System.Drawing.Point(521, 21);
-            this.txtNombres.MaxLength = 100;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(268, 22);
-            this.txtNombres.TabIndex = 91;
+            this.txtDoctor.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoctor.Location = new System.Drawing.Point(118, 49);
+            this.txtDoctor.MaxLength = 100;
+            this.txtDoctor.Name = "txtDoctor";
+            this.txtDoctor.Size = new System.Drawing.Size(284, 22);
+            this.txtDoctor.TabIndex = 91;
             // 
-            // lblNombreCompleto
+            // lblDoctor
             // 
-            this.lblNombreCompleto.AutoSize = true;
-            this.lblNombreCompleto.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombreCompleto.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCompleto.Location = new System.Drawing.Point(417, 24);
-            this.lblNombreCompleto.Name = "lblNombreCompleto";
-            this.lblNombreCompleto.Size = new System.Drawing.Size(98, 17);
-            this.lblNombreCompleto.TabIndex = 90;
-            this.lblNombreCompleto.Text = "Nombre Completo:";
+            this.lblDoctor.AutoSize = true;
+            this.lblDoctor.BackColor = System.Drawing.Color.Transparent;
+            this.lblDoctor.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDoctor.Location = new System.Drawing.Point(6, 52);
+            this.lblDoctor.Name = "lblDoctor";
+            this.lblDoctor.Size = new System.Drawing.Size(98, 17);
+            this.lblDoctor.TabIndex = 90;
+            this.lblDoctor.Text = "Nombre Completo:";
             // 
             // txtCedulaIdentidad
             // 
@@ -427,17 +421,39 @@
             this.lblCedulaIdentidad.TabIndex = 88;
             this.lblCedulaIdentidad.Text = "Cédula de identidad:";
             // 
+            // erpCedulaIdentidad
+            // 
+            this.erpCedulaIdentidad.ContainerControl = this;
+            // 
+            // erpDoctor
+            // 
+            this.erpDoctor.ContainerControl = this;
+            // 
+            // erpEspecialidad
+            // 
+            this.erpEspecialidad.ContainerControl = this;
+            // 
+            // erpDireccion
+            // 
+            this.erpDireccion.ContainerControl = this;
+            // 
+            // erpCelular
+            // 
+            this.erpCelular.ContainerControl = this;
+            // 
+            // erpUsuario
+            // 
+            this.erpUsuario.ContainerControl = this;
+            // 
             // FrmDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CpConsultorioMedico.Properties.Resources._3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(824, 673);
+            this.ClientSize = new System.Drawing.Size(824, 651);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.lblAgregarEditar);
-            this.Controls.Add(this.cbxFEspecialidad);
-            this.Controls.Add(this.lblFEspecialidad);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.gbxLista);
@@ -459,6 +475,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDoctor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpEspecialidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDireccion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCelular)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,8 +500,6 @@
         private System.Windows.Forms.TextBox txtParametro;
         private System.Windows.Forms.Label lblParametro;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblFEspecialidad;
-        private System.Windows.Forms.ComboBox cbxFEspecialidad;
         private System.Windows.Forms.Label lblAgregarEditar;
         private System.Windows.Forms.GroupBox gbxDatos;
         private System.Windows.Forms.TextBox txtUsuario;
@@ -492,9 +512,15 @@
         private System.Windows.Forms.TextBox txtCelular;
         private System.Windows.Forms.Label lblCelular;
         private System.Windows.Forms.Label lblEspecilaidad;
-        private System.Windows.Forms.TextBox txtNombres;
-        private System.Windows.Forms.Label lblNombreCompleto;
+        private System.Windows.Forms.TextBox txtDoctor;
+        private System.Windows.Forms.Label lblDoctor;
         private System.Windows.Forms.TextBox txtCedulaIdentidad;
         private System.Windows.Forms.Label lblCedulaIdentidad;
+        private System.Windows.Forms.ErrorProvider erpCedulaIdentidad;
+        private System.Windows.Forms.ErrorProvider erpDoctor;
+        private System.Windows.Forms.ErrorProvider erpEspecialidad;
+        private System.Windows.Forms.ErrorProvider erpDireccion;
+        private System.Windows.Forms.ErrorProvider erpCelular;
+        private System.Windows.Forms.ErrorProvider erpUsuario;
     }
 }

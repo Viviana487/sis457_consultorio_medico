@@ -17,10 +17,10 @@ namespace CadConsultorioMedico
         public int idEspecialidad { get; set; }
         public string cedulaIdentidad { get; set; }
         public string nombreCompletoDoctor { get; set; }
+        public string nombre { get; set; }
         public string direccion { get; set; }
         public long celular { get; set; }
         public string usuario { get; set; }
-        public string nombre { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime FechaRegistro { get; set; }
         public short estado { get; set; }

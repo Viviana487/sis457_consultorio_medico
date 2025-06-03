@@ -145,9 +145,9 @@ AS
   ORDER BY estado DESC, nombreCompletoPaciente ASC;
 
 GO
-CREATE PROC paDoctorListar @parametro VARCHAR(100)
+ALTER PROC paDoctorListar @parametro VARCHAR(100)
 AS
-  SELECT d.id, d.idEspecialidad, d.cedulaIdentidad,d.nombreCompletoDoctor,d.direccion,d.celular, u.usuario, e.nombre, d.usuarioRegistro, d.FechaRegistro, d.estado
+  SELECT d.id, d.idEspecialidad, d.cedulaIdentidad,d.nombreCompletoDoctor,e.nombre,d.direccion,d.celular, u.usuario, d.usuarioRegistro, d.FechaRegistro, d.estado
   FROM Doctor d
   LEFT JOIN Usuario u ON d.id = u.idDoctor
   LEFT JOIN Especialidad e ON d.idEspecialidad = e.id

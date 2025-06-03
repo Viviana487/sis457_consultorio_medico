@@ -129,10 +129,10 @@
           <ScalarProperty Name="idEspecialidad" ColumnName="idEspecialidad" />
           <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
           <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="direccion" ColumnName="direccion" />
           <ScalarProperty Name="celular" ColumnName="celular" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
           <ScalarProperty Name="estado" ColumnName="estado" />

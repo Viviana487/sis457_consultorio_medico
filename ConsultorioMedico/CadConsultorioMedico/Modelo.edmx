@@ -584,10 +584,10 @@
           <Property Type="Int32" Name="idEspecialidad" Nullable="false" />
           <Property Type="String" Name="cedulaIdentidad" Nullable="false" MaxLength="12" />
           <Property Type="String" Name="nombreCompletoDoctor" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="direccion" Nullable="false" MaxLength="250" />
           <Property Type="Int64" Name="celular" Nullable="false" />
           <Property Type="String" Name="usuario" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="FechaRegistro" Nullable="false" Precision="23" />
           <Property Type="Int16" Name="estado" Nullable="false" />
@@ -769,10 +769,10 @@
                 <ScalarProperty Name="idEspecialidad" ColumnName="idEspecialidad" />
                 <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
                 <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="celular" ColumnName="celular" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
                 <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
