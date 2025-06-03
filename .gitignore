@@ -21,3 +21,44 @@ DesignTimeResolveAssemblyReferencesInput.cache
 ## Otros ##
 .DS_Store
 Thumbs.db
+.vs/
+bin/
+obj/
+*.suo
+*.dll
+*.pdb
+*.cache
+*.exe
+
+# Archivos de usuario de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de configuración de VS
+.vs/
+
+# Compilados binarios
+bin/
+obj/
+
+# Archivos DLL, PDB, ejecutables
+*.dll
+*.pdb
+*.exe
+
+# Cache de diseño
+*.cache
+*.log
+
+# Archivos de licencias generados
+*.licenses
+
+# Archivos de recursos generados automáticamente
+*.Designer.cs
+
+# Otros innecesarios
+*.dbmdl
+*.bak
+*.tmp
