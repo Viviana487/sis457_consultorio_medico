@@ -24,9 +24,8 @@ namespace ClnConsultorioMedico
                 using (var context = new LabConsultorioMedicoEntities())
                 {
                     var existente = context.Pago.Find(pago.id);
-                    existente.concepto = pago.concepto;
+                    existente.idConcepto = pago.idConcepto;
                     existente.monto = pago.monto;
-                    existente.cambio = pago.cambio;
                     existente.fechaRegistro = pago.fechaRegistro;
                     existente.usuarioRegistro = pago.usuarioRegistro;
                     existente.fecha = pago.fecha;

@@ -60,30 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAgregarEditarCita.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAgregarEditarCita.Designer.cs">
-      <DependentUpon>FrmAgregarEditarCita.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAgregarEditarDoctor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAgregarEditarDoctor.Designer.cs">
-      <DependentUpon>FrmAgregarEditarDoctor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAgregarEditarHistorial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAgregarEditarHistorial.Designer.cs">
-      <DependentUpon>FrmAgregarEditarHistorial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAgregarEditarPaciente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAgregarEditarPaciente.Designer.cs">
-      <DependentUpon>FrmAgregarEditarPaciente.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,18 +104,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAgregarEditarCita.resx">
-      <DependentUpon>FrmAgregarEditarCita.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarEditarDoctor.resx">
-      <DependentUpon>FrmAgregarEditarDoctor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarEditarHistorial.resx">
-      <DependentUpon>FrmAgregarEditarHistorial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarEditarPaciente.resx">
-      <DependentUpon>FrmAgregarEditarPaciente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmCita.resx">
       <DependentUpon>FrmCita.cs</DependentUpon>
     </EmbeddedResource>

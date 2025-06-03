@@ -13,6 +13,14 @@
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="smallint" Nullable="false" />
   </EntityType>
+  <EntityType Name="Concepto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEspecialidad" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
   <EntityType Name="Doctor">
     <Key>
       <PropertyRef Name="id" />
@@ -20,9 +28,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idEspecialidad" Type="int" Nullable="false" />
     <Property Name="cedulaIdentidad" Type="varchar" MaxLength="12" Nullable="false" />
-    <Property Name="nombres" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="primerApellido" Type="varchar" MaxLength="30" />
-    <Property Name="segundoApellido" Type="varchar" MaxLength="30" />
+    <Property Name="nombreCompletoDoctor" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="direccion" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="celular" Type="bigint" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
@@ -59,9 +65,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cedulaIdentidad" Type="varchar" MaxLength="12" Nullable="false" />
-    <Property Name="nombres" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="primerApellido" Type="varchar" MaxLength="30" />
-    <Property Name="segundoApellido" Type="varchar" MaxLength="30" />
+    <Property Name="nombreCompletoPaciente" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="fechaNacimiento" Type="date" Nullable="false" />
     <Property Name="direccion" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="celular" Type="bigint" Nullable="false" />
@@ -75,9 +79,8 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idCita" Type="int" Nullable="false" />
-    <Property Name="concepto" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="idConcepto" Type="int" Nullable="false" />
     <Property Name="monto" Type="int" Nullable="false" />
-    <Property Name="cambio" Type="int" />
     <Property Name="fecha" Type="date" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
@@ -116,6 +119,18 @@
       </Principal>
       <Dependent Role="Cita">
         <PropertyRef Name="idPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Concepto_Especialidad">
+    <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="1" />
+    <End Role="Concepto" Type="Self.Concepto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Concepto">
+        <PropertyRef Name="idEspecialidad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -167,6 +182,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_Pago_Concepto">
+    <End Role="Concepto" Type="Self.Concepto" Multiplicity="1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concepto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="idConcepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_Usuario_Doctor">
     <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -191,12 +218,6 @@
   <Function Name="paHistorialClinicoListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametro" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="paListarCita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="parametro" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="paListarPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="parametro" Type="varchar" Mode="In" />
-  </Function>
   <Function Name="paPacienteListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametro" Type="varchar" Mode="In" />
   </Function>
@@ -205,6 +226,7 @@
   </Function>
   <EntityContainer Name="LabConsultorioMedicoModelStoreContainer">
     <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Especialidad" EntityType="Self.Especialidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HistorialClinico" EntityType="Self.HistorialClinico" Schema="dbo" store:Type="Tables" />
@@ -218,6 +240,10 @@
     <AssociationSet Name="fk_Cita_Paciente" Association="Self.fk_Cita_Paciente">
       <End Role="Paciente" EntitySet="Paciente" />
       <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Concepto_Especialidad" Association="Self.fk_Concepto_Especialidad">
+      <End Role="Especialidad" EntitySet="Especialidad" />
+      <End Role="Concepto" EntitySet="Concepto" />
     </AssociationSet>
     <AssociationSet Name="fk_Doctor_Especialidad" Association="Self.fk_Doctor_Especialidad">
       <End Role="Especialidad" EntitySet="Especialidad" />
@@ -233,6 +259,10 @@
     </AssociationSet>
     <AssociationSet Name="fk_Pago_Cita" Association="Self.fk_Pago_Cita">
       <End Role="Cita" EntitySet="Cita" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Pago_Concepto" Association="Self.fk_Pago_Concepto">
+      <End Role="Concepto" EntitySet="Concepto" />
       <End Role="Pago" EntitySet="Pago" />
     </AssociationSet>
     <AssociationSet Name="fk_Usuario_Doctor" Association="Self.fk_Usuario_Doctor">

@@ -13,15 +13,15 @@ namespace CadConsultorioMedico
     
     public partial class paPagoListar_Result
     {
-        public string nombres { get; set; }
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
-        public string concepto { get; set; }
+        public Nullable<int> id { get; set; }
+        public string nombreCompletoPaciente { get; set; }
+        public string descripcion { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
         public Nullable<System.TimeSpan> hora { get; set; }
-        public string nombres1 { get; set; }
-        public string primerApellido1 { get; set; }
-        public string segundoApellido1 { get; set; }
         public string nombre { get; set; }
+        public string nombreCompletoDoctor { get; set; }
+        public string usuarioRegistro { get; set; }
+        public Nullable<System.DateTime> fechaRegistro { get; set; }
+        public Nullable<short> estado { get; set; }
     }
 }

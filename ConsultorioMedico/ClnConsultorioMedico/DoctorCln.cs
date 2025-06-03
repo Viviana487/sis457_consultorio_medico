@@ -37,9 +37,7 @@ namespace ClnConsultorioMedico
                 var existente = context.Doctor.Find(doctor.id);
                 existente.idEspecialidad = doctor.idEspecialidad;
                 existente.cedulaIdentidad = doctor.cedulaIdentidad;
-                existente.nombres = doctor.nombres;
-                existente.primerApellido = doctor.primerApellido;
-                existente.segundoApellido = doctor.segundoApellido;
+                existente.nombreCompletoDoctor = doctor.nombreCompletoDoctor;
                 existente.direccion = doctor.direccion;
                 existente.celular = doctor.celular;
                 var especialidad = context.Especialidad.FirstOrDefault(e => e.id == doctor.idEspecialidad);

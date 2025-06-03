@@ -24,9 +24,7 @@ namespace CadConsultorioMedico
         public int id { get; set; }
         public int idEspecialidad { get; set; }
         public string cedulaIdentidad { get; set; }
-        public string nombres { get; set; }
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
+        public string nombreCompletoDoctor { get; set; }
         public string direccion { get; set; }
         public long celular { get; set; }
         public string usuarioRegistro { get; set; }
@@ -38,10 +36,5 @@ namespace CadConsultorioMedico
         public virtual Especialidad Especialidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }
-
-        public Doctor Include(Func<object, object> value)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

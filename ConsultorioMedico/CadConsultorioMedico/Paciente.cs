@@ -23,9 +23,7 @@ namespace CadConsultorioMedico
     
         public int id { get; set; }
         public string cedulaIdentidad { get; set; }
-        public string nombres { get; set; }
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
+        public string nombreCompletoPaciente { get; set; }
         public System.DateTime fechaNacimiento { get; set; }
         public string direccion { get; set; }
         public long celular { get; set; }

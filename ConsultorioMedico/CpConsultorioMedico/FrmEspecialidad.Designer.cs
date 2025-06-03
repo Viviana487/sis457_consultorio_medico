@@ -32,9 +32,6 @@
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.gbxLista = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtParametro = new System.Windows.Forms.TextBox();
-            this.lblParametro = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -42,8 +39,12 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblAgregarEditar = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtEspecialidad = new System.Windows.Forms.TextBox();
+            this.lblEspecialidad = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.cbxFEspecialidad = new System.Windows.Forms.ComboBox();
+            this.lblFEspecialidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.gbxLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
@@ -85,37 +86,6 @@
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLista.Size = new System.Drawing.Size(595, 150);
             this.dgvLista.TabIndex = 0;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::CpConsultorioMedico.Properties.Resources.Buscar;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(515, 130);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnBuscar.Size = new System.Drawing.Size(98, 40);
-            this.btnBuscar.TabIndex = 17;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtParametro
-            // 
-            this.txtParametro.Location = new System.Drawing.Point(10, 141);
-            this.txtParametro.MaxLength = 100;
-            this.txtParametro.Name = "txtParametro";
-            this.txtParametro.Size = new System.Drawing.Size(495, 20);
-            this.txtParametro.TabIndex = 16;
-            // 
-            // lblParametro
-            // 
-            this.lblParametro.AutoSize = true;
-            this.lblParametro.BackColor = System.Drawing.Color.Transparent;
-            this.lblParametro.Location = new System.Drawing.Point(7, 117);
-            this.lblParametro.Name = "lblParametro";
-            this.lblParametro.Size = new System.Drawing.Size(124, 13);
-            this.lblParametro.TabIndex = 15;
-            this.lblParametro.Text = "Buscar por Especialidad:";
             // 
             // lblTitulo
             // 
@@ -198,31 +168,78 @@
             // 
             this.lblAgregarEditar.BackColor = System.Drawing.Color.Transparent;
             this.lblAgregarEditar.Font = new System.Drawing.Font("Wide Latin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregarEditar.Location = new System.Drawing.Point(12, 428);
+            this.lblAgregarEditar.Location = new System.Drawing.Point(-7, 419);
             this.lblAgregarEditar.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblAgregarEditar.Name = "lblAgregarEditar";
-            this.lblAgregarEditar.Size = new System.Drawing.Size(595, 39);
+            this.lblAgregarEditar.Size = new System.Drawing.Size(638, 39);
             this.lblAgregarEditar.TabIndex = 28;
             this.lblAgregarEditar.Text = "Agregar/Editar Especialidad";
             this.lblAgregarEditar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtEspecialidad
             // 
-            this.textBox1.Location = new System.Drawing.Point(67, 473);
-            this.textBox1.MaxLength = 100;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 20);
-            this.textBox1.TabIndex = 30;
+            this.txtEspecialidad.Location = new System.Drawing.Point(219, 467);
+            this.txtEspecialidad.MaxLength = 100;
+            this.txtEspecialidad.Name = "txtEspecialidad";
+            this.txtEspecialidad.Size = new System.Drawing.Size(236, 20);
+            this.txtEspecialidad.TabIndex = 30;
             // 
-            // label1
+            // lblEspecialidad
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(14, 476);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Nombre:";
+            this.lblEspecialidad.AutoSize = true;
+            this.lblEspecialidad.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspecialidad.Location = new System.Drawing.Point(166, 470);
+            this.lblEspecialidad.Name = "lblEspecialidad";
+            this.lblEspecialidad.Size = new System.Drawing.Size(47, 13);
+            this.lblEspecialidad.TabIndex = 29;
+            this.lblEspecialidad.Text = "Nombre:";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::CpConsultorioMedico.Properties.Resources.Cancelar;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(325, 499);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCancelar.Size = new System.Drawing.Size(98, 40);
+            this.btnCancelar.TabIndex = 100;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::CpConsultorioMedico.Properties.Resources.Guardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(211, 499);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnGuardar.Size = new System.Drawing.Size(98, 40);
+            this.btnGuardar.TabIndex = 99;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // cbxFEspecialidad
+            // 
+            this.cbxFEspecialidad.FormattingEnabled = true;
+            this.cbxFEspecialidad.Location = new System.Drawing.Point(131, 139);
+            this.cbxFEspecialidad.Name = "cbxFEspecialidad";
+            this.cbxFEspecialidad.Size = new System.Drawing.Size(167, 21);
+            this.cbxFEspecialidad.TabIndex = 102;
+            // 
+            // lblFEspecialidad
+            // 
+            this.lblFEspecialidad.AutoSize = true;
+            this.lblFEspecialidad.BackColor = System.Drawing.Color.Transparent;
+            this.lblFEspecialidad.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFEspecialidad.Location = new System.Drawing.Point(9, 142);
+            this.lblFEspecialidad.Name = "lblFEspecialidad";
+            this.lblFEspecialidad.Size = new System.Drawing.Size(122, 17);
+            this.lblFEspecialidad.TabIndex = 101;
+            this.lblFEspecialidad.Text = "Filtrar por Especialidad:";
             // 
             // FrmEspecialidad
             // 
@@ -230,16 +247,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CpConsultorioMedico.Properties.Resources._3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(624, 511);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(624, 546);
+            this.Controls.Add(this.cbxFEspecialidad);
+            this.Controls.Add(this.lblFEspecialidad);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.txtEspecialidad);
+            this.Controls.Add(this.lblEspecialidad);
             this.Controls.Add(this.lblAgregarEditar);
             this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.gbxLista);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtParametro);
-            this.Controls.Add(this.lblParametro);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -260,9 +278,6 @@
         private System.Windows.Forms.PictureBox pbxLogo;
         private System.Windows.Forms.GroupBox gbxLista;
         private System.Windows.Forms.DataGridView dgvLista;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtParametro;
-        private System.Windows.Forms.Label lblParametro;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.Button btnCerrar;
@@ -270,7 +285,11 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label lblAgregarEditar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEspecialidad;
+        private System.Windows.Forms.Label lblEspecialidad;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ComboBox cbxFEspecialidad;
+        private System.Windows.Forms.Label lblFEspecialidad;
     }
 }

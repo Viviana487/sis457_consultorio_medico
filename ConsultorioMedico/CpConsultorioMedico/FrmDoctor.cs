@@ -29,9 +29,7 @@ namespace CpConsultorioMedico
             dgvLista.Columns["estado"].Visible = false;
             dgvLista.Columns["usuario"].HeaderText = "Usuario";
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
-            dgvLista.Columns["nombres"].HeaderText = "Nombres";
-            dgvLista.Columns["primerApellido"].HeaderText = "Apellido Paterno";
-            dgvLista.Columns["segundoApellido"].HeaderText = "Apellido Materno";
+            dgvLista.Columns["nombreCompletoDoctor"].HeaderText = "Nombre Completo";
             dgvLista.Columns["direccion"].HeaderText = "Dirección";
             dgvLista.Columns["celular"].HeaderText = "Celular";
             dgvLista.Columns["nombre"].HeaderText = "Especialidad";
@@ -48,7 +46,7 @@ namespace CpConsultorioMedico
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            new FrmAgregarEditarDoctor(this, true).ShowDialog();
+            Close();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -82,7 +80,7 @@ namespace CpConsultorioMedico
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            new FrmAgregarEditarDoctor(this).ShowDialog();
+            Close();
         }
     }
 }

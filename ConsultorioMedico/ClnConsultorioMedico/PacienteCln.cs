@@ -24,10 +24,8 @@ namespace ClnConsultorioMedico
             using (var context = new LabConsultorioMedicoEntities())
             {
                 var existente = context.Paciente.Find(paciente.id);
-                existente.nombres = paciente.nombres;
                 existente.cedulaIdentidad = paciente.cedulaIdentidad;
-                existente.primerApellido = paciente.primerApellido;
-                existente.segundoApellido = paciente.segundoApellido;
+                existente.nombreCompletoPaciente = paciente.nombreCompletoPaciente;
                 existente.fechaNacimiento = paciente.fechaNacimiento;
                 existente.direccion = paciente.direccion;
                 existente.celular = paciente.celular;
