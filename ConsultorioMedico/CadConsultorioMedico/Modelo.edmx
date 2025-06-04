@@ -12,6 +12,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idDoctor" Type="int" Nullable="false" />
           <Property Name="idPaciente" Type="int" Nullable="false" />
+          <Property Name="idEspecialidad" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="hora" Type="time" Precision="7" Nullable="false" />
           <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
@@ -115,6 +116,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Cita_Especialidad">
+          <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="1" />
+          <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cita">
+              <PropertyRef Name="idEspecialidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Cita_Paciente">
           <End Role="Paciente" Type="Self.Paciente" Multiplicity="1" />
           <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
@@ -214,6 +227,9 @@
         <Function Name="paCitaListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="parametro" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="paCitaPorFechaListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parametrofecha" Type="date" Mode="In" />
+        </Function>
         <Function Name="paDoctorListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="parametro" Type="varchar" Mode="In" />
         </Function>
@@ -240,6 +256,10 @@
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_Cita_Doctor" Association="Self.fk_Cita_Doctor">
             <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Cita" EntitySet="Cita" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Cita_Especialidad" Association="Self.fk_Cita_Especialidad">
+            <End Role="Especialidad" EntitySet="Especialidad" />
             <End Role="Cita" EntitySet="Cita" />
           </AssociationSet>
           <AssociationSet Name="fk_Cita_Paciente" Association="Self.fk_Cita_Paciente">
@@ -287,12 +307,14 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idDoctor" Type="Int32" Nullable="false" />
           <Property Name="idPaciente" Type="Int32" Nullable="false" />
+          <Property Name="idEspecialidad" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
           <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="estado" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Doctor" Relationship="Self.fk_Cita_Doctor" FromRole="Cita" ToRole="Doctor" />
+          <NavigationProperty Name="Especialidad" Relationship="Self.fk_Cita_Especialidad" FromRole="Cita" ToRole="Especialidad" />
           <NavigationProperty Name="Paciente" Relationship="Self.fk_Cita_Paciente" FromRole="Cita" ToRole="Paciente" />
           <NavigationProperty Name="HistorialClinico" Relationship="Self.fk_HistorialClinico_Cita" FromRole="Cita" ToRole="HistorialClinico" />
           <NavigationProperty Name="Pago" Relationship="Self.fk_Pago_Cita" FromRole="Cita" ToRole="Pago" />
@@ -333,6 +355,7 @@
           <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="estado" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Cita" Relationship="Self.fk_Cita_Especialidad" FromRole="Especialidad" ToRole="Cita" />
           <NavigationProperty Name="Concepto" Relationship="Self.fk_Concepto_Especialidad" FromRole="Especialidad" ToRole="Concepto" />
           <NavigationProperty Name="Doctor" Relationship="Self.fk_Doctor_Especialidad" FromRole="Especialidad" ToRole="Doctor" />
         </EntityType>
@@ -405,6 +428,18 @@
             </Principal>
             <Dependent Role="Cita">
               <PropertyRef Name="idDoctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Cita_Especialidad">
+          <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="1" />
+          <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cita">
+              <PropertyRef Name="idEspecialidad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -517,6 +552,10 @@
             <End Role="Doctor" EntitySet="Doctor" />
             <End Role="Cita" EntitySet="Cita" />
           </AssociationSet>
+          <AssociationSet Name="fk_Cita_Especialidad" Association="Self.fk_Cita_Especialidad">
+            <End Role="Especialidad" EntitySet="Especialidad" />
+            <End Role="Cita" EntitySet="Cita" />
+          </AssociationSet>
           <AssociationSet Name="fk_Cita_Paciente" Association="Self.fk_Cita_Paciente">
             <End Role="Paciente" EntitySet="Paciente" />
             <End Role="Cita" EntitySet="Cita" />
@@ -552,6 +591,9 @@
           <FunctionImport Name="paCitaListar" ReturnType="Collection(LabConsultorioMedicoModel.paCitaListar_Result)">
             <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="paCitaPorFechaListar" ReturnType="Collection(LabConsultorioMedicoModel.paCitaPorFechaListar_Result)">
+            <Parameter Name="parametrofecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
           <FunctionImport Name="paDoctorListar" ReturnType="Collection(LabConsultorioMedicoModel.paDoctorListar_Result)">
             <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
@@ -569,15 +611,28 @@
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="paCitaListar_Result">
-          <Property Type="Int32" Name="id" Nullable="true" />
-          <Property Type="DateTime" Name="fecha" Nullable="true" />
-          <Property Type="Time" Name="hora" Nullable="true" />
-          <Property Type="String" Name="nombreCompletoPaciente" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" />
+          <Property Type="Time" Name="hora" Nullable="false" />
+          <Property Type="String" Name="cedulaIdentidad" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="nombreCompletoPaciente" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="nombreCompletoDoctor" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="usuarioRegistro" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="fechaRegistro" Nullable="true" Precision="23" />
-          <Property Type="Int16" Name="estado" Nullable="true" />
+          <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int16" Name="estado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="paCitaPorFechaListar_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" />
+          <Property Type="Time" Name="hora" Nullable="false" />
+          <Property Type="String" Name="cedulaIdentidad" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="nombreCompletoPaciente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="nombreCompletoDoctor" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int16" Name="estado" Nullable="false" />
         </ComplexType>
         <ComplexType Name="paDoctorListar_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -647,6 +702,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idDoctor" ColumnName="idDoctor" />
                 <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
+                <ScalarProperty Name="idEspecialidad" ColumnName="idEspecialidad" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="hora" ColumnName="hora" />
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
@@ -753,6 +809,23 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
+                <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
+                <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="paCitaPorFechaListar" FunctionName="LabConsultorioMedicoModel.Store.paCitaPorFechaListar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LabConsultorioMedicoModel.paCitaPorFechaListar_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
                 <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />

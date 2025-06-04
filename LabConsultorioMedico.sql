@@ -16,11 +16,11 @@ GO
 
 DROP TABLE HistorialClinico;
 DROP TABLE Pago;
+DROP TABLE Especialidad;
 DROP TABLE Cita;
 DROP TABLE Usuario;
 DROP TABLE Doctor;
 DROP TABLE Paciente;
-DROP TABLE Especialidad;
 DROP TABLE Concepto;
 
 CREATE TABLE Especialidad (
@@ -65,10 +65,12 @@ CREATE TABLE Cita (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   idDoctor INT NOT NULL,
   idPaciente INT NOT NULL,
+  idEspecialidad INT NOT NULL,
   fecha DATE NOT NULL,
   hora TIME NOT NULL,
   CONSTRAINT fk_Cita_Doctor FOREIGN KEY(idDoctor) REFERENCES Doctor(id),
-  CONSTRAINT fk_Cita_Paciente FOREIGN KEY(idPaciente) REFERENCES Paciente(id)
+  CONSTRAINT fk_Cita_Paciente FOREIGN KEY(idPaciente) REFERENCES Paciente(id),
+  CONSTRAINT fk_Cita_Especialidad FOREIGN KEY(idEspecialidad) REFERENCES Especialidad(id)
 );
 
 CREATE TABLE Pago (
@@ -127,6 +129,7 @@ DROP PROC paDoctorListar;
 DROP PROC paHistorialClinicoListar;
 DROP PROC paCitaListar;
 DROP PROC paPagoListar;
+DROP PROC paCitaPorFechaListar;
 
 GO
 CREATE PROC paEspecialidadListar @parametro VARCHAR(100)
@@ -145,7 +148,7 @@ AS
   ORDER BY estado DESC, nombreCompletoPaciente ASC;
 
 GO
-ALTER PROC paDoctorListar @parametro VARCHAR(100)
+CREATE PROC paDoctorListar @parametro VARCHAR(100)
 AS
   SELECT d.id, d.idEspecialidad, d.cedulaIdentidad,d.nombreCompletoDoctor,e.nombre,d.direccion,d.celular, u.usuario, d.usuarioRegistro, d.FechaRegistro, d.estado
   FROM Doctor d
@@ -166,15 +169,26 @@ AS
   ORDER BY p.estado DESC, fecha DESC;
 
 GO
-ALTER PROC paCitaListar @parametro VARCHAR(100) 
+CREATE PROC paCitaListar @parametro VARCHAR(100) 
 AS
-  SELECT c.id,c.fecha,c.hora, p.nombreCompletoPaciente, e.nombre, d.nombreCompletoDoctor, c.usuarioRegistro, c.fechaRegistro, c.estado
-  FROM Paciente p
-  LEFT JOIN Cita c ON p.id = c.idPaciente
+  SELECT c.id,c.fecha,c.hora,p.cedulaIdentidad, p.nombreCompletoPaciente, e.nombre, d.nombreCompletoDoctor, c.usuarioRegistro, c.fechaRegistro, c.estado
+  FROM Cita c
+  LEFT JOIN PAciente p ON p.id = c.idPaciente
   LEFT JOIN Doctor d ON c.idDoctor = d.id
   LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
-  WHERE p.estado<>-1 AND p.cedulaIdentidad+p.nombreCompletoPaciente+e.nombre+d.nombreCompletoDoctor LIKE '%'+REPLACE(@parametro,' ','%')+'%'
-  ORDER BY p.estado DESC, fecha ASC;
+  WHERE p.estado<>-1 AND p.cedulaIdentidad LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  ORDER BY c.estado DESC, c.fecha DESC;
+
+GO
+CREATE PROCEDURE paCitaPorFechaListar @parametrofecha DATE
+AS
+SELECT c.id, c.fecha, c.hora, p.cedulaIdentidad, p.nombreCompletoPaciente, e.nombre, d.nombreCompletoDoctor, c.usuarioRegistro, c.fechaRegistro, c.estado
+    FROM Cita c
+    LEFT JOIN Paciente p ON c.idPaciente = p.id
+    LEFT JOIN Doctor d ON c.idDoctor = d.id
+    LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
+    WHERE c.estado <> -1 AND c.fecha LIKE @parametrofecha
+     ORDER BY c.estado DESC, c.hora DESC;
 
 GO
 CREATE PROC paPagoListar @parametro VARCHAR(100)
@@ -187,8 +201,7 @@ LEFT JOIN Doctor d ON c.idDoctor = d.id
 LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
 LEFT JOIN Concepto co ON pa.idConcepto = co.id
 WHERE pa.estado<>-1 AND p.cedulaIdentidad+p.nombreCompletoPaciente+e.nombre+d.nombreCompletoDoctor LIKE '%'+REPLACE(@parametro,' ','%')+'%'
-ORDER BY pa.estado DESC, fecha DESC;
-
+ORDER BY pa.estado DESC, c.fecha DESC;
 
 INSERT INTO Especialidad (nombre)
 VALUES ('Cardiología')
@@ -206,18 +219,18 @@ INSERT INTO Paciente (cedulaIdentidad, nombreCompletoPaciente, direccion, celula
 ('87654321', 'María López Sánchez', 'Calle Falsa 456', 712345678, '2000-05-05'),
 ('45678912', 'Carlos Ramírez Salazar', 'Av. Central 890', 756789432, '2002-07-07');
 
-INSERT INTO Cita (idDoctor, idPaciente, fecha, hora) VALUES
-(1, 1, '2025-05-01', '09:00'),
-(2, 2, '2025-05-02', '10:30'),
-(1, 1, '2025-05-08', '11:00'),
-(2, 3, '2025-05-07', '15:00');
+INSERT INTO Cita (idDoctor, idPaciente,idEspecialidad, fecha, hora) VALUES
+(1, 1,1, '2025-05-01', '09:00'),
+(2, 2,1, '2025-05-02', '10:30'),
+(1, 1,2, '2025-05-08','11:00'),
+(2, 3,2, '2025-05-07','15:00');
 
-INSERT INTO Concepto(descripcion)
+INSERT INTO Concepto(idEspecialidad,descripcion)
 VALUES
-('Consulta médica'),
-('Revisión médica'),
-('Chequeo odontológico'),
-('Limpieza dental');
+(2,'Consulta médica'),
+(1,'Revisión médica'),
+(1,'Chequeo odontológico'),
+(2,'Limpieza dental');
 
 INSERT INTO Pago (idCita, idConcepto, monto) VALUES
 (1, 1, 100),
@@ -244,5 +257,6 @@ EXEC paDoctorListar '';
 EXEC paEspecialidadListar '';
 EXEC paPacienteListar '';
 EXEC paHistorialClinicoListar '';
-EXEC paCitaListar '';
+EXEC paCitaListar '1';
 EXEC paPagoListar '';
+EXEC paCitaPorFechaListar '2025-05-01';

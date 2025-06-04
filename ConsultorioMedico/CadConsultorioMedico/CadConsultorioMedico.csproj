@@ -89,6 +89,9 @@
     <Compile Include="paCitaListar_Result.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="paCitaPorFechaListar_Result.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="paDoctorListar_Result.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>

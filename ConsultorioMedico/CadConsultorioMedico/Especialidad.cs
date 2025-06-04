@@ -17,6 +17,7 @@ namespace CadConsultorioMedico
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Especialidad()
         {
+            this.Cita = new HashSet<Cita>();
             this.Concepto = new HashSet<Concepto>();
             this.Doctor = new HashSet<Doctor>();
         }
@@ -27,6 +28,8 @@ namespace CadConsultorioMedico
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cita> Cita { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Concepto> Concepto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

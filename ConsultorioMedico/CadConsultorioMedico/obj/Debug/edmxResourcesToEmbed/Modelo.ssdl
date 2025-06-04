@@ -7,6 +7,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idDoctor" Type="int" Nullable="false" />
     <Property Name="idPaciente" Type="int" Nullable="false" />
+    <Property Name="idEspecialidad" Type="int" Nullable="false" />
     <Property Name="fecha" Type="date" Nullable="false" />
     <Property Name="hora" Type="time" Precision="7" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
@@ -110,6 +111,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_Cita_Especialidad">
+    <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="idEspecialidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_Cita_Paciente">
     <End Role="Paciente" Type="Self.Paciente" Multiplicity="1" />
     <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
@@ -209,6 +222,9 @@
   <Function Name="paCitaListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametro" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="paCitaPorFechaListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="parametrofecha" Type="date" Mode="In" />
+  </Function>
   <Function Name="paDoctorListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametro" Type="varchar" Mode="In" />
   </Function>
@@ -235,6 +251,10 @@
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_Cita_Doctor" Association="Self.fk_Cita_Doctor">
       <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Cita_Especialidad" Association="Self.fk_Cita_Especialidad">
+      <End Role="Especialidad" EntitySet="Especialidad" />
       <End Role="Cita" EntitySet="Cita" />
     </AssociationSet>
     <AssociationSet Name="fk_Cita_Paciente" Association="Self.fk_Cita_Paciente">

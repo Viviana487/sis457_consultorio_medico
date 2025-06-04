@@ -24,6 +24,7 @@ namespace CadConsultorioMedico
         public int id { get; set; }
         public int idDoctor { get; set; }
         public int idPaciente { get; set; }
+        public int idEspecialidad { get; set; }
         public System.DateTime fecha { get; set; }
         public System.TimeSpan hora { get; set; }
         public string usuarioRegistro { get; set; }
@@ -31,6 +32,7 @@ namespace CadConsultorioMedico
         public short estado { get; set; }
     
         public virtual Doctor Doctor { get; set; }
+        public virtual Especialidad Especialidad { get; set; }
         public virtual Paciente Paciente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistorialClinico> HistorialClinico { get; set; }

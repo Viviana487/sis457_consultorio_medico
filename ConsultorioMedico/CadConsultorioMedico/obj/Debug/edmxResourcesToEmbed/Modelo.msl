@@ -7,6 +7,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idDoctor" ColumnName="idDoctor" />
           <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
+          <ScalarProperty Name="idEspecialidad" ColumnName="idEspecialidad" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="hora" ColumnName="hora" />
           <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
@@ -113,6 +114,23 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
+          <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="paCitaPorFechaListar" FunctionName="LabConsultorioMedicoModel.Store.paCitaPorFechaListar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LabConsultorioMedicoModel.paCitaPorFechaListar_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
           <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />

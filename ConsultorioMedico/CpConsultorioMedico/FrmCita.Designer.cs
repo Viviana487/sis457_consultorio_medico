@@ -133,6 +133,7 @@
             this.btnEditar.Text = "Editar Cita\r\n";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -146,6 +147,7 @@
             this.btnNuevo.Text = "Nueva Cita";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // gbxLista
             // 
@@ -362,6 +364,7 @@
             this.dtpFFecha.Name = "dtpFFecha";
             this.dtpFFecha.Size = new System.Drawing.Size(219, 22);
             this.dtpFFecha.TabIndex = 49;
+            this.dtpFFecha.ValueChanged += new System.EventHandler(this.dtpFFecha_ValueChanged);
             // 
             // lblFFecha
             // 
@@ -407,6 +410,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtParametro
             // 
@@ -416,6 +420,7 @@
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(141, 22);
             this.txtParametro.TabIndex = 58;
+            this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // lblParametro
             // 

@@ -11,7 +11,7 @@ namespace CadConsultorioMedico
 {
     using System;
     
-    public partial class paCitaListar_Result
+    public partial class paCitaPorFechaListar_Result
     {
         public int id { get; set; }
         public System.DateTime fecha { get; set; }

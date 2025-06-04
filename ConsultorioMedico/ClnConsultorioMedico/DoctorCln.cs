@@ -76,5 +76,12 @@ namespace ClnConsultorioMedico
                 return context.paDoctorListar(parametro).ToList();
             }
         }
+        public static List<Doctor> listar()
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                return context.Doctor.Where(x => x.estado != -1).ToList();
+            }
+        }
     }
 }

@@ -7,24 +7,20 @@
       "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmcita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmcita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmcita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{11FED7CE-7711-4B82-A834-AEB53AE758EC}|ClnConsultorioMedico\\ClnConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\clnconsultoriomedico\\doctorcln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11FED7CE-7711-4B82-A834-AEB53AE758EC}|ClnConsultorioMedico\\ClnConsultorioMedico.csproj|solutionrelative:clnconsultoriomedico\\doctorcln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D0C0CB5E-789D-4C57-A080-B019A794485A}|CadConsultorioMedico\\CadConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\cadconsultoriomedico\\modelo.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{D0C0CB5E-789D-4C57-A080-B019A794485A}|CadConsultorioMedico\\CadConsultorioMedico.csproj|solutionrelative:cadconsultoriomedico\\modelo.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{11FED7CE-7711-4B82-A834-AEB53AE758EC}|ClnConsultorioMedico\\ClnConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\clnconsultoriomedico\\especialidadcln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11FED7CE-7711-4B82-A834-AEB53AE758EC}|ClnConsultorioMedico\\ClnConsultorioMedico.csproj|solutionrelative:clnconsultoriomedico\\especialidadcln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11FED7CE-7711-4B82-A834-AEB53AE758EC}|ClnConsultorioMedico\\ClnConsultorioMedico.csproj|c:\\users\\asus\\desktop\\sis457_consultorio_medico\\consultoriomedico\\clnconsultoriomedico\\citacln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11FED7CE-7711-4B82-A834-AEB53AE758EC}|ClnConsultorioMedico\\ClnConsultorioMedico.csproj|solutionrelative:clnconsultoriomedico\\citacln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\frmcita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|solutionrelative:cpconsultoriomedico\\frmcita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDC63859-EE19-44F6-8858-E2334EA61843}|CpConsultorioMedico\\CpConsultorioMedico.csproj|C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\cpconsultoriomedico\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,69 +47,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Modelo.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CadConsultorioMedico\\Modelo.edmx",
-              "RelativeDocumentMoniker": "CadConsultorioMedico\\Modelo.edmx",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CadConsultorioMedico\\Modelo.edmx [Diagram1]",
-              "RelativeToolTip": "CadConsultorioMedico\\Modelo.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-06-04T00:38:07.776Z",
-              "EditorCaption": " [Diagram1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CitaCln.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\ClnConsultorioMedico\\CitaCln.cs",
-              "RelativeDocumentMoniker": "ClnConsultorioMedico\\CitaCln.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\ClnConsultorioMedico\\CitaCln.cs",
-              "RelativeToolTip": "ClnConsultorioMedico\\CitaCln.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Title": "EspecialidadCln.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\ClnConsultorioMedico\\EspecialidadCln.cs",
+              "RelativeDocumentMoniker": "ClnConsultorioMedico\\EspecialidadCln.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\ClnConsultorioMedico\\EspecialidadCln.cs",
+              "RelativeToolTip": "ClnConsultorioMedico\\EspecialidadCln.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T00:19:58.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmDoctor.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
-              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmDoctor.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
-              "RelativeToolTip": "CpConsultorioMedico\\FrmDoctor.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAEwD0AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T00:18:41.43Z",
+              "WhenOpened": "2025-06-04T15:43:06.246Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FrmCita.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs",
-              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmCita.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CpConsultorioMedico\\FrmCita.cs [Dise\u00F1o]",
+              "Title": "DoctorCln.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\ClnConsultorioMedico\\DoctorCln.cs",
+              "RelativeDocumentMoniker": "ClnConsultorioMedico\\DoctorCln.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\ClnConsultorioMedico\\DoctorCln.cs",
+              "RelativeToolTip": "ClnConsultorioMedico\\DoctorCln.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwFIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T23:40:44.428Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmCita.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs",
-              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmCita.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs",
-              "RelativeToolTip": "CpConsultorioMedico\\FrmCita.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAawC8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T00:10:11.015Z",
+              "WhenOpened": "2025-06-04T15:41:38.387Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\Program.cs",
               "RelativeDocumentMoniker": "CpConsultorioMedico\\Program.cs",
@@ -126,14 +85,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmDoctor.cs [Dise\u00F1o]",
+              "DocumentIndex": 3,
+              "Title": "FrmDoctor.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
               "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmDoctor.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CpConsultorioMedico\\FrmDoctor.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmDoctor.cs",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmDoctor.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAawF8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T19:27:24.501Z",
+              "WhenOpened": "2025-06-04T00:18:41.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmCita.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs",
+              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmCita.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmCita.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAmwIMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T00:10:11.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmCita.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs",
+              "RelativeDocumentMoniker": "CpConsultorioMedico\\FrmCita.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\sis457_consultorio_medico\\ConsultorioMedico\\CpConsultorioMedico\\FrmCita.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CpConsultorioMedico\\FrmCita.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T23:40:44.428Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]
