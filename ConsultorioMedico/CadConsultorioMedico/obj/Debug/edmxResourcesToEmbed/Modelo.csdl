@@ -318,6 +318,7 @@
     <Property Type="String" Name="nombreCompletoPaciente" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="nombreCompletoDoctor" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Pagada" Nullable="false" MaxLength="2" />
     <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
     <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
     <Property Type="Int16" Name="estado" Nullable="false" />

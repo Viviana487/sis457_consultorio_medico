@@ -169,15 +169,34 @@ AS
   ORDER BY p.estado DESC, fecha DESC;
 
 GO
-CREATE PROC paCitaListar @parametro VARCHAR(100) 
+ALTER PROC paCitaListar @parametro VARCHAR(100) 
 AS
-  SELECT c.id,c.fecha,c.hora,p.cedulaIdentidad, p.nombreCompletoPaciente, e.nombre, d.nombreCompletoDoctor, c.usuarioRegistro, c.fechaRegistro, c.estado
+BEGIN
+  SELECT 
+    c.id,
+    c.fecha,
+    c.hora,
+    p.cedulaIdentidad, 
+    p.nombreCompletoPaciente, 
+    e.nombre, 
+    d.nombreCompletoDoctor,
+    CASE WHEN pa.idCita IS NOT NULL THEN 'Sí' ELSE 'No' END AS Pagada,
+    c.usuarioRegistro, 
+    c.fechaRegistro, 
+    c.estado
   FROM Cita c
-  LEFT JOIN PAciente p ON p.id = c.idPaciente
+  LEFT JOIN Paciente p ON p.id = c.idPaciente
   LEFT JOIN Doctor d ON c.idDoctor = d.id
   LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
-  WHERE p.estado<>-1 AND p.cedulaIdentidad LIKE '%'+REPLACE(@parametro,' ','%')+'%'
-  ORDER BY c.estado DESC, c.fecha DESC;
+  LEFT JOIN Pago pa ON pa.idCita = c.id
+  WHERE c.estado <> -1 
+    AND c.fecha >= CAST(GETDATE() AS DATE) 
+    AND p.cedulaIdentidad LIKE '%' + REPLACE(@parametro,' ','%') + '%'
+  GROUP BY 
+    c.id, c.fecha, c.hora, p.cedulaIdentidad, p.nombreCompletoPaciente, 
+    e.nombre, d.nombreCompletoDoctor,pa.idCita,c.usuarioRegistro, c.fechaRegistro, c.estado
+  ORDER BY c.estado DESC, c.fecha ASC;
+END
 
 GO
 CREATE PROCEDURE paCitaPorFechaListar @parametrofecha DATE
@@ -257,6 +276,6 @@ EXEC paDoctorListar '';
 EXEC paEspecialidadListar '';
 EXEC paPacienteListar '';
 EXEC paHistorialClinicoListar '';
-EXEC paCitaListar '1';
+EXEC paCitaListar '';
 EXEC paPagoListar '';
 EXEC paCitaPorFechaListar '2025-05-01';

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,13 @@ namespace ClnConsultorioMedico
             using (var context = new LabConsultorioMedicoEntities())
             {
                 return context.paPacienteListar(parametro).ToList();
+            }
+        }
+        public static Paciente buscar(string nombrePaciente)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                return context.Paciente.FirstOrDefault(x => x.nombreCompletoPaciente == nombrePaciente);
             }
         }
     }

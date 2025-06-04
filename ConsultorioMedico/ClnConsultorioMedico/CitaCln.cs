@@ -23,10 +23,11 @@ namespace ClnConsultorioMedico
             using (var context = new LabConsultorioMedicoEntities())
             {
                 var existente = context.Cita.Find(cita.id);
+                existente.idDoctor = cita.idDoctor;
+                existente.idPaciente = cita.idPaciente;
+                existente.idEspecialidad = cita.idEspecialidad;
                 existente.fecha = cita.fecha;
                 existente.hora = cita.hora;
-                existente.fechaRegistro = cita.fechaRegistro;
-                existente.estado = cita.estado;
                 existente.usuarioRegistro = cita.usuarioRegistro;
                 return context.SaveChanges();
             }

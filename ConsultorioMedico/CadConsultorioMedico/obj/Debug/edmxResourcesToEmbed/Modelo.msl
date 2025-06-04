@@ -118,6 +118,7 @@
           <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
+          <ScalarProperty Name="Pagada" ColumnName="Pagada" />
           <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
           <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
           <ScalarProperty Name="estado" ColumnName="estado" />

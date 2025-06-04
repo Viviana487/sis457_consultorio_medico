@@ -20,6 +20,7 @@ namespace CadConsultorioMedico
         public string nombreCompletoPaciente { get; set; }
         public string nombre { get; set; }
         public string nombreCompletoDoctor { get; set; }
+        public string Pagada { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }

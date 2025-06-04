@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using CadConsultorioMedico;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ClnConsultorioMedico
 {

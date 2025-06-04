@@ -93,6 +93,7 @@
             this.btnPagar.Text = "Pagar Cita";
             this.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // btnCerrar
             // 
@@ -120,6 +121,7 @@
             this.btnEliminar.Text = "Eliminar Cita";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -246,6 +248,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -260,6 +263,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cbxHora
             // 
@@ -396,6 +400,7 @@
             this.txtFPaciente.Name = "txtFPaciente";
             this.txtFPaciente.Size = new System.Drawing.Size(308, 22);
             this.txtFPaciente.TabIndex = 60;
+            this.txtFPaciente.TextChanged += new System.EventHandler(this.txtFPaciente_TextChanged);
             // 
             // btnBuscar
             // 
