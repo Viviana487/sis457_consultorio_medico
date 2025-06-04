@@ -15,8 +15,8 @@ namespace CadConsultorioMedico
     {
         public Nullable<int> id { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
-        public string nombreCompletoPaciente { get; set; }
         public Nullable<System.TimeSpan> hora { get; set; }
+        public string nombreCompletoPaciente { get; set; }
         public string nombre { get; set; }
         public string nombreCompletoDoctor { get; set; }
         public string usuarioRegistro { get; set; }

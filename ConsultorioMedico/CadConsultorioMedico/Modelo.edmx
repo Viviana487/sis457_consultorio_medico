@@ -571,8 +571,8 @@
         <ComplexType Name="paCitaListar_Result">
           <Property Type="Int32" Name="id" Nullable="true" />
           <Property Type="DateTime" Name="fecha" Nullable="true" />
-          <Property Type="String" Name="nombreCompletoPaciente" Nullable="false" MaxLength="30" />
           <Property Type="Time" Name="hora" Nullable="true" />
+          <Property Type="String" Name="nombreCompletoPaciente" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="nombreCompletoDoctor" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="usuarioRegistro" Nullable="true" MaxLength="50" />
@@ -752,8 +752,8 @@
               <ComplexTypeMapping TypeName="LabConsultorioMedicoModel.paCitaListar_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
                 <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />

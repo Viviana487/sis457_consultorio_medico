@@ -167,7 +167,7 @@
             this.gbxLista.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxLista.Location = new System.Drawing.Point(11, 175);
             this.gbxLista.Name = "gbxLista";
-            this.gbxLista.Size = new System.Drawing.Size(803, 188);
+            this.gbxLista.Size = new System.Drawing.Size(803, 183);
             this.gbxLista.TabIndex = 18;
             this.gbxLista.TabStop = false;
             this.gbxLista.Text = "Lista de Doctores";
@@ -183,7 +183,7 @@
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.ReadOnly = true;
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista.Size = new System.Drawing.Size(787, 159);
+            this.dgvLista.Size = new System.Drawing.Size(787, 150);
             this.dgvLista.TabIndex = 0;
             // 
             // btnBuscar
@@ -217,9 +217,9 @@
             this.lblParametro.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParametro.Location = new System.Drawing.Point(13, 117);
             this.lblParametro.Name = "lblParametro";
-            this.lblParametro.Size = new System.Drawing.Size(379, 17);
+            this.lblParametro.Size = new System.Drawing.Size(362, 17);
             this.lblParametro.TabIndex = 15;
-            this.lblParametro.Text = "Buscar por Cédula de identidad, Nombres, Apellido Paterno, Apellido Materno:";
+            this.lblParametro.Text = "Buscar Doctor por Cédula de Identidad, Nombres, Apellidos o Especialidad:";
             // 
             // lblTitulo
             // 

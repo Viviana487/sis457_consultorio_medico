@@ -112,8 +112,8 @@
         <ComplexTypeMapping TypeName="LabConsultorioMedicoModel.paCitaListar_Result">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
           <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="nombreCompletoPaciente" ColumnName="nombreCompletoPaciente" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
           <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />

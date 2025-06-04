@@ -166,9 +166,9 @@ AS
   ORDER BY p.estado DESC, fecha DESC;
 
 GO
-CREATE PROC paCitaListar @parametro VARCHAR(100) 
+ALTER PROC paCitaListar @parametro VARCHAR(100) 
 AS
-  SELECT c.id,c.fecha,p.nombreCompletoPaciente, c.hora, e.nombre, d.nombreCompletoDoctor, c.usuarioRegistro, c.fechaRegistro, c.estado
+  SELECT c.id,c.fecha,c.hora, p.nombreCompletoPaciente, e.nombre, d.nombreCompletoDoctor, c.usuarioRegistro, c.fechaRegistro, c.estado
   FROM Paciente p
   LEFT JOIN Cita c ON p.id = c.idPaciente
   LEFT JOIN Doctor d ON c.idDoctor = d.id

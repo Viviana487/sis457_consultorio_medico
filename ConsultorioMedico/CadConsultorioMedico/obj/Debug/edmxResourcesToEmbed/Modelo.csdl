@@ -291,8 +291,8 @@
   <ComplexType Name="paCitaListar_Result">
     <Property Type="Int32" Name="id" Nullable="true" />
     <Property Type="DateTime" Name="fecha" Nullable="true" />
-    <Property Type="String" Name="nombreCompletoPaciente" Nullable="false" MaxLength="30" />
     <Property Type="Time" Name="hora" Nullable="true" />
+    <Property Type="String" Name="nombreCompletoPaciente" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="nombreCompletoDoctor" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="usuarioRegistro" Nullable="true" MaxLength="50" />
