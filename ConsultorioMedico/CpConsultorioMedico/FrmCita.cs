@@ -54,46 +54,47 @@ namespace CpConsultorioMedico
             cargarEspecialidades();
             cargarDoctores();
             cargarHoras();
-            this.txtFPaciente.TextChanged += new System.EventHandler(this.txtFPaciente_TextChanged);
+            txtFPaciente.ReadOnly = true;
+            txtPaciente.ReadOnly = true;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
-        public void obtenerNombrePaciente()
+        public void obtenerPaciente()
         {
-            if (txtParametro.Text == string.Empty)
+            if (string.IsNullOrWhiteSpace(txtParametro.Text.Trim()))
             {
                 txtFPaciente.Text = string.Empty;
+                return;
+            }
+
+            string nombrePaciente = PacienteCln.buscarPorCedula(txtParametro.Text.Trim());
+
+            if (string.IsNullOrEmpty(nombrePaciente))
+            {
+                txtFPaciente.Text = string.Empty;
+                MessageBox.Show("El paciente no existe", "::: Consultorio Médico - Mensaje :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                if (dgvLista.Rows.Count > 0)
-                {
-                    var paciente = dgvLista.CurrentRow.Cells["nombreCompletoPaciente"].Value.ToString();
-                    txtFPaciente.Text = paciente;
-                }
-                else
-                {
-                    txtFPaciente.Text = string.Empty;
-                    MessageBox.Show("El paciente no existe", "::: Consultorio Médico - Mensaje :::",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                txtFPaciente.Text = nombrePaciente;
             }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             listar();
-            obtenerNombrePaciente();
+            obtenerPaciente();
         }
         private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter) 
             {
                 listar();
-                obtenerNombrePaciente(); 
+                obtenerPaciente(); 
             }
         }
         public void listarFecha()
@@ -128,7 +129,7 @@ namespace CpConsultorioMedico
         {
             esNuevo = true;
             Size = new Size(862, 713);
-            txtPaciente.Focus();
+            cbxEspecialidad.Focus();
         }
         private void cargarEspecialidades()
         {
@@ -160,7 +161,6 @@ namespace CpConsultorioMedico
             cbxHora.SelectedIndex = -1;
         }
 
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             esNuevo = false;
@@ -174,7 +174,7 @@ namespace CpConsultorioMedico
             cbxDoctor.SelectedValue = cita.idDoctor;
             dtpFecha.Value = cita.fecha;
             cbxHora.SelectedItem = cita.hora;
-            txtPaciente.Focus();
+            cbxEspecialidad.Focus();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -185,41 +185,46 @@ namespace CpConsultorioMedico
         {
             txtPaciente.Text = txtFPaciente.Text;
         }
+        private bool validar()
+        {
+            bool esValido = true;
+            erpEspecialidad.SetError(cbxEspecialidad, "");
+            erpDoctor.SetError(cbxDoctor, "");
+            erpFecha.SetError(dtpFecha, "");
+            erpHora.SetError(cbxHora, "");
+            if (string.IsNullOrEmpty(cbxEspecialidad.Text))
+            {
+                erpEspecialidad.SetError(cbxEspecialidad, "El campo Especilalidad es obligatorio");
+                esValido = false;
+            }
+            if (string.IsNullOrEmpty(cbxDoctor.Text))
+            {
+                erpDoctor.SetError(cbxDoctor, "El campo Doctor es obligatorio");
+                esValido = false;
+            }
+            if (dtpFecha.Value.Date < DateTime.Today)
+            {
+                erpFecha.SetError(dtpFecha, "El campo Fecha no puede ser una fecha pasada");
+                esValido = false;
+            }
+            if (string.IsNullOrEmpty(cbxHora.Text))
+            {
+                erpHora.SetError(cbxHora, "El campo Doctor es obligatorio");
+                esValido = false;
+            }
+
+            return esValido;
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            var cita = new Cita();
-            cita.idEspecialidad = Convert.ToInt32(cbxEspecialidad.SelectedValue);
-            cita.idDoctor = Convert.ToInt32(cbxDoctor.SelectedValue);
-            cita.fecha = dtpFecha.Value;
-            cita.hora = (TimeSpan)cbxHora.SelectedItem;
-            cita.usuarioRegistro = "Vivi";
-            if (esNuevo)
-            {
-                txtPaciente.Text = txtFPaciente.Text;
-                var paciente = PacienteCln.buscar(txtPaciente.Text.Trim());
-                cita.idPaciente = paciente.id;
-                cita.fechaRegistro = DateTime.Now;
-                cita.estado = 1;
-                CitaCln.insertar(cita);
-            }
-            else
-            {
-                int index = dgvLista.CurrentCell.RowIndex;
-                cita.id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
-                var paciente = PacienteCln.buscar(txtPaciente.Text.Trim());
-                cita.idPaciente = paciente.id;
-                CitaCln.actualizar(cita);
-                //DoctorCln.actualizar(doctor, txtUsuario.Text.Trim(), Util.Encrypt("hola123"));
-            }
-            /*if (validar())
+            if (validar())
             {
                 var cita = new Cita();
-                var paciente = PacienteCln.obtenerUno(cita.idPaciente);
-                paciente.nombreCompletoPaciente = txtPaciente.Text;
                 cita.idEspecialidad = Convert.ToInt32(cbxEspecialidad.SelectedValue);
                 cita.idDoctor = Convert.ToInt32(cbxDoctor.SelectedValue);
                 cita.fecha = dtpFecha.Value;
                 cita.hora = (TimeSpan)cbxHora.SelectedItem;
+                cita.usuarioRegistro = "Vivi";
                 //doctor.usuarioRegistro = Util.usuario.usuario1;
 
                 /*Usuario usuario = null;
@@ -228,24 +233,31 @@ namespace CpConsultorioMedico
                     usuario = new Usuario();
                     usuario.usuario1 = txtUsuario.Text.Trim();
                     usuario.clave = Util.Encrypt("hola123");
-                }
+                }*/
 
                 if (esNuevo)
                 {
-                    doctor.fechaRegistro = DateTime.Now;
-                    doctor.estado = 1;
-                    //DoctorCln.insertar(doctor, usuario);
+                    txtPaciente.Text = txtFPaciente.Text;
+                    var paciente = PacienteCln.buscar(txtFPaciente.Text.Trim());
+                    cita.idPaciente = paciente.id;
+                    cita.fechaRegistro = DateTime.Now;
+                    cita.estado = 1;
+                    CitaCln.insertar(cita);
                 }
                 else
                 {
                     int index = dgvLista.CurrentCell.RowIndex;
-                    doctor.id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
+                    cita.id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
+                    var paciente = PacienteCln.buscar(txtPaciente.Text.Trim());
+                    cita.idPaciente = paciente.id;
+                    CitaCln.actualizar(cita);
                     //DoctorCln.actualizar(doctor, txtUsuario.Text.Trim(), Util.Encrypt("hola123"));
-                }*/
-            listar();
+                }
+                listar();
                 btnCancelar.PerformClick();
-                MessageBox.Show("Registro guardado correctamente", "::: Consultorio Médico - Mensaje :::",
+                MessageBox.Show("Cita guardada correctamente", "::: Consultorio Médico - Mensaje :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -253,9 +265,10 @@ namespace CpConsultorioMedico
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
             string paciente = dgvLista.Rows[index].Cells["nombreCompletoPaciente"].Value.ToString();
-            string fecha = dgvLista.Rows[index].Cells["fecha"].Value.ToString();
+            DateTime fecha = Convert.ToDateTime(dgvLista.Rows[index].Cells["fecha"].Value);
+            string fechaSolo = fecha.ToString("yyyy/MM/dd");
             string hora = dgvLista.Rows[index].Cells["hora"].Value.ToString();
-            DialogResult dialog = MessageBox.Show($"¿Está seguro que desea eliminar la cita del paciente {paciente} para la fecha {fecha} a horas {hora}?",
+            DialogResult dialog = MessageBox.Show($"¿Está seguro que desea eliminar la cita del paciente {paciente} para la fecha {fechaSolo} a horas {hora}?",
                 "::: Consultorio Médico - Mensaje ::: ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {

@@ -169,7 +169,7 @@ AS
   ORDER BY p.estado DESC, fecha DESC;
 
 GO
-ALTER PROC paCitaListar @parametro VARCHAR(100) 
+CREATE PROC paCitaListar @parametro VARCHAR(100) 
 AS
 BEGIN
   SELECT 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CadConsultorioMedico;
@@ -68,6 +69,14 @@ namespace ClnConsultorioMedico
             using (var context = new LabConsultorioMedicoEntities())
             {
                 return context.Paciente.FirstOrDefault(x => x.nombreCompletoPaciente == nombrePaciente);
+            }
+        }
+        public static string buscarPorCedula(string cedulaIdentidad)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                var paciente = context.Paciente.FirstOrDefault(x => x.cedulaIdentidad == cedulaIdentidad);
+                return paciente != null ? paciente.nombreCompletoPaciente : null;
             }
         }
     }

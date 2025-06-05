@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCita));
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnPagar = new System.Windows.Forms.Button();
@@ -60,11 +61,21 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.lblParametro = new System.Windows.Forms.Label();
+            this.erpPaciente = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpEspecialidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpDoctor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpFecha = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlAcciones.SuspendLayout();
             this.gbxLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.gbxDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPaciente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpEspecialidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDoctor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpFecha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpHora)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAcciones
@@ -438,6 +449,26 @@
             this.lblParametro.TabIndex = 57;
             this.lblParametro.Text = "Buscar Paciente por CI:";
             // 
+            // erpPaciente
+            // 
+            this.erpPaciente.ContainerControl = this;
+            // 
+            // erpEspecialidad
+            // 
+            this.erpEspecialidad.ContainerControl = this;
+            // 
+            // erpDoctor
+            // 
+            this.erpDoctor.ContainerControl = this;
+            // 
+            // erpFecha
+            // 
+            this.erpFecha.ContainerControl = this;
+            // 
+            // erpHora
+            // 
+            this.erpHora.ContainerControl = this;
+            // 
             // FrmCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +501,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPaciente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpEspecialidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpDoctor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpFecha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpHora)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,5 +543,10 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtParametro;
         private System.Windows.Forms.Label lblParametro;
+        private System.Windows.Forms.ErrorProvider erpPaciente;
+        private System.Windows.Forms.ErrorProvider erpEspecialidad;
+        private System.Windows.Forms.ErrorProvider erpDoctor;
+        private System.Windows.Forms.ErrorProvider erpFecha;
+        private System.Windows.Forms.ErrorProvider erpHora;
     }
 }
