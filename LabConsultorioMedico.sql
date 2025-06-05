@@ -16,12 +16,12 @@ GO
 
 DROP TABLE HistorialClinico;
 DROP TABLE Pago;
-DROP TABLE Especialidad;
 DROP TABLE Cita;
 DROP TABLE Usuario;
 DROP TABLE Doctor;
 DROP TABLE Paciente;
 DROP TABLE Concepto;
+DROP TABLE Especialidad;
 
 CREATE TABLE Especialidad (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -77,7 +77,7 @@ CREATE TABLE Pago (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   idCita INT NOT NULL,
   idConcepto INT NOT NULL,
-  monto INT NOT NULL,
+  monto DECIMAL(10, 2) NOT NULL,
   fecha DATE NOT NULL DEFAULT GETDATE(),
   CONSTRAINT fk_Pago_Cita FOREIGN KEY(idCita) REFERENCES Cita(id),
   CONSTRAINT fk_Pago_Concepto FOREIGN KEY(idConcepto) REFERENCES Concepto(id)
@@ -169,7 +169,7 @@ AS
   ORDER BY p.estado DESC, fecha DESC;
 
 GO
-CREATE PROC paCitaListar @parametro VARCHAR(100) 
+ALTER PROC paCitaListar @parametro VARCHAR(100) 
 AS
 BEGIN
   SELECT 

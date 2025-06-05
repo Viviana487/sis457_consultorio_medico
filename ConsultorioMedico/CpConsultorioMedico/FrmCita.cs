@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -281,7 +282,10 @@ namespace CpConsultorioMedico
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            new FrmPago().ShowDialog();
+            int index = dgvLista.CurrentCell.RowIndex;
+            string paciente=dgvLista.Rows[index].Cells["nombreCompletoPaciente"].Value.ToString();
+            string especialidad = dgvLista.Rows[index].Cells["nombre"].Value.ToString();
+            new FrmPago(paciente,especialidad).ShowDialog();
         }
     }
 }

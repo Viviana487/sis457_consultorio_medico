@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CitaCln.cs" />
+    <Compile Include="ConceptoCln.cs" />
     <Compile Include="DoctorCln.cs" />
     <Compile Include="EspecialidadCln.cs" />
     <Compile Include="HistorialClinicoCln.cs" />

@@ -17,7 +17,7 @@ namespace CadConsultorioMedico
         public int id { get; set; }
         public int idCita { get; set; }
         public int idConcepto { get; set; }
-        public int monto { get; set; }
+        public decimal monto { get; set; }
         public System.DateTime fecha { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
