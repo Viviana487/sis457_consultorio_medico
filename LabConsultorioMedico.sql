@@ -232,7 +232,8 @@ VALUES ('Odontología')
 INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombreCompletoDoctor, direccion, celular)
 VALUES (1,'12345678','Juan Pérez López', 'ave. americas', 11121314), 
 (1,'12345678','Gloria Rosales Cardona', 'Av. Pacífico #456', 77123456),
-(2,'87654321', 'María González Padilla', ' 6 de agosto', 12131415);
+(2,'87654321', 'María González Padilla', ' 6 de agosto', 12131415),
+(2,'18273737','pablito alcachofa', 'mercado campesino', 18273474);
 
 INSERT INTO Paciente (cedulaIdentidad, nombreCompletoPaciente, direccion, celular, fechaNacimiento) VALUES
 ('12345678', 'Juan Pérez Gómez', 'Av. Siempre Viva 123', 789456123, '1990-03-03'),
