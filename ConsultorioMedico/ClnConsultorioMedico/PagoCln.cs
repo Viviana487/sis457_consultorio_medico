@@ -25,7 +25,7 @@ namespace ClnConsultorioMedico
                 {
                     var existente = context.Pago.Find(pago.id);
                     existente.idConcepto = pago.idConcepto;
-                    existente.monto = pago.monto;
+                    existente.costo = pago.costo;
                     existente.fechaRegistro = pago.fechaRegistro;
                     existente.usuarioRegistro = pago.usuarioRegistro;
                     existente.fecha = pago.fecha;
@@ -60,7 +60,7 @@ namespace ClnConsultorioMedico
                 return context.paPagoListar(parametro).ToList();
                 }
             }
-        public static Pago obtenerMonto(int idConcepto)
+        public static Pago obtenerCosto(int idConcepto)
         {
             using (var context = new LabConsultorioMedicoEntities())
             {

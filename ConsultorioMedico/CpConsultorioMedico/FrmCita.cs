@@ -34,6 +34,7 @@ namespace CpConsultorioMedico
             dgvLista.Columns["nombreCompletoPaciente"].HeaderText = "Paciente";
             dgvLista.Columns["nombre"].HeaderText = "Especialidad";
             dgvLista.Columns["nombreCompletoDoctor"].HeaderText = "Doctor";
+            dgvLista.Columns["fecha1"].HeaderText = "Fecha de Pago";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
             dgvLista.Columns["fechaRegistro"].HeaderText = "Fecha Registro";
             if (lista.Count > 0) dgvLista.CurrentCell = dgvLista.Rows[0].Cells["fecha"];
@@ -55,8 +56,8 @@ namespace CpConsultorioMedico
             cargarEspecialidades();
             cargarDoctores();
             cargarHoras();
-            txtFPaciente.ReadOnly = true;
-            txtPaciente.ReadOnly = true;
+            txtFPaciente.Enabled = false;
+            txtPaciente.Enabled = false;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -279,13 +280,22 @@ namespace CpConsultorioMedico
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnPagar_Click(object sender, EventArgs e)
         {
             int index = dgvLista.CurrentCell.RowIndex;
+            int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
             string paciente=dgvLista.Rows[index].Cells["nombreCompletoPaciente"].Value.ToString();
             string especialidad = dgvLista.Rows[index].Cells["nombre"].Value.ToString();
-            new FrmPago(paciente,especialidad).ShowDialog();
+            new FrmPago(this,id,paciente,especialidad).ShowDialog();
+        }
+
+        public void refrescar()
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                var lista = CitaCln.listarPa(txtParametro.Text.Trim());
+                dgvLista.DataSource = lista;
+            }
         }
     }
 }

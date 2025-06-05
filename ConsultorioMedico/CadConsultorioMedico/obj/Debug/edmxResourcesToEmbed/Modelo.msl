@@ -87,7 +87,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idCita" ColumnName="idCita" />
           <ScalarProperty Name="idConcepto" ColumnName="idConcepto" />
-          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
           <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
@@ -119,6 +119,7 @@
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
           <ScalarProperty Name="Pagada" ColumnName="Pagada" />
+          <ScalarProperty Name="fecha1" ColumnName="fecha1" />
           <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
           <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
           <ScalarProperty Name="estado" ColumnName="estado" />

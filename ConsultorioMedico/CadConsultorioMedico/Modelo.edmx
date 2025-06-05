@@ -86,7 +86,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idCita" Type="int" Nullable="false" />
           <Property Name="idConcepto" Type="int" Nullable="false" />
-          <Property Name="monto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="costo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
@@ -398,7 +398,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idCita" Type="Int32" Nullable="false" />
           <Property Name="idConcepto" Type="Int32" Nullable="false" />
-          <Property Name="monto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="costo" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
@@ -619,6 +619,7 @@
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="nombreCompletoDoctor" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Pagada" Nullable="false" MaxLength="2" />
+          <Property Type="DateTime" Name="fecha1" Nullable="true" />
           <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
           <Property Type="Int16" Name="estado" Nullable="false" />
@@ -783,7 +784,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idCita" ColumnName="idCita" />
                 <ScalarProperty Name="idConcepto" ColumnName="idConcepto" />
-                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
                 <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
@@ -815,6 +816,7 @@
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
                 <ScalarProperty Name="Pagada" ColumnName="Pagada" />
+                <ScalarProperty Name="fecha1" ColumnName="fecha1" />
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
                 <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
                 <ScalarProperty Name="estado" ColumnName="estado" />

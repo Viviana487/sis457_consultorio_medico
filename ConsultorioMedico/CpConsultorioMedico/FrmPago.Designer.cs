@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPago));
             this.lblAgregarEditar = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -36,17 +37,21 @@
             this.lblPaciente = new System.Windows.Forms.Label();
             this.lblCosto = new System.Windows.Forms.Label();
             this.nudCosto = new System.Windows.Forms.NumericUpDown();
-            this.nudMonto = new System.Windows.Forms.NumericUpDown();
-            this.lblMonto = new System.Windows.Forms.Label();
+            this.nudEfectivo = new System.Windows.Forms.NumericUpDown();
+            this.lblEfectivo = new System.Windows.Forms.Label();
             this.nudCambio = new System.Windows.Forms.NumericUpDown();
             this.lblCambio = new System.Windows.Forms.Label();
             this.lblConcepto = new System.Windows.Forms.Label();
             this.cbxConcepto = new System.Windows.Forms.ComboBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.txtEspecialidad = new System.Windows.Forms.TextBox();
+            this.erpConcepto = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpEfectivo = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudCosto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEfectivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCambio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpConcepto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpEfectivo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAgregarEditar
@@ -89,6 +94,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtPaciente
             // 
@@ -115,7 +121,7 @@
             this.lblCosto.AutoSize = true;
             this.lblCosto.BackColor = System.Drawing.Color.Transparent;
             this.lblCosto.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCosto.Location = new System.Drawing.Point(363, 167);
+            this.lblCosto.Location = new System.Drawing.Point(359, 141);
             this.lblCosto.Name = "lblCosto";
             this.lblCosto.Size = new System.Drawing.Size(39, 17);
             this.lblCosto.TabIndex = 73;
@@ -123,34 +129,36 @@
             // 
             // nudCosto
             // 
+            this.nudCosto.Enabled = false;
             this.nudCosto.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCosto.Location = new System.Drawing.Point(414, 165);
+            this.nudCosto.Location = new System.Drawing.Point(414, 139);
             this.nudCosto.Name = "nudCosto";
             this.nudCosto.Size = new System.Drawing.Size(120, 22);
             this.nudCosto.TabIndex = 74;
             // 
-            // nudMonto
+            // nudEfectivo
             // 
-            this.nudMonto.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudMonto.Location = new System.Drawing.Point(414, 137);
-            this.nudMonto.Name = "nudMonto";
-            this.nudMonto.Size = new System.Drawing.Size(120, 22);
-            this.nudMonto.TabIndex = 76;
-            this.nudMonto.ValueChanged += new System.EventHandler(this.nudMonto_ValueChanged);
+            this.nudEfectivo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudEfectivo.Location = new System.Drawing.Point(414, 167);
+            this.nudEfectivo.Name = "nudEfectivo";
+            this.nudEfectivo.Size = new System.Drawing.Size(120, 22);
+            this.nudEfectivo.TabIndex = 76;
+            this.nudEfectivo.ValueChanged += new System.EventHandler(this.nudMonto_ValueChanged);
             // 
-            // lblMonto
+            // lblEfectivo
             // 
-            this.lblMonto.AutoSize = true;
-            this.lblMonto.BackColor = System.Drawing.Color.Transparent;
-            this.lblMonto.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonto.Location = new System.Drawing.Point(363, 139);
-            this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(42, 17);
-            this.lblMonto.TabIndex = 75;
-            this.lblMonto.Text = "Monto:";
+            this.lblEfectivo.AutoSize = true;
+            this.lblEfectivo.BackColor = System.Drawing.Color.Transparent;
+            this.lblEfectivo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEfectivo.Location = new System.Drawing.Point(359, 169);
+            this.lblEfectivo.Name = "lblEfectivo";
+            this.lblEfectivo.Size = new System.Drawing.Size(49, 17);
+            this.lblEfectivo.TabIndex = 75;
+            this.lblEfectivo.Text = "Efectivo:";
             // 
             // nudCambio
             // 
+            this.nudCambio.Enabled = false;
             this.nudCambio.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudCambio.Location = new System.Drawing.Point(414, 193);
             this.nudCambio.Name = "nudCambio";
@@ -162,7 +170,7 @@
             this.lblCambio.AutoSize = true;
             this.lblCambio.BackColor = System.Drawing.Color.Transparent;
             this.lblCambio.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCambio.Location = new System.Drawing.Point(363, 195);
+            this.lblCambio.Location = new System.Drawing.Point(359, 195);
             this.lblCambio.Name = "lblCambio";
             this.lblCambio.Size = new System.Drawing.Size(48, 17);
             this.lblCambio.TabIndex = 77;
@@ -209,6 +217,14 @@
             this.txtEspecialidad.Size = new System.Drawing.Size(199, 22);
             this.txtEspecialidad.TabIndex = 82;
             // 
+            // erpConcepto
+            // 
+            this.erpConcepto.ContainerControl = this;
+            // 
+            // erpEfectivo
+            // 
+            this.erpEfectivo.ContainerControl = this;
+            // 
             // FrmPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,8 +238,8 @@
             this.Controls.Add(this.lblConcepto);
             this.Controls.Add(this.nudCambio);
             this.Controls.Add(this.lblCambio);
-            this.Controls.Add(this.nudMonto);
-            this.Controls.Add(this.lblMonto);
+            this.Controls.Add(this.nudEfectivo);
+            this.Controls.Add(this.lblEfectivo);
             this.Controls.Add(this.nudCosto);
             this.Controls.Add(this.lblCosto);
             this.Controls.Add(this.txtPaciente);
@@ -238,8 +254,10 @@
             this.Text = "::: Pago - Consultorio Médico :::";
             this.Load += new System.EventHandler(this.FrmPago_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCosto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEfectivo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCambio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpConcepto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpEfectivo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,13 +272,15 @@
         private System.Windows.Forms.Label lblPaciente;
         private System.Windows.Forms.Label lblCosto;
         private System.Windows.Forms.NumericUpDown nudCosto;
-        private System.Windows.Forms.NumericUpDown nudMonto;
-        private System.Windows.Forms.Label lblMonto;
+        private System.Windows.Forms.NumericUpDown nudEfectivo;
+        private System.Windows.Forms.Label lblEfectivo;
         private System.Windows.Forms.NumericUpDown nudCambio;
         private System.Windows.Forms.Label lblCambio;
         private System.Windows.Forms.Label lblConcepto;
         private System.Windows.Forms.ComboBox cbxConcepto;
         private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.TextBox txtEspecialidad;
+        private System.Windows.Forms.ErrorProvider erpConcepto;
+        private System.Windows.Forms.ErrorProvider erpEfectivo;
     }
 }

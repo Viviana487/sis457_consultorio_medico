@@ -81,7 +81,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idCita" Type="int" Nullable="false" />
     <Property Name="idConcepto" Type="int" Nullable="false" />
-    <Property Name="monto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="costo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="fecha" Type="date" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />

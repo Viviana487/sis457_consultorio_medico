@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CadConsultorioMedico;
+using System.Data.Entity;
 
 namespace ClnConsultorioMedico
 {
@@ -61,6 +62,13 @@ namespace ClnConsultorioMedico
             using (var context = new LabConsultorioMedicoEntities())
             {
                 return context.paCitaPorFechaListar(parametroFecha).ToList();
+            }
+        }
+        public static Cita obtenerIdCita(string Paciente)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                return context.Cita.Include(x => x.Paciente).FirstOrDefault(x => x.Paciente.nombreCompletoPaciente == Paciente);
             }
         }
     }

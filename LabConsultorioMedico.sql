@@ -77,7 +77,7 @@ CREATE TABLE Pago (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   idCita INT NOT NULL,
   idConcepto INT NOT NULL,
-  monto DECIMAL(10, 2) NOT NULL,
+  costo DECIMAL(10, 2) NOT NULL,
   fecha DATE NOT NULL DEFAULT GETDATE(),
   CONSTRAINT fk_Pago_Cita FOREIGN KEY(idCita) REFERENCES Cita(id),
   CONSTRAINT fk_Pago_Concepto FOREIGN KEY(idConcepto) REFERENCES Concepto(id)
@@ -180,7 +180,11 @@ BEGIN
     p.nombreCompletoPaciente, 
     e.nombre, 
     d.nombreCompletoDoctor,
-    CASE WHEN pa.idCita IS NOT NULL THEN 'Sí' ELSE 'No' END AS Pagada,
+    CASE 
+      WHEN pa.idCita IS NOT NULL THEN 'Sí'
+      ELSE 'No'
+    END AS Pagada,
+    pa.fecha as fecha1,
     c.usuarioRegistro, 
     c.fechaRegistro, 
     c.estado
@@ -192,9 +196,6 @@ BEGIN
   WHERE c.estado <> -1 
     AND c.fecha >= CAST(GETDATE() AS DATE) 
     AND p.cedulaIdentidad LIKE '%' + REPLACE(@parametro,' ','%') + '%'
-  GROUP BY 
-    c.id, c.fecha, c.hora, p.cedulaIdentidad, p.nombreCompletoPaciente, 
-    e.nombre, d.nombreCompletoDoctor,pa.idCita,c.usuarioRegistro, c.fechaRegistro, c.estado
   ORDER BY c.estado DESC, c.fecha ASC;
 END
 
@@ -239,10 +240,10 @@ INSERT INTO Paciente (cedulaIdentidad, nombreCompletoPaciente, direccion, celula
 ('45678912', 'Carlos Ramírez Salazar', 'Av. Central 890', 756789432, '2002-07-07');
 
 INSERT INTO Cita (idDoctor, idPaciente,idEspecialidad, fecha, hora) VALUES
-(1, 1,1, '2025-05-01', '09:00'),
-(2, 2,1, '2025-05-02', '10:30'),
-(1, 1,2, '2025-05-08','11:00'),
-(2, 3,2, '2025-05-07','15:00');
+(1, 1,1, '2025-07-01', '09:00'),
+(2, 2,1, '2025-08-02', '10:30'),
+(1, 1,2, '2025-09-08','11:00'),
+(2, 3,2, '2025-10-07','15:00');
 
 INSERT INTO Concepto(idEspecialidad,descripcion)
 VALUES
@@ -251,7 +252,7 @@ VALUES
 (1,'Chequeo odontológico'),
 (2,'Limpieza dental');
 
-INSERT INTO Pago (idCita, idConcepto, monto) VALUES
+INSERT INTO Pago (idCita, idConcepto, costo) VALUES
 (1, 1, 100),
 (2, 2, 150),
 (3, 3, 100),
