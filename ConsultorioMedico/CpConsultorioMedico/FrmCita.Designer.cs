@@ -310,6 +310,7 @@
             this.cbxEspecialidad.Name = "cbxEspecialidad";
             this.cbxEspecialidad.Size = new System.Drawing.Size(163, 25);
             this.cbxEspecialidad.TabIndex = 61;
+            this.cbxEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cbxEspecialidad_SelectedIndexChanged);
             // 
             // lblEspecialidad
             // 

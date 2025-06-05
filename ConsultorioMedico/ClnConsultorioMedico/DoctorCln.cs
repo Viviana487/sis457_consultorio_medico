@@ -84,5 +84,14 @@ namespace ClnConsultorioMedico
                 return context.Doctor.Where(x => x.estado != -1).ToList();
             }
         }
+        public static List<Doctor> listarPorEspecialidad(int idEspecialidad)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                return context.Doctor
+                    .Where(x => x.idEspecialidad == idEspecialidad && x.estado != -1)
+                    .ToList();
+            }
+        }
     }
 }

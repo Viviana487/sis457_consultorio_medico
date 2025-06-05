@@ -71,7 +71,14 @@ namespace ClnConsultorioMedico
                 return context.Paciente.FirstOrDefault(x => x.nombreCompletoPaciente == nombrePaciente);
             }
         }
-        public static string buscarPorCedula(string cedulaIdentidad)
+        public static Paciente buscarPorCedula(string cedulaIdentidad)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                return context.Paciente.AsNoTracking().FirstOrDefault(x => x.cedulaIdentidad == cedulaIdentidad);
+            }
+        }
+        public static string obtenerNombrePaciente(string cedulaIdentidad)
         {
             using (var context = new LabConsultorioMedicoEntities())
             {

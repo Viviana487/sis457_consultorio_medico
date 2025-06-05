@@ -18,6 +18,7 @@ namespace CpConsultorioMedico
     public partial class FrmCita : Form
     {
         private bool esNuevo = false;
+        private bool formularioCargado = false;
         public FrmCita()
         {
             InitializeComponent();
@@ -54,10 +55,10 @@ namespace CpConsultorioMedico
             Size = new Size(862, 539);
             listar();
             cargarEspecialidades();
-            cargarDoctores();
             cargarHoras();
             txtFPaciente.Enabled = false;
             txtPaciente.Enabled = false;
+            formularioCargado = true;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace CpConsultorioMedico
                 return;
             }
 
-            string nombrePaciente = PacienteCln.buscarPorCedula(txtParametro.Text.Trim());
+            string nombrePaciente = PacienteCln.obtenerNombrePaciente(txtParametro.Text.Trim());
 
             if (string.IsNullOrEmpty(nombrePaciente))
             {
@@ -141,13 +142,21 @@ namespace CpConsultorioMedico
             cbxEspecialidad.ValueMember = "id";
             cbxEspecialidad.SelectedIndex = -1;
         }
-        private void cargarDoctores()
+        private void cargarDoctores(int idEspecialidad)
         {
-            var doctores = DoctorCln.listar();
+            var doctores = DoctorCln.listarPorEspecialidad(idEspecialidad);
             cbxDoctor.DataSource = doctores;
             cbxDoctor.DisplayMember = "nombreCompletoDoctor";
             cbxDoctor.ValueMember = "id";
             cbxDoctor.SelectedIndex = -1;
+        }
+        private void cbxEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (formularioCargado) // Para evitar que se ejecute en carga inicial
+            {
+                int idEspecialidad = Convert.ToInt32(cbxEspecialidad.SelectedValue);
+                cargarDoctores(idEspecialidad);
+            }
         }
         private void cargarHoras()
         {
@@ -162,7 +171,6 @@ namespace CpConsultorioMedico
 
             cbxHora.SelectedIndex = -1;
         }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             esNuevo = false;
@@ -180,6 +188,8 @@ namespace CpConsultorioMedico
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            txtFPaciente.Clear();
+            txtParametro.Clear();
             Size = new Size(862, 539);
             limpiar();
         }
@@ -240,7 +250,8 @@ namespace CpConsultorioMedico
                 if (esNuevo)
                 {
                     txtPaciente.Text = txtFPaciente.Text;
-                    var paciente = PacienteCln.buscar(txtFPaciente.Text.Trim());
+                    var cedulaIdentidad = txtParametro.Text.Trim();
+                    var paciente = PacienteCln.buscarPorCedula(cedulaIdentidad);
                     cita.idPaciente = paciente.id;
                     cita.fechaRegistro = DateTime.Now;
                     cita.estado = 1;
@@ -259,6 +270,8 @@ namespace CpConsultorioMedico
                 btnCancelar.PerformClick();
                 MessageBox.Show("Cita guardada correctamente", "::: Consultorio Médico - Mensaje :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtFPaciente.Clear();
+                txtParametro.Clear();
             }
         }
 
@@ -279,9 +292,13 @@ namespace CpConsultorioMedico
                 MessageBox.Show("Cita dada de baja correctamente", "::: Consutorio Médico - Mensaje ::: ",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            txtFPaciente.Clear();
+            txtParametro.Clear();
         }
         private void btnPagar_Click(object sender, EventArgs e)
         {
+            txtFPaciente.Clear();
+            txtParametro.Clear();
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
             string paciente=dgvLista.Rows[index].Cells["nombreCompletoPaciente"].Value.ToString();
