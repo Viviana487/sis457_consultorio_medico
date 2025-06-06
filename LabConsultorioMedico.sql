@@ -138,11 +138,10 @@ DROP PROC paCitaPorFechaListar;
 GO
 CREATE PROC paEspecialidadListar @parametro VARCHAR(100)
 AS
-  SELECT e.id, e.nombre, d.nombreCompletoDoctor,e.usuarioRegistro,e.fechaRegistro,e.estado
-  FROM Especialidad e
-  INNER JOIN Doctor d ON e.id = d.idEspecialidad
-  WHERE e.estado<>-1 AND e.nombre LIKE '%'+REPLACE(@parametro,' ','%')+'%'
-  ORDER BY e.estado DESC, nombre ASC;
+  SELECT *
+  FROM Especialidad
+  WHERE estado<>-1 AND nombre LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  ORDER BY estado DESC, nombre ASC;
 
 GO
 CREATE PROC paPacienteListar @parametro VARCHAR(100)

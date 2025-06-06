@@ -171,7 +171,6 @@
         <ComplexTypeMapping TypeName="LabConsultorioMedicoModel.paEspecialidadListar_Result">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="nombreCompletoDoctor" ColumnName="nombreCompletoDoctor" />
           <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
           <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
           <ScalarProperty Name="estado" ColumnName="estado" />
