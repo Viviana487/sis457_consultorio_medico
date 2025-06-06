@@ -102,3 +102,4 @@ C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMe
 C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.csproj.CoreCompileInputs.cache
 C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsul.4905FF5E.Up2Date
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.FrmLogin.resources

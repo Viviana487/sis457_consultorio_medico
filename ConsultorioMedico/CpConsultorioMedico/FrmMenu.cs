@@ -12,9 +12,11 @@ namespace CpConsultorioMedico
 {
     public partial class FrmMenu : Form
     {
-        public FrmMenu()
+        private FrmLogin frmLogin;
+        public FrmMenu(FrmLogin frmLogin)
         {
             InitializeComponent();
+            this.frmLogin = frmLogin;
         }
 
         private void btnPaPacientes_Click(object sender, EventArgs e)
@@ -42,6 +44,9 @@ namespace CpConsultorioMedico
         {
             new FrmCita().ShowDialog();
         }
-
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmLogin.Show();
+        }
     }
 }

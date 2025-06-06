@@ -268,7 +268,7 @@ INSERT INTO HistorialClinico (idPaciente, idCita, diagnostico, tratamiento) VALU
 
 
 INSERT INTO Usuario(usuario, clave, idDoctor)
-VALUES ('hans', '123456', 1);
+VALUES ('gvidal', 'i0hcoO/nssY6WOs9pOp5Xw==', 1);
 
 SELECT * FROM Doctor;
 SELECT * FROM Usuario;
