@@ -55,9 +55,6 @@ obj/
 # Archivos de licencias generados
 *.licenses
 
-# Archivos de recursos generados automáticamente
-*.Designer.cs
-
 # Otros innecesarios
 *.dbmdl
 *.bak
