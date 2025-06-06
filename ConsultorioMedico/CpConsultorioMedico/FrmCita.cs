@@ -314,5 +314,11 @@ namespace CpConsultorioMedico
                 dgvLista.DataSource = lista;
             }
         }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }
