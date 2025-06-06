@@ -24,7 +24,6 @@ namespace CpConsultorioMedico
             new FrmPaciente().ShowDialog();
         }
 
-
         private void btnDoDoctores_Click(object sender, EventArgs e)
         {
             new FrmDoctor().ShowDialog();
@@ -47,6 +46,11 @@ namespace CpConsultorioMedico
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmLogin.Show();
+        }
+
+        private void btnCoConcepto_Click(object sender, EventArgs e)
+        {
+            new FrmConcepto().ShowDialog();
         }
     }
 }

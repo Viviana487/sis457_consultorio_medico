@@ -103,3 +103,16 @@ C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMe
 C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.csproj.CoreCompileInputs.cache
 C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsul.4905FF5E.Up2Date
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.FrmLogin.resources
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.FrmConcepto.resources
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Excel.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Report.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Zip.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.BarCode.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.Bitmap.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.C1DX.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Excel.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Report.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Zip.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.BarCode.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.Bitmap.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.C1DX.4.5.2.xml

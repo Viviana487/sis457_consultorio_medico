@@ -11,15 +11,18 @@ namespace CadConsultorioMedico
 {
     using System;
     
-    public partial class paCitaPorFechaListar_Result
+    public partial class paCitaporFechaListar_Result
     {
         public int id { get; set; }
+        public Nullable<int> idEspecialidad { get; set; }
         public System.DateTime fecha { get; set; }
         public System.TimeSpan hora { get; set; }
         public string cedulaIdentidad { get; set; }
         public string nombreCompletoPaciente { get; set; }
         public string nombre { get; set; }
         public string nombreCompletoDoctor { get; set; }
+        public string Pagada { get; set; }
+        public Nullable<System.DateTime> fecha1 { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }

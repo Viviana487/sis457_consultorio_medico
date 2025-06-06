@@ -93,6 +93,16 @@ namespace CpConsultorioMedico.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Agregar_Concepto {
+            get {
+                object obj = ResourceManager.GetObject("Agregar Concepto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Añadir {
             get {
                 object obj = ResourceManager.GetObject("Añadir", resourceCulture);
@@ -166,6 +176,16 @@ namespace CpConsultorioMedico.Properties {
         internal static System.Drawing.Bitmap Ayuda {
             get {
                 object obj = ResourceManager.GetObject("Ayuda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ayuda1 {
+            get {
+                object obj = ResourceManager.GetObject("Ayuda1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

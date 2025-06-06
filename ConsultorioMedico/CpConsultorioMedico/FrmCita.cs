@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using C1.Framework;
 using CadConsultorioMedico;
 using ClnConsultorioMedico;
+using CpMinerva;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CpConsultorioMedico
@@ -19,6 +20,7 @@ namespace CpConsultorioMedico
     {
         private bool esNuevo = false;
         private bool formularioCargado = false;
+        private string parametroValido = "";
         public FrmCita()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace CpConsultorioMedico
             dgvLista.DataSource = lista;
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
+            dgvLista.Columns["idEspecialidad"].Visible = false;
             dgvLista.Columns["fecha"].HeaderText = "Fecha Programada";
             dgvLista.Columns["Hora"].HeaderText = "Hora Programada";
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
@@ -59,6 +62,7 @@ namespace CpConsultorioMedico
             txtFPaciente.Enabled = false;
             txtPaciente.Enabled = false;
             formularioCargado = true;
+            dgvLista_SelectionChanged(dgvLista, EventArgs.Empty);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -106,6 +110,7 @@ namespace CpConsultorioMedico
             dgvLista.DataSource = lista;
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
+            dgvLista.Columns["idEspecialidad"].Visible = false;
             dgvLista.Columns["fecha"].HeaderText = "Fecha Programada";
             dgvLista.Columns["Hora"].HeaderText = "Hora Programada";
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
@@ -133,6 +138,9 @@ namespace CpConsultorioMedico
             esNuevo = true;
             Size = new Size(862, 713);
             cbxEspecialidad.Focus();
+            cbxDoctor.DataSource = null;
+            cbxDoctor.Items.Clear();
+            cbxDoctor.SelectedIndex = -1;
         }
         private void cargarEspecialidades()
         {
@@ -145,6 +153,8 @@ namespace CpConsultorioMedico
         private void cargarDoctores(int idEspecialidad)
         {
             var doctores = DoctorCln.listarPorEspecialidad(idEspecialidad);
+            cbxDoctor.DataSource = null;
+            cbxDoctor.Items.Clear();
             cbxDoctor.DataSource = doctores;
             cbxDoctor.DisplayMember = "nombreCompletoDoctor";
             cbxDoctor.ValueMember = "id";
@@ -152,7 +162,7 @@ namespace CpConsultorioMedico
         }
         private void cbxEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (formularioCargado) // Para evitar que se ejecute en carga inicial
+            if (formularioCargado)
             {
                 int idEspecialidad = Convert.ToInt32(cbxEspecialidad.SelectedValue);
                 cargarDoctores(idEspecialidad);
@@ -236,16 +246,7 @@ namespace CpConsultorioMedico
                 cita.idDoctor = Convert.ToInt32(cbxDoctor.SelectedValue);
                 cita.fecha = dtpFecha.Value;
                 cita.hora = (TimeSpan)cbxHora.SelectedItem;
-                cita.usuarioRegistro = "Vivi";
-                //doctor.usuarioRegistro = Util.usuario.usuario1;
-
-                /*Usuario usuario = null;
-                if (!string.IsNullOrEmpty(txtUsuario.Text))
-                {
-                    usuario = new Usuario();
-                    usuario.usuario1 = txtUsuario.Text.Trim();
-                    usuario.clave = Util.Encrypt("hola123");
-                }*/
+                cita.usuarioRegistro = Util.usuario.usuario1;
 
                 if (esNuevo)
                 {
@@ -264,7 +265,6 @@ namespace CpConsultorioMedico
                     var paciente = PacienteCln.buscar(txtPaciente.Text.Trim());
                     cita.idPaciente = paciente.id;
                     CitaCln.actualizar(cita);
-                    //DoctorCln.actualizar(doctor, txtUsuario.Text.Trim(), Util.Encrypt("hola123"));
                 }
                 listar();
                 btnCancelar.PerformClick();
@@ -303,16 +303,48 @@ namespace CpConsultorioMedico
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
             string paciente=dgvLista.Rows[index].Cells["nombreCompletoPaciente"].Value.ToString();
             string especialidad = dgvLista.Rows[index].Cells["nombre"].Value.ToString();
-            new FrmPago(this,id,paciente,especialidad).ShowDialog();
+            int idEspecialidad = Convert.ToInt32(dgvLista.Rows[index].Cells["idEspecialidad"].Value);
+            new FrmPago(this,id,paciente,especialidad,idEspecialidad).ShowDialog();
+        }
+
+        private void txtParametro_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtParametro.Text))
+            {
+                parametroValido = txtParametro.Text.Trim();
+            }
         }
 
         public void refrescar()
         {
-            using (var context = new LabConsultorioMedicoEntities())
+            var parametro = parametroValido;
+            if (dtpFFecha.Value > DateTime.Now)
             {
-                var lista = CitaCln.listarPa(txtParametro.Text.Trim());
+               var lista = CitaCln.listarFecha(dtpFFecha.Value);
+               dgvLista.DataSource = lista;
+                }
+            else
+            {
+                var lista = CitaCln.listarPa(parametro);
                 dgvLista.DataSource = lista;
             }
         }
+        private void dgvLista_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvLista.CurrentRow != null)
+            {
+                var pagada = dgvLista.CurrentRow.Cells["Pagada"].Value.ToString();
+
+                if (pagada == "Sí")
+                {
+                    btnPagar.Enabled = false;
+                }
+                else
+                {
+                    btnPagar.Enabled = true;
+                }
+            }
+        }
+
     }
 }
