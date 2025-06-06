@@ -329,6 +329,14 @@ namespace CpConsultorioMedico
                 dgvLista.DataSource = lista;
             }
         }
+<<<<<<< HEAD
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+
+        }
+=======
         private void dgvLista_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvLista.CurrentRow != null)
@@ -346,5 +354,6 @@ namespace CpConsultorioMedico
             }
         }
 
+>>>>>>> 3109c1f26d07c175d7994cc1dacec2ad5db1d9e1
     }
 }

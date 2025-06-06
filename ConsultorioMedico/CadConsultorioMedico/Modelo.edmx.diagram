@@ -4,8 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD
       <Diagram DiagramId="63ef61280a5145d8a882cd0213469aea" Name="Diagram1">
+=======
+<<<<<<< HEAD
+      <Diagram DiagramId="ea8381fa421740b5992a32a8741aac61" Name="Diagram1">
+        <EntityTypeShape EntityType="LabConsultorioMedicoModel.Cita" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+=======
+      <Diagram DiagramId="4ec9eb08057f4f8382910141d7d759e9" Name="Diagram1">
+>>>>>>> 6942feb26c571e283b1d2f3d398b1da72e42775c
         <EntityTypeShape EntityType="LabConsultorioMedicoModel.Cita" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+>>>>>>> 3109c1f26d07c175d7994cc1dacec2ad5db1d9e1
         <EntityTypeShape EntityType="LabConsultorioMedicoModel.Concepto" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LabConsultorioMedicoModel.Doctor" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="LabConsultorioMedicoModel.Especialidad" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
