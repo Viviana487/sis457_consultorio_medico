@@ -197,6 +197,7 @@
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLista.Size = new System.Drawing.Size(1080, 238);
             this.dgvLista.TabIndex = 0;
+            this.dgvLista.SelectionChanged += new System.EventHandler(this.dgvLista_SelectionChanged);
             // 
             // pbxLogo
             // 
@@ -469,6 +470,7 @@
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(187, 26);
             this.txtParametro.TabIndex = 58;
+            this.txtParametro.TextChanged += new System.EventHandler(this.txtParametro_TextChanged);
             this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // lblParametro

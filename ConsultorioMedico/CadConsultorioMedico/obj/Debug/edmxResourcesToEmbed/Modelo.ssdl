@@ -21,6 +21,10 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idEspecialidad" Type="int" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="costo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="estado" Type="smallint" Nullable="false" />
   </EntityType>
   <EntityType Name="Doctor">
     <Key>
@@ -81,7 +85,6 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idCita" Type="int" Nullable="false" />
     <Property Name="idConcepto" Type="int" Nullable="false" />
-    <Property Name="costo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="fecha" Type="date" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
@@ -222,7 +225,7 @@
   <Function Name="paCitaListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametro" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="paCitaPorFechaListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="paCitaporFechaListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametrofecha" Type="date" Mode="In" />
   </Function>
   <Function Name="paDoctorListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

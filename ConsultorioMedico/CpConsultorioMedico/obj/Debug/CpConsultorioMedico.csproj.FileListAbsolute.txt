@@ -103,6 +103,7 @@ C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMe
 C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.csproj.CoreCompileInputs.cache
 C:\Users\PILCO PC\Documents\proyecto_457\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsul.4905FF5E.Up2Date
 C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.FrmLogin.resources
+<<<<<<< HEAD
 C:\Users\PILCO PC\Documents\AYUDA\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.csproj.AssemblyReference.cache
 C:\Users\PILCO PC\Documents\AYUDA\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.exe.config
 C:\Users\PILCO PC\Documents\AYUDA\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.FrmCita.resources
@@ -137,3 +138,18 @@ C:\Users\PILCO PC\Documents\AYUDA\sis457_consultorio_medico\ConsultorioMedico\Cp
 C:\Users\PILCO PC\Documents\AYUDA\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\EntityFramework.xml
 C:\Users\PILCO PC\Documents\AYUDA\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\PILCO PC\Documents\AYUDA\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsul.4905FF5E.Up2Date
+=======
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\obj\Debug\CpConsultorioMedico.FrmConcepto.resources
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Excel.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Report.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Zip.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.BarCode.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.Bitmap.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.C1DX.4.5.2.dll
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Excel.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Report.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.C1Zip.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.BarCode.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.Bitmap.4.5.2.xml
+C:\Users\ASUS\Desktop\sis457_consultorio_medico\ConsultorioMedico\CpConsultorioMedico\bin\Debug\C1.Win.C1DX.4.5.2.xml
+>>>>>>> 3109c1f26d07c175d7994cc1dacec2ad5db1d9e1

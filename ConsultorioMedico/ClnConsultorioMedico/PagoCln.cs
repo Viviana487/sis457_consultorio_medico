@@ -25,7 +25,6 @@ namespace ClnConsultorioMedico
                 {
                     var existente = context.Pago.Find(pago.id);
                     existente.idConcepto = pago.idConcepto;
-                    existente.costo = pago.costo;
                     existente.fechaRegistro = pago.fechaRegistro;
                     existente.usuarioRegistro = pago.usuarioRegistro;
                     existente.fecha = pago.fecha;

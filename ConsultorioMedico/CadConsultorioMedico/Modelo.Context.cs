@@ -45,13 +45,13 @@ namespace CadConsultorioMedico
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paCitaListar_Result>("paCitaListar", parametroParameter);
         }
     
-        public virtual ObjectResult<paCitaPorFechaListar_Result> paCitaPorFechaListar(Nullable<System.DateTime> parametrofecha)
+        public virtual ObjectResult<paCitaporFechaListar_Result> paCitaporFechaListar(Nullable<System.DateTime> parametrofecha)
         {
             var parametrofechaParameter = parametrofecha.HasValue ?
                 new ObjectParameter("parametrofecha", parametrofecha) :
                 new ObjectParameter("parametrofecha", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paCitaPorFechaListar_Result>("paCitaPorFechaListar", parametrofechaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paCitaporFechaListar_Result>("paCitaporFechaListar", parametrofechaParameter);
         }
     
         public virtual ObjectResult<paDoctorListar_Result> paDoctorListar(string parametro)

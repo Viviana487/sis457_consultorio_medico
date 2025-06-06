@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CadConsultorioMedico;
 using ClnConsultorioMedico;
+using CpMinerva;
 
 namespace CpConsultorioMedico
 {
@@ -173,31 +174,30 @@ namespace CpConsultorioMedico
                 doctor.idEspecialidad = Convert.ToInt32(cbxEspecialidad.SelectedValue);
                 doctor.direccion = txtDireccion.Text.Trim();
                 doctor.celular = Convert.ToInt64(txtCelular.Text);
-                //doctor.usuarioRegistro = Util.usuario.usuario1;
-
-                /*Usuario usuario = null;
+                doctor.usuarioRegistro = Util.usuario.usuario1;
+                Usuario usuario = null;
                 if (!string.IsNullOrEmpty(txtUsuario.Text))
                 {
                     usuario = new Usuario();
                     usuario.usuario1 = txtUsuario.Text.Trim();
                     usuario.clave = Util.Encrypt("hola123");
-                }*/
+                }
 
                 if (esNuevo)
                 {
                     doctor.fechaRegistro = DateTime.Now;
                     doctor.estado = 1;
-                    //DoctorCln.insertar(doctor, usuario);
+                    DoctorCln.insertar(doctor, usuario);
                 }
                 else
                 {
                     int index = dgvLista.CurrentCell.RowIndex;
                     doctor.id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
-                    //DoctorCln.actualizar(doctor, txtUsuario.Text.Trim(), Util.Encrypt("hola123"));
+                    DoctorCln.actualizar(doctor, txtUsuario.Text.Trim(), Util.Encrypt("hola123"));
                 }
                 listar();
                 btnCancelar.PerformClick();
-                MessageBox.Show("Registro guardado correctamente", "::: Consultorio Médico - Mensaje :::",
+                MessageBox.Show("Doctor guardado correctamente", "::: Consultorio Médico - Mensaje :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

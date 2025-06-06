@@ -57,11 +57,11 @@ namespace ClnConsultorioMedico
                 return context.paCitaListar(parametro).ToList();
             }
         }
-        public static List<paCitaPorFechaListar_Result> listarFecha(DateTime parametroFecha)
+        public static List<paCitaporFechaListar_Result> listarFecha(DateTime parametroFecha)
         {
             using (var context = new LabConsultorioMedicoEntities())
             {
-                return context.paCitaPorFechaListar(parametroFecha).ToList();
+                return context.paCitaporFechaListar(parametroFecha).ToList();
             }
         }
         public static Cita obtenerIdCita(string Paciente)
