@@ -345,6 +345,8 @@ namespace CpConsultorioMedico
                 if (pagada == "Sí")
                 {
                     btnPagar.Enabled = false;
+                    btnEditar.Enabled = false;
+                    btnEliminar.Enabled = false;
                 }
                 else
                 {

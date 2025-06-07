@@ -278,7 +278,7 @@
             this.txtUsuario.MaxLength = 100;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(173, 22);
-            this.txtUsuario.TabIndex = 101;
+            this.txtUsuario.TabIndex = 6;
             // 
             // lblUsuario
             // 
@@ -299,7 +299,7 @@
             this.cbxEspecialidad.Location = new System.Drawing.Point(118, 77);
             this.cbxEspecialidad.Name = "cbxEspecialidad";
             this.cbxEspecialidad.Size = new System.Drawing.Size(207, 25);
-            this.cbxEspecialidad.TabIndex = 99;
+            this.cbxEspecialidad.TabIndex = 3;
             // 
             // btnCancelar
             // 
@@ -310,7 +310,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelar.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelar.TabIndex = 98;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -325,7 +325,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnGuardar.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardar.TabIndex = 97;
+            this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -338,7 +338,7 @@
             this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(313, 22);
-            this.txtDireccion.TabIndex = 96;
+            this.txtDireccion.TabIndex = 4;
             // 
             // lblDirección
             // 
@@ -358,7 +358,7 @@
             this.txtCelular.MaxLength = 100;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(173, 22);
-            this.txtCelular.TabIndex = 94;
+            this.txtCelular.TabIndex = 5;
             // 
             // lblCelular
             // 
@@ -389,7 +389,7 @@
             this.txtDoctor.MaxLength = 100;
             this.txtDoctor.Name = "txtDoctor";
             this.txtDoctor.Size = new System.Drawing.Size(284, 22);
-            this.txtDoctor.TabIndex = 91;
+            this.txtDoctor.TabIndex = 2;
             // 
             // lblDoctor
             // 
@@ -409,7 +409,7 @@
             this.txtCedulaIdentidad.MaxLength = 100;
             this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
             this.txtCedulaIdentidad.Size = new System.Drawing.Size(207, 22);
-            this.txtCedulaIdentidad.TabIndex = 89;
+            this.txtCedulaIdentidad.TabIndex = 1;
             // 
             // lblCedulaIdentidad
             // 

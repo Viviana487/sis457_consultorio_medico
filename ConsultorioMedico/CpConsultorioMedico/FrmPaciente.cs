@@ -81,7 +81,7 @@ namespace CpConsultorioMedico
         {
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
-            string nombre = dgvLista.Rows[index].Cells["nombreCompleto"].Value.ToString();
+            string nombre = dgvLista.Rows[index].Cells["nombreCompletoPaciente"].Value.ToString();
             DialogResult dialog = MessageBox.Show($"¿Está seguro de eliminar al paciente {nombre}?",
                 "::: Consultorio Médico - Mensaje :::", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 

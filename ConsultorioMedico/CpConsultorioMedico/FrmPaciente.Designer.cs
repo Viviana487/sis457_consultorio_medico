@@ -80,7 +80,7 @@
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(714, 85);
-            this.lblTitulo.TabIndex = 2;
+            this.lblTitulo.TabIndex = 22;
             this.lblTitulo.Text = "Pacientes";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -145,14 +145,14 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.UpArrow;
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnNuevo.Image = global::CpConsultorioMedico.Properties.Resources.Nuevo;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(120, 3);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.btnNuevo.Size = new System.Drawing.Size(100, 40);
-            this.btnNuevo.TabIndex = 6;
+            this.btnNuevo.TabIndex = 26;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEditar.Size = new System.Drawing.Size(100, 40);
-            this.btnEditar.TabIndex = 7;
+            this.btnEditar.TabIndex = 27;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -180,7 +180,7 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEliminar.Size = new System.Drawing.Size(100, 40);
-            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCerrar.Size = new System.Drawing.Size(100, 40);
-            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.TabIndex = 29;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelar.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelar.TabIndex = 63;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -279,7 +279,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnGuardar.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardar.TabIndex = 62;
+            this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -312,8 +312,8 @@
             this.txtCelular.MaxLength = 100;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(187, 22);
-            this.txtCelular.TabIndex = 59;
-            this.txtCelular.Tag = "3";
+            this.txtCelular.TabIndex = 3;
+            this.txtCelular.Tag = "";
             // 
             // lblCelular
             // 

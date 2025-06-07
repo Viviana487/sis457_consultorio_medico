@@ -80,7 +80,7 @@ namespace ClnConsultorioMedico
         {
             using (var context = new LabConsultorioMedicoEntities())
             {
-                var paciente = context.Paciente.FirstOrDefault(x => x.cedulaIdentidad == cedulaIdentidad);
+                var paciente = context.Paciente.FirstOrDefault(x => x.cedulaIdentidad == cedulaIdentidad && x.estado != -1);
                 return paciente != null ? paciente.nombreCompletoPaciente : null;
             }
         }

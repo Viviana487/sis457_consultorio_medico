@@ -35,6 +35,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>consultorio.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="C1.C1Excel.4.5.2, Version=4.5.20193.393, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.C1Report.4.5.2, Version=4.5.20193.393, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
@@ -309,6 +314,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ayuda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="consultorio.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
