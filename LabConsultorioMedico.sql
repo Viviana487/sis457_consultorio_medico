@@ -39,7 +39,6 @@ CREATE TABLE Paciente (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   cedulaIdentidad VARCHAR(12) NOT NULL,
   nombreCompletoPaciente VARCHAR(30) NOT NULL,
-  fechaNacimiento DATE NOT NULL,
   direccion VARCHAR(250) NOT NULL,
   celular BIGINT NOT NULL
 );
@@ -153,11 +152,11 @@ AS
 GO
 CREATE PROC paDoctorListar @parametro VARCHAR(100)
 AS
-  SELECT d.id, d.idEspecialidad, d.cedulaIdentidad,d.nombreCompletoDoctor,e.nombre,d.direccion,d.celular, u.usuario, d.usuarioRegistro, d.FechaRegistro, d.estado
+  SELECT d.id, d.idEspecialidad, d.cedulaIdentidad,d.nombreCompletoDoctor,e.nombre,d.direccion,d.celular, u.usuario, d.usuarioRegistro, d.FechaRegistro, d.estado, e.estado as estadoE
   FROM Doctor d
   LEFT JOIN Usuario u ON d.id = u.idDoctor
   LEFT JOIN Especialidad e ON d.idEspecialidad = e.id
-  WHERE d.estado<>-1 AND d.cedulaIdentidad+d.nombreCompletoDoctor+e.nombre LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  WHERE d.estado<>-1 AND e.estado<>-1 AND d.cedulaIdentidad+d.nombreCompletoDoctor+e.nombre LIKE '%'+REPLACE(@parametro,' ','%')+'%'
   ORDER BY d.estado DESC, d.nombreCompletoDoctor ASC;
 
 GO
@@ -261,10 +260,10 @@ VALUES (1,'12345678','Juan Pérez López', 'ave. americas', 11121314),
 (2,'87654321', 'María González Padilla', ' 6 de agosto', 12131415),
 (2,'18273737','pablito alcachofa', 'mercado campesino', 18273474);
 
-INSERT INTO Paciente (cedulaIdentidad, nombreCompletoPaciente, direccion, celular, fechaNacimiento) VALUES
-('12345678', 'Juan Pérez Gómez', 'Av. Siempre Viva 123', 789456123, '1990-03-03'),
-('87654321', 'María López Sánchez', 'Calle Falsa 456', 712345678, '2000-05-05'),
-('45678912', 'Carlos Ramírez Salazar', 'Av. Central 890', 756789432, '2002-07-07');
+INSERT INTO Paciente (cedulaIdentidad, nombreCompletoPaciente, direccion, celular) VALUES
+('12345678', 'Juan Pérez Gómez', 'Av. Siempre Viva 123', 789456123),
+('87654321', 'María López Sánchez', 'Calle Falsa 456', 712345678),
+('45678912', 'Carlos Ramírez Salazar', 'Av. Central 890', 756789432);
 
 INSERT INTO Cita (idDoctor, idPaciente,idEspecialidad, fecha, hora) VALUES
 (1, 1,1, '2025-07-01', '09:00'),
@@ -294,11 +293,12 @@ INSERT INTO HistorialClinico (idPaciente, idCita, diagnostico, tratamiento) VALU
 
 
 INSERT INTO Usuario(usuario, clave, idDoctor)
-VALUES ('gvidal', 'i0hcoO/nssY6WOs9pOp5Xw==', 1);
+VALUES ('gvidal', 'i0hcoO/nssY6WOs9pOp5Xw==', 1); --usuario prueba
 
 SELECT * FROM Doctor;
 SELECT * FROM Usuario;
 SELECT * FROM HistorialClinico;
+SELECT * FROM Cita;
 
 EXEC paDoctorListar '';
 EXEC paEspecialidadListar '';

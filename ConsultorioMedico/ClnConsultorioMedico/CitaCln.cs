@@ -71,5 +71,16 @@ namespace ClnConsultorioMedico
                 return context.Cita.Include(x => x.Paciente).FirstOrDefault(x => x.Paciente.nombreCompletoPaciente == Paciente);
             }
         }
+        public static bool existeCita(int idPaciente, int idEspecialidad, DateTime fecha)
+        {
+            using (var context = new LabConsultorioMedicoEntities())
+            {
+                return context.Cita.Any(c =>
+                    c.idPaciente == idPaciente &&
+                    c.idEspecialidad == idEspecialidad &&
+                    DbFunctions.TruncateTime(c.fecha) == fecha.Date &&
+                    c.estado != -1); // opcional si manejas citas anuladas con estado -1
+            }
+        }
     }
 }

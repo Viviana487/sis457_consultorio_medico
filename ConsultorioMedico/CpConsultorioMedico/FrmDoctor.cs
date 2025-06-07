@@ -28,6 +28,7 @@ namespace CpConsultorioMedico
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["idEspecialidad"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
+            dgvLista.Columns["estadoE"].Visible = false;
             dgvLista.Columns["usuario"].HeaderText = "Usuario";
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
             dgvLista.Columns["nombreCompletoDoctor"].HeaderText = "Nombre Completo";
@@ -60,7 +61,7 @@ namespace CpConsultorioMedico
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
-            Size = new Size(840, 690);
+            Size = new Size(840, 687);
             txtCedulaIdentidad.Focus();
         }
 
@@ -104,7 +105,7 @@ namespace CpConsultorioMedico
         private void btnEditar_Click(object sender, EventArgs e)
         {
             esNuevo = false;
-            Size = new Size(840, 690);
+            Size = new Size(840, 687);
 
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);

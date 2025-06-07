@@ -253,6 +253,13 @@ namespace CpConsultorioMedico
                     txtPaciente.Text = txtFPaciente.Text;
                     var cedulaIdentidad = txtParametro.Text.Trim();
                     var paciente = PacienteCln.buscarPorCedula(cedulaIdentidad);
+                    if (CitaCln.existeCita(paciente.id, Convert.ToInt32(cbxEspecialidad.SelectedValue), dtpFecha.Value))
+                    {
+                        MessageBox.Show("Este paciente ya tiene una cita registrada para esta especialidad en la misma fecha.",
+                            "::: Consultorio Médico - Mensaje :::",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                     cita.idPaciente = paciente.id;
                     cita.fechaRegistro = DateTime.Now;
                     cita.estado = 1;
@@ -329,14 +336,6 @@ namespace CpConsultorioMedico
                 dgvLista.DataSource = lista;
             }
         }
-<<<<<<< HEAD
-
-        private void lblTitulo_Click(object sender, EventArgs e)
-        {
-
-
-        }
-=======
         private void dgvLista_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvLista.CurrentRow != null)
@@ -353,7 +352,5 @@ namespace CpConsultorioMedico
                 }
             }
         }
-
->>>>>>> 3109c1f26d07c175d7994cc1dacec2ad5db1d9e1
     }
 }

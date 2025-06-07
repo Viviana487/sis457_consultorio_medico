@@ -51,8 +51,6 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtCelular = new System.Windows.Forms.TextBox();
             this.lblCelular = new System.Windows.Forms.Label();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.txtPaciente = new System.Windows.Forms.TextBox();
             this.lblPaciente = new System.Windows.Forms.Label();
             this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
@@ -78,10 +76,10 @@
             // 
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Wide Latin", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(15, 24);
+            this.lblTitulo.Location = new System.Drawing.Point(-8, 24);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(857, 85);
+            this.lblTitulo.Size = new System.Drawing.Size(714, 85);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Pacientes";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,7 +90,7 @@
             this.lblParametro.BackColor = System.Drawing.Color.Transparent;
             this.lblParametro.Location = new System.Drawing.Point(12, 116);
             this.lblParametro.Name = "lblParametro";
-            this.lblParametro.Size = new System.Drawing.Size(506, 21);
+            this.lblParametro.Size = new System.Drawing.Size(379, 17);
             this.lblParametro.TabIndex = 8;
             this.lblParametro.Text = "Buscar por Cédula de identidad, Nombres, Apellido Paterno, Apellido Materno:";
             // 
@@ -101,14 +99,15 @@
             this.txtParametro.Location = new System.Drawing.Point(15, 140);
             this.txtParametro.MaxLength = 100;
             this.txtParametro.Name = "txtParametro";
-            this.txtParametro.Size = new System.Drawing.Size(753, 26);
+            this.txtParametro.Size = new System.Drawing.Size(553, 22);
             this.txtParametro.TabIndex = 9;
+            this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::CpConsultorioMedico.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(774, 131);
+            this.btnBuscar.Location = new System.Drawing.Point(587, 131);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBuscar.Size = new System.Drawing.Size(98, 40);
@@ -130,7 +129,7 @@
             this.dgvLista.ReadOnly = true;
             this.dgvLista.RowHeadersWidth = 51;
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista.Size = new System.Drawing.Size(849, 150);
+            this.dgvLista.Size = new System.Drawing.Size(661, 150);
             this.dgvLista.TabIndex = 0;
             // 
             // gbxLista
@@ -139,7 +138,7 @@
             this.gbxLista.Controls.Add(this.dgvLista);
             this.gbxLista.Location = new System.Drawing.Point(10, 170);
             this.gbxLista.Name = "gbxLista";
-            this.gbxLista.Size = new System.Drawing.Size(862, 179);
+            this.gbxLista.Size = new System.Drawing.Size(677, 179);
             this.gbxLista.TabIndex = 11;
             this.gbxLista.TabStop = false;
             this.gbxLista.Text = "Lista de Pacientes";
@@ -149,10 +148,10 @@
             this.btnNuevo.Cursor = System.Windows.Forms.Cursors.UpArrow;
             this.btnNuevo.Image = global::CpConsultorioMedico.Properties.Resources.Nuevo;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(118, 4);
+            this.btnNuevo.Location = new System.Drawing.Point(120, 3);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnNuevo.Size = new System.Drawing.Size(120, 40);
+            this.btnNuevo.Size = new System.Drawing.Size(100, 40);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,10 +162,10 @@
             // 
             this.btnEditar.Image = global::CpConsultorioMedico.Properties.Resources.Editar_persona;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(275, 4);
+            this.btnEditar.Location = new System.Drawing.Point(236, 4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnEditar.Size = new System.Drawing.Size(120, 40);
+            this.btnEditar.Size = new System.Drawing.Size(100, 40);
             this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -177,10 +176,10 @@
             // 
             this.btnEliminar.Image = global::CpConsultorioMedico.Properties.Resources.Eliminar_persona;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(421, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(351, 4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnEliminar.Size = new System.Drawing.Size(120, 40);
+            this.btnEliminar.Size = new System.Drawing.Size(100, 40);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -191,10 +190,10 @@
             // 
             this.btnCerrar.Image = global::CpConsultorioMedico.Properties.Resources.Cerrar;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(582, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(467, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCerrar.Size = new System.Drawing.Size(120, 40);
+            this.btnCerrar.Size = new System.Drawing.Size(100, 40);
             this.btnCerrar.TabIndex = 9;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -210,14 +209,14 @@
             this.pnlAcciones.Controls.Add(this.btnNuevo);
             this.pnlAcciones.Location = new System.Drawing.Point(15, 359);
             this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(851, 47);
+            this.pnlAcciones.Size = new System.Drawing.Size(663, 47);
             this.pnlAcciones.TabIndex = 12;
             // 
             // pbxLogo
             // 
             this.pbxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pbxLogo.Image = global::CpConsultorioMedico.Properties.Resources.Logo2;
-            this.pbxLogo.Location = new System.Drawing.Point(762, 12);
+            this.pbxLogo.Location = new System.Drawing.Point(575, 12);
             this.pbxLogo.Name = "pbxLogo";
             this.pbxLogo.Size = new System.Drawing.Size(110, 110);
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,14 +230,13 @@
             this.lblAgregarEditarPaciente.Location = new System.Drawing.Point(-6, 418);
             this.lblAgregarEditarPaciente.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblAgregarEditarPaciente.Name = "lblAgregarEditarPaciente";
-            this.lblAgregarEditarPaciente.Size = new System.Drawing.Size(895, 39);
+            this.lblAgregarEditarPaciente.Size = new System.Drawing.Size(712, 39);
             this.lblAgregarEditarPaciente.TabIndex = 32;
             this.lblAgregarEditarPaciente.Text = "Agregar/Editar Paciente";
             this.lblAgregarEditarPaciente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbxDatos
             // 
-            this.gbxDatos.AutoSize = true;
             this.gbxDatos.BackColor = System.Drawing.Color.Transparent;
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.btnGuardar);
@@ -246,15 +244,13 @@
             this.gbxDatos.Controls.Add(this.lblDireccion);
             this.gbxDatos.Controls.Add(this.txtCelular);
             this.gbxDatos.Controls.Add(this.lblCelular);
-            this.gbxDatos.Controls.Add(this.dtpFechaNacimiento);
-            this.gbxDatos.Controls.Add(this.lblFechaNacimiento);
             this.gbxDatos.Controls.Add(this.txtPaciente);
             this.gbxDatos.Controls.Add(this.lblPaciente);
             this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
             this.gbxDatos.Controls.Add(this.lblCedulaIdentidad);
-            this.gbxDatos.Location = new System.Drawing.Point(10, 460);
+            this.gbxDatos.Location = new System.Drawing.Point(15, 460);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(862, 187);
+            this.gbxDatos.Size = new System.Drawing.Size(672, 189);
             this.gbxDatos.TabIndex = 33;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
@@ -264,7 +260,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::CpConsultorioMedico.Properties.Resources.Cancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(448, 122);
+            this.btnCancelar.Location = new System.Drawing.Point(394, 139);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelar.Size = new System.Drawing.Size(98, 40);
@@ -279,7 +275,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::CpConsultorioMedico.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(334, 122);
+            this.btnGuardar.Location = new System.Drawing.Point(281, 139);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnGuardar.Size = new System.Drawing.Size(98, 40);
@@ -292,99 +288,81 @@
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(123, 85);
+            this.txtDireccion.Location = new System.Drawing.Point(161, 111);
             this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(344, 26);
-            this.txtDireccion.TabIndex = 61;
+            this.txtDireccion.Size = new System.Drawing.Size(470, 22);
+            this.txtDireccion.TabIndex = 4;
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.BackColor = System.Drawing.Color.Transparent;
             this.lblDireccion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(10, 88);
+            this.lblDireccion.Location = new System.Drawing.Point(48, 116);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(75, 21);
+            this.lblDireccion.Size = new System.Drawing.Size(56, 17);
             this.lblDireccion.TabIndex = 60;
             this.lblDireccion.Text = "Dirección:";
             // 
             // txtCelular
             // 
             this.txtCelular.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(467, 56);
+            this.txtCelular.Location = new System.Drawing.Point(161, 83);
             this.txtCelular.MaxLength = 100;
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(187, 26);
+            this.txtCelular.Size = new System.Drawing.Size(187, 22);
             this.txtCelular.TabIndex = 59;
+            this.txtCelular.Tag = "3";
             // 
             // lblCelular
             // 
             this.lblCelular.AutoSize = true;
             this.lblCelular.BackColor = System.Drawing.Color.Transparent;
             this.lblCelular.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelular.Location = new System.Drawing.Point(363, 60);
+            this.lblCelular.Location = new System.Drawing.Point(48, 86);
             this.lblCelular.Name = "lblCelular";
-            this.lblCelular.Size = new System.Drawing.Size(60, 21);
+            this.lblCelular.Size = new System.Drawing.Size(46, 17);
             this.lblCelular.TabIndex = 58;
             this.lblCelular.Text = "Celular:";
-            // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(123, 55);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(213, 26);
-            this.dtpFechaNacimiento.TabIndex = 57;
-            // 
-            // lblFechaNacimiento
-            // 
-            this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.BackColor = System.Drawing.Color.Transparent;
-            this.lblFechaNacimiento.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(8, 59);
-            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(148, 21);
-            this.lblFechaNacimiento.TabIndex = 56;
-            this.lblFechaNacimiento.Text = "Fecha de Nacimiento:";
             // 
             // txtPaciente
             // 
             this.txtPaciente.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaciente.Location = new System.Drawing.Point(467, 27);
+            this.txtPaciente.Location = new System.Drawing.Point(161, 55);
             this.txtPaciente.MaxLength = 100;
             this.txtPaciente.Name = "txtPaciente";
-            this.txtPaciente.Size = new System.Drawing.Size(389, 26);
-            this.txtPaciente.TabIndex = 51;
+            this.txtPaciente.Size = new System.Drawing.Size(261, 22);
+            this.txtPaciente.TabIndex = 2;
             // 
             // lblPaciente
             // 
             this.lblPaciente.AutoSize = true;
             this.lblPaciente.BackColor = System.Drawing.Color.Transparent;
             this.lblPaciente.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaciente.Location = new System.Drawing.Point(363, 30);
+            this.lblPaciente.Location = new System.Drawing.Point(48, 58);
             this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(130, 21);
+            this.lblPaciente.Size = new System.Drawing.Size(98, 17);
             this.lblPaciente.TabIndex = 50;
             this.lblPaciente.Text = "Nombre Completo:";
             // 
             // txtCedulaIdentidad
             // 
             this.txtCedulaIdentidad.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaIdentidad.Location = new System.Drawing.Point(123, 27);
+            this.txtCedulaIdentidad.Location = new System.Drawing.Point(161, 26);
             this.txtCedulaIdentidad.MaxLength = 100;
             this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
-            this.txtCedulaIdentidad.Size = new System.Drawing.Size(161, 26);
-            this.txtCedulaIdentidad.TabIndex = 49;
+            this.txtCedulaIdentidad.Size = new System.Drawing.Size(161, 22);
+            this.txtCedulaIdentidad.TabIndex = 1;
             // 
             // lblCedulaIdentidad
             // 
             this.lblCedulaIdentidad.AutoSize = true;
             this.lblCedulaIdentidad.BackColor = System.Drawing.Color.Transparent;
             this.lblCedulaIdentidad.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedulaIdentidad.Location = new System.Drawing.Point(10, 30);
+            this.lblCedulaIdentidad.Location = new System.Drawing.Point(48, 29);
             this.lblCedulaIdentidad.Name = "lblCedulaIdentidad";
-            this.lblCedulaIdentidad.Size = new System.Drawing.Size(142, 21);
+            this.lblCedulaIdentidad.Size = new System.Drawing.Size(107, 17);
             this.lblCedulaIdentidad.TabIndex = 48;
             this.lblCedulaIdentidad.Text = "Cédula de identidad:";
             // 
@@ -410,12 +388,12 @@
             // 
             // FrmPaciente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BackgroundImage = global::CpConsultorioMedico.Properties.Resources._3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(884, 636);
+            this.ClientSize = new System.Drawing.Size(699, 656);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.lblAgregarEditarPaciente);
             this.Controls.Add(this.pbxLogo);
@@ -470,8 +448,6 @@
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtCelular;
         private System.Windows.Forms.Label lblCelular;
-        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        private System.Windows.Forms.Label lblFechaNacimiento;
         private System.Windows.Forms.TextBox txtPaciente;
         private System.Windows.Forms.Label lblPaciente;
         private System.Windows.Forms.TextBox txtCedulaIdentidad;

@@ -31,7 +31,6 @@ namespace CpConsultorioMedico
             dgvLista.Columns["estado"].Visible = false;
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
             dgvLista.Columns["nombreCompletoPaciente"].HeaderText = "Nombre Completo";
-            dgvLista.Columns["fechaNacimiento"].HeaderText = "Fecha Nacimiento";
             dgvLista.Columns["direccion"].HeaderText = "Dirección";
             dgvLista.Columns["celular"].HeaderText = "Celular";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
@@ -45,21 +44,20 @@ namespace CpConsultorioMedico
         {
             txtCedulaIdentidad.Clear();
             txtPaciente.Clear();
-            dtpFechaNacimiento.Value = DateTime.Now;
             txtDireccion.Clear();
             txtCelular.Clear();
         }
 
         private void FrmPaciente_Load(object sender, EventArgs e)
         {
-            Size = new Size(902, 464);
+            Size = new Size(715, 450);
             listar();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
-            Size = new Size(902, 683);
+            Size = new Size(715, 695);
             txtCedulaIdentidad.Focus();
         }
 
@@ -99,7 +97,7 @@ namespace CpConsultorioMedico
         private void btnEditar_Click(object sender, EventArgs e)
         {
             esNuevo = false;
-            Size = new Size(840, 690);
+            Size = new Size(715, 695);
 
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
@@ -107,7 +105,6 @@ namespace CpConsultorioMedico
 
             txtCedulaIdentidad.Text = paciente.cedulaIdentidad;
             txtPaciente.Text = paciente.nombreCompletoPaciente;
-            dtpFechaNacimiento.Value = paciente.fechaNacimiento;
             txtDireccion.Text = paciente.direccion;
             txtCelular.Text = paciente.celular.ToString();
             txtCedulaIdentidad.Focus();
@@ -116,7 +113,7 @@ namespace CpConsultorioMedico
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Size = new Size(902, 464);
+            Size = new Size(715, 450);
             limpiar();
         }
 
@@ -127,9 +124,7 @@ namespace CpConsultorioMedico
             erpPaciente.SetError(txtPaciente, "");
             erpDireccion.SetError(txtDireccion, "");
             erpCelular.SetError(txtCelular, "");
-            erpFechaNacimiento.SetError(dtpFechaNacimiento, "");
-
-
+            
             if (string.IsNullOrEmpty(txtCedulaIdentidad.Text))
             {
                 erpCedulaIdentidad.SetError(txtCedulaIdentidad, "El campo Cédula de Identidad es obligatorio");
@@ -150,11 +145,6 @@ namespace CpConsultorioMedico
                 erpCelular.SetError(txtCelular, "El campo Celular es obligatorio o no tiene la longitud correcta");
                 esValido = false;
             }
-            if (dtpFechaNacimiento.Value.Date > DateTime.Now)
-            {
-                erpCelular.SetError(dtpFechaNacimiento, "El campo Fecha de Nacimiento es obligatorio o no tiene la longitud correcta");
-                esValido = false;
-            }
             return esValido;
         }
 
@@ -165,7 +155,6 @@ namespace CpConsultorioMedico
                 var paciente = new Paciente();
                 paciente.cedulaIdentidad = txtCedulaIdentidad.Text.Trim();
                 paciente.nombreCompletoPaciente= txtPaciente.Text.Trim();
-                paciente.fechaNacimiento = dtpFechaNacimiento.Value;
                 paciente.direccion = txtDireccion.Text.Trim();
                 paciente.celular = Convert.ToInt32(txtCelular.Text);
                 paciente.usuarioRegistro = Util.usuario.usuario1;
@@ -184,7 +173,7 @@ namespace CpConsultorioMedico
 
                 listar();
                 btnCancelar.PerformClick();
-                MessageBox.Show("Registro guardado correctamente", "::: Consultorio Médico - Mensaje :::",
+                MessageBox.Show("Paciente guardado correctamente", "::: Consultorio Médico - Mensaje :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

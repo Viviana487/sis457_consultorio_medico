@@ -28,11 +28,9 @@ namespace ClnConsultorioMedico
                 var existente = context.Paciente.Find(paciente.id);
                 existente.cedulaIdentidad = paciente.cedulaIdentidad;
                 existente.nombreCompletoPaciente = paciente.nombreCompletoPaciente;
-                existente.fechaNacimiento = paciente.fechaNacimiento;
                 existente.direccion = paciente.direccion;
                 existente.celular = paciente.celular;
                 existente.usuarioRegistro = paciente.usuarioRegistro;
-                existente.fechaRegistro = paciente.fechaRegistro;
                 existente.estado = paciente.estado;
                 return context.SaveChanges();
             }
