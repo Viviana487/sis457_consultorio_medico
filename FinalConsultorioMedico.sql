@@ -2,17 +2,20 @@
 GO
 USE [master]
 GO
-CREATE LOGIN [usrconsultoriomedico] WITH PASSWORD = N'123456',
+CREATE LOGIN [usrfinalconsultoriomedico] WITH PASSWORD = N'123456',
 	DEFAULT_DATABASE = [FinalConsultorioMedico],
 	CHECK_EXPIRATION = OFF,
 	CHECK_POLICY = ON
 GO
 USE [FinalConsultorioMedico]
 GO
-CREATE USER [usrconsultoriomedico] FOR LOGIN [usrconsultoriomedico]
+CREATE USER [usrfinalconsultoriomedico] FOR LOGIN [usrfinalconsultoriomedico]
 GO
-ALTER ROLE [db_owner] ADD MEMBER [usrconsultoriomedico]
+ALTER ROLE [db_owner] ADD MEMBER [usrfinalconsultoriomedico]
 GO
+
+DROP LOGIN usrfinalconsultoriomedico;
+Drop user usrfinalconsultoriomedico;
 
 DROP TABLE Pago;
 DROP TABLE Cita;
@@ -38,7 +41,9 @@ CREATE TABLE Concepto (
 CREATE TABLE Paciente (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   cedulaIdentidad VARCHAR(12) NOT NULL,
-  nombreCompletoPaciente VARCHAR(30) NOT NULL,
+  nombres VARCHAR(30) NOT NULL,
+  primerApellido VARCHAR(30) NULL,
+  segundoApellido VARCHAR(30) NULL,
   direccion VARCHAR(250) NOT NULL,
   celular BIGINT NOT NULL
 );
@@ -47,7 +52,9 @@ CREATE TABLE Doctor (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   idEspecialidad INT NOT NULL,
   cedulaIdentidad VARCHAR(12) NOT NULL,
-  nombreCompletoDoctor VARCHAR(30) NOT NULL,
+  nombres VARCHAR(30) NOT NULL,
+  primerApellido VARCHAR(30) NULL,
+  segundoApellido VARCHAR(30) NULL,
   direccion VARCHAR(250) NOT NULL,
   celular BIGINT NOT NULL,
   CONSTRAINT fk_Doctor_Especialidad FOREIGN KEY(idEspecialidad) REFERENCES Especialidad(id)
@@ -118,16 +125,16 @@ VALUES ('Cardiología')
 INSERT INTO Especialidad (nombre)
 VALUES ('Odontología')
 
-INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombreCompletoDoctor, direccion, celular)
-VALUES (1,'12345678','Juan Pérez López', 'ave. americas', 11121314), 
-(1,'12345678','Gloria Rosales Cardona', 'Av. Pacífico #456', 77123456),
-(2,'87654321', 'María González Padilla', ' 6 de agosto', 12131415),
-(2,'18273737','pablito alcachofa', 'mercado campesino', 18273474);
+INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido,segundoApellido, direccion, celular)
+VALUES (1,'12345678','Gloria', 'Rosales',´'Cardona', 'Av. Pacífico #456', 77123456),
+(1,'12345678','Juan', 'Pérez', 'López', 'ave. americas', 11121314), 
+(2,'87654321', 'María', 'González', 'Padilla', ' 6 de agosto', 12131415)
 
-INSERT INTO Paciente (cedulaIdentidad, nombreCompletoPaciente, direccion, celular) VALUES
-('12345678', 'Juan Pérez Gómez', 'Av. Siempre Viva 123', 789456123),
-('87654321', 'María López Sánchez', 'Calle Falsa 456', 712345678),
-('45678912', 'Carlos Ramírez Salazar', 'Av. Central 890', 756789432);
+
+INSERT INTO Paciente (cedulaIdentidad, nombres, primerApellido,segundoApellido, direccion, celular) VALUES
+('12345678', 'Juan', 'Pérez', 'Gómez', 'Av. Siempre Viva 123', 789456123),
+('87654321', 'María', 'López', 'Sánchez', 'Calle Falsa 456', 712345678),
+('45678912', 'Carlos', 'Ramírez', 'Salazar', 'Av. Central 890', 756789432);
 
 INSERT INTO Cita (idDoctor, idPaciente,idEspecialidad, fecha, hora) VALUES
 (1, 1,1, '2025-07-01', '09:00'),

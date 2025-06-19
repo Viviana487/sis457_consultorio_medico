@@ -2,16 +2,16 @@
 GO
 USE [master]
 GO
-CREATE LOGIN [usrconsultoriomedico] WITH PASSWORD = N'123456',
+CREATE LOGIN [usrfinalconsultoriomedico] WITH PASSWORD = N'123456',
 	DEFAULT_DATABASE = [FinalConsultorioMedico],
 	CHECK_EXPIRATION = OFF,
 	CHECK_POLICY = ON
 GO
 USE [FinalConsultorioMedico]
 GO
-CREATE USER [usrconsultoriomedico] FOR LOGIN [usrconsultoriomedico]
+CREATE USER [usrfinalconsultoriomedico] FOR LOGIN [usrfinalconsultoriomedico]
 GO
-ALTER ROLE [db_owner] ADD MEMBER [usrconsultoriomedico]
+ALTER ROLE [db_owner] ADD MEMBER [usrfinalconsultoriomedico]
 GO
 
 DROP TABLE Pago;
