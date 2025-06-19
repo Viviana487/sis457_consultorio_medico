@@ -126,7 +126,7 @@ INSERT INTO Especialidad (nombre)
 VALUES ('Odontología')
 
 INSERT INTO Doctor (idEspecialidad,cedulaIdentidad, nombres, primerApellido,segundoApellido, direccion, celular)
-VALUES (1,'12345678','Gloria', 'Rosales',´'Cardona', 'Av. Pacífico #456', 77123456),
+VALUES (1,'12345678','Gloria', 'Rosales','Cardona', 'Av. Pacífico #456', 77123456),
 (1,'12345678','Juan', 'Pérez', 'López', 'ave. americas', 11121314), 
 (2,'87654321', 'María', 'González', 'Padilla', ' 6 de agosto', 12131415)
 
@@ -162,5 +162,4 @@ VALUES ('gvidal', 'i0hcoO/nssY6WOs9pOp5Xw==', 1); --usuario prueba
 
 SELECT * FROM Doctor;
 SELECT * FROM Usuario;
-SELECT * FROM HistorialClinico;
 SELECT * FROM Cita;
