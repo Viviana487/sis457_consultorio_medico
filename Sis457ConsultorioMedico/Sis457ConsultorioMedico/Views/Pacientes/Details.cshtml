@@ -1,73 +1,54 @@
 ﻿@model Sis457ConsultorioMedico.Models.Paciente
 
 @{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Detalles del Paciente";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Details</h1>
-
-<div>
-    <h4>Paciente</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CedulaIdentidad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CedulaIdentidad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombres)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombres)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrimerApellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrimerApellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SegundoApellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SegundoApellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Celular)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Celular)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UsuarioRegistro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioRegistro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaRegistro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-    </dl>
+<div class="container position-relative pb-5" data-aos="fade-up" data-aos-delay="100">
+	<div class="container section-title" data-aos="fade-up">
+		<h2>Detalles del Paciente</h2>
+	</div>
+	<dl class="row">
+		<dt class="col-sm-2">Cédula de Identidad</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.CedulaIdentidad)
+		</dd>
+		<dt class="col-sm-2">Nombres</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Nombres)
+		</dd>
+		<dt class="col-sm-2">Apellido Paterno</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PrimerApellido)
+		</dd>
+		<dt class="col-sm-2">Apellido Materno</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.SegundoApellido)
+		</dd>
+		<dt class="col-sm-2">Dirección</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Direccion)
+		</dd>
+		<dt class="col-sm-2">Celular</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Celular)
+		</dd>
+		<dt class="col-sm-2">Usuario Registro</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.UsuarioRegistro)
+		</dd>
+		<dt class="col-sm-2">Fecha de Registro</dt>
+		<dd class="col-sm-10">
+			@(Model.FechaRegistro.ToLongDateString() + " " + Model.FechaRegistro.ToShortTimeString())
+		</dd>
+		<dt class="col-sm-2">Estado</dt>
+		<dd class="col-sm-10">
+			@(Model.Estado == 1 ? "Activo" : "Inactivo")
+		</dd>
+	</dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="col-md-4 offset-md-1">
+	<a asp-action="Edit" asp-route-id="@Model?.Id"><i class="fa-solid fa-user-pen"></i> Editar</a> |
+	<a asp-action="Index"><i class="fa-solid fa-arrow-left"></i>Volver a la Lista</a>
 </div>
+

@@ -21,7 +21,7 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Doctores
         public async Task<IActionResult> Index()
         {
-            var finalConsultorioMedicoContext = await _context.Doctors.Where(x => x.Estado != -1).Include(x => x.IdEspecialidadNavigation).Include(x => x.Usuarios).ToListAsync();
+            var finalConsultorioMedicoContext = await _context.Doctores.Where(x => x.Estado != -1).Include(x => x.IdEspecialidadNavigation).Include(x => x.Usuarios).OrderBy(x => x.Nombres).ToListAsync();
             return View(finalConsultorioMedicoContext);
         }
 
@@ -33,7 +33,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
 
-            var doctor = await _context.Doctors
+            var doctor = await _context.Doctores
                 .Include(d => d.IdEspecialidadNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (doctor == null)
@@ -58,15 +58,34 @@ namespace Sis457ConsultorioMedico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Doctor doctor)
         {
-            if (string.IsNullOrWhiteSpace(doctor.PrimerApellido) || string.IsNullOrWhiteSpace(doctor.SegundoApellido))
+            doctor.UsuarioRegistro = "admin";
+            doctor.FechaRegistro = DateTime.Now;
+            doctor.Estado = 1;
+            if (!string.IsNullOrWhiteSpace(doctor.CedulaIdentidad))
+            {
+                bool ciExiste = await _context.Doctores
+                                    .AnyAsync(d => d.CedulaIdentidad == doctor.CedulaIdentidad);
+
+                if (ciExiste)
+                {
+                    ModelState.AddModelError("CedulaIdentidad", "Ya existe un doctor registrado con esta Cédula de Identidad.");
+                }
+            }
+            if (string.IsNullOrWhiteSpace(doctor.PrimerApellido) && string.IsNullOrWhiteSpace(doctor.SegundoApellido))
             {
                 ModelState.AddModelError("PrimerApellido", "Debe ingresar al menos un apellido.");
+                ModelState.AddModelError("SegundoApellido", "Debe ingresar al menos un apellido.");
             }
-            else
+            if (doctor.IdEspecialidad == 0)
             {
-                doctor.UsuarioRegistro = "admin";
-                doctor.FechaRegistro = DateTime.Now;
-                doctor.Estado = 1;
+                ModelState.AddModelError("IdEspecialidad", "Debe seleccionar una especialidad. ");
+            }
+            if (doctor.Celular.ToString().Length != 8)
+            {
+                ModelState.AddModelError("Celular", "El número de celular debe ser de 8 dígitos.");
+            }
+            if (ModelState.IsValid)
+            {
                 _context.Add(doctor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -83,12 +102,12 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
 
-            var doctor = await _context.Doctors.FindAsync(id);
+            var doctor = await _context.Doctores.FindAsync(id);
             if (doctor == null)
             {
                 return NotFound();
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", doctor.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre", doctor.IdEspecialidad);
             return View(doctor);
         }
 
@@ -103,12 +122,40 @@ namespace Sis457ConsultorioMedico.Controllers
             {
                 return NotFound();
             }
+            if (!string.IsNullOrWhiteSpace(doctor.CedulaIdentidad))
+            {
+                bool ciExisteParaOtroDoctor = await _context.Doctores
+                                                    .AnyAsync(x => x.CedulaIdentidad == doctor.CedulaIdentidad && x.Id != doctor.Id);
+
+                if (ciExisteParaOtroDoctor)
+                {
+                    ModelState.AddModelError("CedulaIdentidad", "Ya existe otro doctor registrado con esta Cédula de Identidad.");
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(doctor.PrimerApellido) && string.IsNullOrWhiteSpace(doctor.SegundoApellido))
+            {
+                ModelState.AddModelError("PrimerApellido", "Debe ingresar al menos un apellido.");
+                ModelState.AddModelError("SegundoApellido", "Debe ingresar al menos un apellido.");
+            }
+
+            if (doctor.IdEspecialidad == 0)
+            {
+                ModelState.AddModelError("IdEspecialidad", "Debe seleccionar una especialidad.");
+            }
+            if (doctor.Celular.ToString().Length != 8)
+            {
+                ModelState.AddModelError("Celular", "El número de celular debe ser de 8 dígitos.");
+            }
 
             if (ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(doctor);
+                    _context.Entry(doctor).Property(x => x.FechaRegistro).IsModified = false;
+                    _context.Entry(doctor).Property(x => x.UsuarioRegistro).IsModified = false;
+                    _context.Entry(doctor).Property(x => x.Estado).IsModified = false;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -124,7 +171,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", doctor.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre", doctor.IdEspecialidad);
             return View(doctor);
         }
 
@@ -136,7 +183,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
 
-            var doctor = await _context.Doctors
+            var doctor = await _context.Doctores
                 .Include(d => d.IdEspecialidadNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (doctor == null)
@@ -152,10 +199,10 @@ namespace Sis457ConsultorioMedico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var doctor = await _context.Doctors.FindAsync(id);
+            var doctor = await _context.Doctores.FindAsync(id);
             if (doctor != null)
             {
-                _context.Doctors.Remove(doctor);
+                _context.Doctores.Remove(doctor);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +211,7 @@ namespace Sis457ConsultorioMedico.Controllers
 
         private bool DoctorExists(int id)
         {
-            return _context.Doctors.Any(e => e.Id == id);
+            return _context.Doctores.Any(e => e.Id == id);
         }
     }
 }

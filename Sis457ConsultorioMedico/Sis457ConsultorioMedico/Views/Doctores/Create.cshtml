@@ -36,8 +36,9 @@
 				<div class="form-group">
 					<label class="control-label">Especialidad</label>
 					<select asp-for="IdEspecialidad" class="form-control" asp-items="ViewBag.IdEspecialidad">
-						<option disabled selected value="">Seleccione una especialidad</option>
+						<option disabled selected value="0">Seleccione una especialidad</option>
 					</select>
+					<span asp-validation-for="IdEspecialidad" class="text-danger"></span>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Dirección</label>
@@ -46,7 +47,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Celular</label>
-					<input asp-for="Celular" class="form-control" />
+					<input asp-for="Celular" class="form-control"/>
 					<span asp-validation-for="Celular" class="text-danger"></span>
 				</div>
 				<div class="form-group">

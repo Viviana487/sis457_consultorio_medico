@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -53,8 +54,30 @@ namespace Sis457ConsultorioMedico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CedulaIdentidad,Nombres,PrimerApellido,SegundoApellido,Direccion,Celular,UsuarioRegistro,FechaRegistro,Estado")] Paciente paciente)
+        public async Task<IActionResult> Create(Paciente paciente)
         {
+            paciente.UsuarioRegistro = "admin";
+            paciente.FechaRegistro = DateTime.Now;
+            paciente.Estado = 1;
+            if (!string.IsNullOrWhiteSpace(paciente.CedulaIdentidad))
+            {
+                bool ciExiste = await _context.Pacientes
+                                    .AnyAsync(x => x.CedulaIdentidad == paciente.CedulaIdentidad);
+
+                if (ciExiste)
+                {
+                    ModelState.AddModelError("CedulaIdentidad", "Ya existe un paciente registrado con esta Cédula de Identidad.");
+                }
+            }
+            if (string.IsNullOrWhiteSpace(paciente.PrimerApellido) && string.IsNullOrWhiteSpace(paciente.SegundoApellido))
+            {
+                ModelState.AddModelError("PrimerApellido", "Debe ingresar al menos un apellido.");
+                ModelState.AddModelError("SegundoApellido", "Debe ingresar al menos un apellido.");
+            }
+            if (paciente.Celular.ToString().Length != 8)
+            {
+                ModelState.AddModelError("Celular", "El número de celular debe ser de 8 dígitos.");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(paciente);
@@ -91,12 +114,36 @@ namespace Sis457ConsultorioMedico.Controllers
             {
                 return NotFound();
             }
+            if (!string.IsNullOrWhiteSpace(paciente.CedulaIdentidad))
+            {
+                bool ciExisteParaOtroPaciente = await _context.Pacientes
+                                                    .AnyAsync(x => x.CedulaIdentidad == paciente.CedulaIdentidad && x.Id != paciente.Id);
+            
+                if (ciExisteParaOtroPaciente)
+                {
+                    ModelState.AddModelError("CedulaIdentidad", "Ya existe otro paciente registrado con esta Cédula de Identidad.");
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(paciente.PrimerApellido) && string.IsNullOrWhiteSpace(paciente.SegundoApellido))
+            {
+                ModelState.AddModelError("PrimerApellido", "Debe ingresar al menos un apellido.");
+                ModelState.AddModelError("SegundoApellido", "Debe ingresar al menos un apellido.");
+            }
+
+            if (paciente.Celular.ToString().Length != 8)
+            {
+                ModelState.AddModelError("Celular", "El número de celular debe ser de 8 dígitos.");
+            }
 
             if (ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(paciente);
+                    _context.Entry(paciente).Property(x => x.FechaRegistro).IsModified = false;
+                    _context.Entry(paciente).Property(x => x.UsuarioRegistro).IsModified = false;
+                    _context.Entry(paciente).Property(x => x.Estado).IsModified = false;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
