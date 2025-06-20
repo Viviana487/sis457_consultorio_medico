@@ -21,8 +21,8 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Doctores
         public async Task<IActionResult> Index()
         {
-            var finalConsultorioMedicoContext = _context.Doctors.Include(d => d.IdEspecialidadNavigation);
-            return View(await finalConsultorioMedicoContext.ToListAsync());
+            var finalConsultorioMedicoContext = await _context.Doctors.Where(x => x.Estado != -1).Include(x => x.IdEspecialidadNavigation).Include(x => x.Usuarios).ToListAsync();
+            return View(finalConsultorioMedicoContext);
         }
 
         // GET: Doctores/Details/5
@@ -47,7 +47,7 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Doctores/Create
         public IActionResult Create()
         {
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id");
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre");
             return View();
         }
 
@@ -56,15 +56,22 @@ namespace Sis457ConsultorioMedico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdEspecialidad,CedulaIdentidad,Nombres,PrimerApellido,SegundoApellido,Direccion,Celular,UsuarioRegistro,FechaRegistro,Estado")] Doctor doctor)
+        public async Task<IActionResult> Create(Doctor doctor)
         {
-            if (ModelState.IsValid)
+            if (string.IsNullOrWhiteSpace(doctor.PrimerApellido) || string.IsNullOrWhiteSpace(doctor.SegundoApellido))
             {
+                ModelState.AddModelError("PrimerApellido", "Debe ingresar al menos un apellido.");
+            }
+            else
+            {
+                doctor.UsuarioRegistro = "admin";
+                doctor.FechaRegistro = DateTime.Now;
+                doctor.Estado = 1;
                 _context.Add(doctor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", doctor.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre", doctor.IdEspecialidad);
             return View(doctor);
         }
 
@@ -81,7 +88,7 @@ namespace Sis457ConsultorioMedico.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", doctor.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", doctor.IdEspecialidad);
             return View(doctor);
         }
 
@@ -117,7 +124,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", doctor.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", doctor.IdEspecialidad);
             return View(doctor);
         }
 

@@ -21,7 +21,7 @@ public partial class FinalConsultorioMedicoContext : DbContext
 
     public virtual DbSet<Doctor> Doctors { get; set; }
 
-    public virtual DbSet<Especialidad> Especialidads { get; set; }
+    public virtual DbSet<Especialidad> Especialidades { get; set; }
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 

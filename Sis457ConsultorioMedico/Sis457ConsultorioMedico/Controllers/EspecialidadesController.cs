@@ -21,7 +21,7 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Especialidades
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Especialidads.ToListAsync());
+            return View(await _context.Especialidades.ToListAsync());
         }
 
         // GET: Especialidades/Details/5
@@ -32,7 +32,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
 
-            var especialidad = await _context.Especialidads
+            var especialidad = await _context.Especialidades
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (especialidad == null)
             {
@@ -72,7 +72,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
 
-            var especialidad = await _context.Especialidads.FindAsync(id);
+            var especialidad = await _context.Especialidades.FindAsync(id);
             if (especialidad == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
 
-            var especialidad = await _context.Especialidads
+            var especialidad = await _context.Especialidades
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (especialidad == null)
             {
@@ -138,10 +138,10 @@ namespace Sis457ConsultorioMedico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var especialidad = await _context.Especialidads.FindAsync(id);
+            var especialidad = await _context.Especialidades.FindAsync(id);
             if (especialidad != null)
             {
-                _context.Especialidads.Remove(especialidad);
+                _context.Especialidades.Remove(especialidad);
             }
 
             await _context.SaveChangesAsync();
@@ -150,7 +150,7 @@ namespace Sis457ConsultorioMedico.Controllers
 
         private bool EspecialidadExists(int id)
         {
-            return _context.Especialidads.Any(e => e.Id == id);
+            return _context.Especialidades.Any(e => e.Id == id);
         }
     }
 }

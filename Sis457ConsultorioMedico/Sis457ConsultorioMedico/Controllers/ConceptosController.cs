@@ -47,7 +47,7 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Conceptos/Create
         public IActionResult Create()
         {
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id");
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", concepto.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", concepto.IdEspecialidad);
             return View(concepto);
         }
 
@@ -81,7 +81,7 @@ namespace Sis457ConsultorioMedico.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", concepto.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", concepto.IdEspecialidad);
             return View(concepto);
         }
 
@@ -117,7 +117,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", concepto.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", concepto.IdEspecialidad);
             return View(concepto);
         }
 

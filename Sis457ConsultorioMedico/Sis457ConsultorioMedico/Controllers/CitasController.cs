@@ -50,7 +50,7 @@ namespace Sis457ConsultorioMedico.Controllers
         public IActionResult Create()
         {
             ViewData["IdDoctor"] = new SelectList(_context.Doctors, "Id", "Id");
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id");
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id");
             ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "Id", "Id");
             return View();
         }
@@ -69,7 +69,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdDoctor"] = new SelectList(_context.Doctors, "Id", "Id", cita.IdDoctor);
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", cita.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", cita.IdEspecialidad);
             ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "Id", "Id", cita.IdPaciente);
             return View(cita);
         }
@@ -88,7 +88,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
             ViewData["IdDoctor"] = new SelectList(_context.Doctors, "Id", "Id", cita.IdDoctor);
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", cita.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", cita.IdEspecialidad);
             ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "Id", "Id", cita.IdPaciente);
             return View(cita);
         }
@@ -126,7 +126,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdDoctor"] = new SelectList(_context.Doctors, "Id", "Id", cita.IdDoctor);
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidads, "Id", "Id", cita.IdEspecialidad);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", cita.IdEspecialidad);
             ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "Id", "Id", cita.IdPaciente);
             return View(cita);
         }
