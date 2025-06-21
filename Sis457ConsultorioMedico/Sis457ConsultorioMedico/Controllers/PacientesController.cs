@@ -199,5 +199,21 @@ namespace Sis457ConsultorioMedico.Controllers
         {
             return _context.Pacientes.Any(e => e.Id == id);
         }
+
+        [HttpGet]
+        public IActionResult BuscarPorCI(string ci)
+        {
+            var paciente = _context.Pacientes
+                .Where(p => p.CedulaIdentidad == ci)
+                .Select(p => new
+                {
+                    Id = p.Id,
+                    NombreCompleto = p.Nombres + " " + p.PrimerApellido + " " + p.SegundoApellido
+                })
+                .FirstOrDefault();
+
+            return Json(paciente);
+        }
+
     }
 }

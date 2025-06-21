@@ -49,9 +49,20 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Citas/Create
         public IActionResult Create()
         {
-            ViewData["IdDoctor"] = new SelectList(_context.Doctores, "Id", "Id");
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id");
-            ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "Id", "Id");
+            ViewData["IdDoctor"] = new SelectList(
+             _context.Doctores
+                 .Select(d => new { d.Id, NombreCompleto = d.Nombres + " " + d.PrimerApellido + " " + d.SegundoApellido }),
+             "Id",
+             "NombreCompleto"
+            );
+
+            ViewData["IdPaciente"] = new SelectList(
+                _context.Pacientes
+                    .Select(p => new { p.Id, NombreCompleto = p.Nombres + " " + p.PrimerApellido + " " + p.SegundoApellido }),
+                "Id",
+                "NombreCompleto"
+            );
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre");
             return View();
         }
 
@@ -68,9 +79,21 @@ namespace Sis457ConsultorioMedico.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdDoctor"] = new SelectList(_context.Doctores, "Id", "Id", cita.IdDoctor);
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Id", cita.IdEspecialidad);
-            ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "Id", "Id", cita.IdPaciente);
+            ViewData["IdDoctor"] = new SelectList(
+             _context.Doctores
+                 .Select(d => new { d.Id, NombreCompleto = d.Nombres + " " + d.PrimerApellido + " " + d.SegundoApellido }),
+             "Id",
+             "NombreCompleto"
+            );
+
+            ViewData["IdPaciente"] = new SelectList(
+                _context.Pacientes
+                    .Select(p => new { p.Id, NombreCompleto = p.Nombres + " " + p.PrimerApellido + " " + p.SegundoApellido }),
+                "Id",
+                "NombreCompleto"
+            );
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre");
+            return View();
             return View(cita);
         }
 
