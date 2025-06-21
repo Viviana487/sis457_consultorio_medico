@@ -5,7 +5,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container position-relative pb-5" data-aos="fade-up" data-aos-delay="100">
+<div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 	<div class="container section-title" data-aos="fade-up">
 		<h2>Pacientes</h2>
 	</div>
@@ -54,7 +54,7 @@
 						@Html.DisplayFor(modelItem => item.UsuarioRegistro)
 					</td>
 					<td>
-						@Html.DisplayFor(modelItem => item.FechaRegistro)
+						@item.FechaRegistro.ToString("dd/MM/yyyy")
 					</td>
 					<td>
 						@(item.Estado == 1 ? "Activo" : "Inactivo")

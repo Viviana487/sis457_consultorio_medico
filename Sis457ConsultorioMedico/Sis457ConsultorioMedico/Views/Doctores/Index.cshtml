@@ -5,14 +5,15 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container position-relative pb-5" data-aos="fade-up" data-aos-delay="100">
+
+<div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 	<div class="container section-title" data-aos="fade-up">
 		<h2>Doctores</h2>
 	</div>
 	<p>
 		<a asp-action="Create"><i class="fa-solid fa-user-plus"></i> Registrar Nuevo</a>
 	</p>
-	<table class="table">
+	<table class="table small">
 		<thead>
 			<tr>
 				<th>Cédula de Identidad</th>
@@ -23,7 +24,7 @@
 				<th>Dirección</th>
 				<th>Celular</th>
 				<th>Usuario</th>
-				<th>Usurio Registro</th>
+				<th>Usuario Registro</th>
 				<th>Fecha Registro</th>
 				<th>Estado</th>
 				<th></th>
@@ -61,7 +62,7 @@
 						@Html.DisplayFor(modelItem => item.UsuarioRegistro)
 					</td>
 					<td>
-						@Html.DisplayFor(modelItem => item.FechaRegistro)
+						@item.FechaRegistro.ToString("dd/MM/yyyy")
 					</td>
 					<td>
 						@(item.Estado == 1 ? "Activo" : "Inactivo")

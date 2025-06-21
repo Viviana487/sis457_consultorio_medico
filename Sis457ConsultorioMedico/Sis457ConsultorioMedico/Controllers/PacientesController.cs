@@ -22,7 +22,7 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Pacientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pacientes.ToListAsync());
+            return View(await _context.Pacientes.Where(x => x.Estado != -1).ToListAsync());
         }
 
         // GET: Pacientes/Details/5
@@ -188,7 +188,8 @@ namespace Sis457ConsultorioMedico.Controllers
             var paciente = await _context.Pacientes.FindAsync(id);
             if (paciente != null)
             {
-                _context.Pacientes.Remove(paciente);
+                paciente.Estado = -1;
+                paciente.UsuarioRegistro = "admin";
             }
 
             await _context.SaveChangesAsync();

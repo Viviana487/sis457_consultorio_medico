@@ -62,6 +62,10 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-controller="Pagos" asp-action="Create"
+       asp-route-idCita="@Model?.Id"
+       asp-route-idEspecialidad="@Model?.IdEspecialidad">
+        Registrar Pago
+    </a>
     <a asp-action="Index">Back to List</a>
 </div>

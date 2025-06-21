@@ -21,7 +21,9 @@ namespace Sis457ConsultorioMedico.Controllers
         // GET: Pagos
         public async Task<IActionResult> Index()
         {
-            var finalConsultorioMedicoContext = _context.Pagos.Include(p => p.IdCitaNavigation).Include(p => p.IdConceptoNavigation);
+            var finalConsultorioMedicoContext = _context.Pagos.Include(p => p.IdCitaNavigation)
+                .ThenInclude(cita => cita.IdPacienteNavigation) 
+                .Include(p => p.IdConceptoNavigation).Include(p => p.IdConceptoNavigation);
             return View(await finalConsultorioMedicoContext.ToListAsync());
         }
 
@@ -46,11 +48,36 @@ namespace Sis457ConsultorioMedico.Controllers
         }
 
         // GET: Pagos/Create
-        public IActionResult Create()
+        public IActionResult Create(int idCita, int idEspecialidad)
         {
-            ViewData["IdCita"] = new SelectList(_context.Cita, "Id", "Id");
-            ViewData["IdConcepto"] = new SelectList(_context.Conceptos, "Id", "Id");
-            return View();
+            var cita = _context.Cita
+                .Include(c => c.IdPacienteNavigation)
+                .FirstOrDefault(c => c.Id == idCita);
+
+            if (cita == null)
+            {
+                return NotFound();
+            }
+
+            var pago = new Pago
+            {
+                IdCita = idCita
+            };
+
+            var conceptos = _context.Conceptos
+                .Where(c => c.IdEspecialidad == idEspecialidad)
+                .ToList();
+            var nombreEspecialidad = _context.Especialidades
+                        .Where(e => e.Id == idEspecialidad)
+                        .Select(e => e.Nombre)
+                        .FirstOrDefault();
+
+            ViewBag.NombreEspecialidad = nombreEspecialidad;
+            ViewBag.CostosConceptos = conceptos.ToDictionary(c => c.Id, c => c.Costo);
+            ViewBag.IdConcepto = new SelectList(conceptos, "Id", "Descripcion");
+            ViewBag.NombrePaciente = cita.IdPacienteNavigation.Nombres + " " + cita.IdPacienteNavigation.PrimerApellido + " " + cita.IdPacienteNavigation.SegundoApellido;
+
+            return View(pago);
         }
 
         // POST: Pagos/Create
@@ -58,18 +85,45 @@ namespace Sis457ConsultorioMedico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdCita,IdConcepto,Fecha,UsuarioRegistro,FechaRegistro,Estado")] Pago pago)
+        public async Task<IActionResult> Create([Bind("Id,IdCita,IdConcepto,Efectivo,MontoPagado,Fecha,UsuarioRegistro,FechaRegistro,Estado")] Pago pago)
         {
+            pago.UsuarioRegistro = "admin";
+            pago.Estado = 1;
             if (ModelState.IsValid)
             {
                 _context.Add(pago);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Citas");
+
             }
-            ViewData["IdCita"] = new SelectList(_context.Cita, "Id", "Id", pago.IdCita);
-            ViewData["IdConcepto"] = new SelectList(_context.Conceptos, "Id", "Id", pago.IdConcepto);
+            var cita = _context.Cita
+                .Include(c => c.IdPacienteNavigation)
+                .FirstOrDefault(c => c.Id == pago.IdCita);
+
+            var idEspecialidad = _context.Cita
+                .Where(c => c.Id == pago.IdCita)
+                .Select(c => c.IdEspecialidad)
+                .FirstOrDefault();
+
+            var conceptos = _context.Conceptos
+                .Where(c => c.IdEspecialidad == idEspecialidad)
+                .ToList();
+
+            var nombreEspecialidad = _context.Especialidades
+                .Where(e => e.Id == idEspecialidad)
+                .Select(e => e.Nombre)
+                .FirstOrDefault();
+
+            ViewBag.NombreEspecialidad = nombreEspecialidad;
+            ViewBag.CostosConceptos = conceptos.ToDictionary(c => c.Id, c => c.Costo);
+            ViewBag.IdConcepto = new SelectList(conceptos, "Id", "Descripcion");
+            ViewBag.NombrePaciente = cita.IdPacienteNavigation.Nombres + " " +
+                                      cita.IdPacienteNavigation.PrimerApellido + " " +
+                                      cita.IdPacienteNavigation.SegundoApellido;
+
             return View(pago);
         }
+
 
         // GET: Pagos/Edit/5
         public async Task<IActionResult> Edit(int? id)

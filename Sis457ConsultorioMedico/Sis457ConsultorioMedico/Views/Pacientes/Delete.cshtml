@@ -1,8 +1,8 @@
 ﻿@model Sis457ConsultorioMedico.Models.Paciente
 
 @{
-    ViewData["Title"] = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Delete";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container position-relative pb-5" data-aos="fade-up" data-aos-delay="100">
@@ -37,21 +37,17 @@
 			<dd class="col-sm-10">
 				@Html.DisplayFor(model => model.Celular)
 			</dd>
-			<dt class="col-sm-2">
-				@Html.DisplayNameFor(model => model.UsuarioRegistro)
-			</dt>
-			<dd class="col-sm-10">
 			<dt class="col-sm-2">Usuario Registro</dt>
 			<dd class="col-sm-10">
-					@Html.DisplayFor(model => model.UsuarioRegistro)
+				@Html.DisplayFor(model => model.UsuarioRegistro)
 			</dd>
 			<dt class="col-sm-2">Fecha de Registro</dt>
 			<dd class="col-sm-10">
-					@(Model.FechaRegistro.ToLongDateString() + " " + Model.FechaRegistro.ToShortTimeString())
+				@(Model.FechaRegistro.ToLongDateString() + " " + Model.FechaRegistro.ToShortTimeString())
 			</dd>
 			<dt class="col-sm-2">Estado</dt>
 			<dd class="col-sm-10">
-					@(Model.Estado == 1 ? "Activo" : "Inactivo")
+				@(Model.Estado == 1 ? "Activo" : "Inactivo")
 			</dd>
 		</dl>
 

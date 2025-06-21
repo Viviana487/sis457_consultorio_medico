@@ -1,66 +1,58 @@
 ﻿@model IEnumerable<Sis457ConsultorioMedico.Models.Pago>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+	<a asp-action="Create">Create New</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCitaNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdConceptoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsuarioRegistro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaRegistro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UsuarioRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCitaNavigation.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdConceptoNavigation.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+	<thead>
+		<tr>
+			<th>Fecha</th>
+			<th>Paciente</th>
+
+			<th>
+				@Html.DisplayNameFor(model => model.UsuarioRegistro)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.FechaRegistro)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Estado)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Fecha)
+				</td>
+				<td>
+					@($"{item.IdCitaNavigation.IdPacienteNavigation.Nombres} {item.IdCitaNavigation.IdPacienteNavigation.PrimerApellido} {item.IdCitaNavigation.IdPacienteNavigation.SegundoApellido}")
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.UsuarioRegistro)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FechaRegistro)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Estado)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+					<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+					<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>

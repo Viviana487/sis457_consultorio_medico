@@ -202,7 +202,8 @@ namespace Sis457ConsultorioMedico.Controllers
             var doctor = await _context.Doctores.FindAsync(id);
             if (doctor != null)
             {
-                _context.Doctores.Remove(doctor);
+                doctor.Estado = -1;
+                doctor.UsuarioRegistro = "admin";
             }
 
             await _context.SaveChangesAsync();
