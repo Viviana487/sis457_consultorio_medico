@@ -46,9 +46,9 @@
 			@(Model.Estado == 1 ? "Activo" : "Inactivo")
 		</dd>
 	</dl>
-</div>
-<div class="col-md-4 offset-md-1">
-	<a asp-action="Edit" asp-route-id="@Model?.Id"><i class="fa-solid fa-user-pen"></i> Editar</a> |
-	<a asp-action="Index"><i class="fa-solid fa-arrow-left"></i> Volver a la Lista</a>
+	<div class="col-md-4">
+		<a asp-action="Edit" asp-route-id="@Model?.Id"><i class="fa-solid fa-user-pen"></i> Editar</a> |
+		<a asp-action="Index"><i class="fa-solid fa-arrow-left"></i> Volver a la Lista</a>
+	</div>
 </div>
 

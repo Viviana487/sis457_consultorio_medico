@@ -34,8 +34,9 @@ namespace Sis457ConsultorioMedico.Controllers
                 "Id",
                 "NombreCompleto"
             );
-
+            ViewBag.Especialidades = _context.Especialidades.ToList();
             ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre");
+
         }
 
 
@@ -49,7 +50,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 .Include(c => c.IdPacienteNavigation)
                 .Include(c => c.IdDoctorNavigation)
                 .Include(c => c.IdEspecialidadNavigation)
-                .Include(c => c.Pagos)
+                .Include(c => c.Pagos).OrderBy(c => c.Fecha)
                 .ToListAsync();
 
             return View(citas);
@@ -101,6 +102,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 "Id",
                 "NombreCompleto"
             );
+            ViewBag.Especialidades = _context.Especialidades.ToList();
             return View();
         }
 
@@ -138,9 +140,9 @@ namespace Sis457ConsultorioMedico.Controllers
                 return RedirectToAction(nameof(Index));
             }
             var doctores = _context.Doctores
-     .Where(d => d.Estado == 1)
-     .Include(d => d.IdEspecialidadNavigation)
-     .ToList();
+                .Where(d => d.Estado == 1)
+                .Include(d => d.IdEspecialidadNavigation)
+                .ToList();
 
             Console.WriteLine("Doctores encontrados: " + doctores.Count);
 
@@ -153,6 +155,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 "NombreCompleto"
             );
             ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre");
+            ViewBag.Especialidades = _context.Especialidades.ToList();
             return View(cita);
         }
 
@@ -188,6 +191,7 @@ namespace Sis457ConsultorioMedico.Controllers
                 "Id",
                 "NombreCompleto"
             );
+            ViewBag.Especialidades = _context.Especialidades.ToList();
             ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "Id", "Nombre");
             return View(cita);
         }
@@ -302,22 +306,20 @@ namespace Sis457ConsultorioMedico.Controllers
             return _context.Cita.Any(e => e.Id == id);
         }
         [HttpGet]
-        public IActionResult ObtenerEspecialidadPorDoctor(int idDoctor)
+        public IActionResult ObtenerDoctoresPorEspecialidad(int idEspecialidad)
         {
-            var doctor = _context.Doctores.Where(d => d.Estado == 1)
+            var doctores = _context.Doctores
                 .Include(d => d.IdEspecialidadNavigation)
-                .FirstOrDefault(d => d.Id == idDoctor);
-
-            if (doctor != null && doctor.IdEspecialidadNavigation != null)
-            {
-                return Json(new
+                .Where(d => d.Estado == 1 && d.IdEspecialidad == idEspecialidad)
+                .Select(d => new
                 {
-                    idEspecialidad = doctor.IdEspecialidad,
-                    nombreEspecialidad = doctor.IdEspecialidadNavigation.Nombre
-                });
-            }
+                    d.Id,
+                    NombreCompleto = d.Nombres + " " + d.PrimerApellido + " " + d.SegundoApellido
+                })
+                .ToList();
 
-            return Json(null);
+
+            return Json(doctores);
         }
     }
 }

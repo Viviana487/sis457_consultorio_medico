@@ -4,13 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace Sis457ConsultorioMedico.Models;
-
 public partial class Pago
 {
     public int Id { get; set; }
 
     public int IdCita { get; set; }
-
+    [Required (ErrorMessage = "Debe seleccionar un Concepto de Pago.")]
     public int IdConcepto { get; set; }
 
     public DateOnly Fecha { get; set; }

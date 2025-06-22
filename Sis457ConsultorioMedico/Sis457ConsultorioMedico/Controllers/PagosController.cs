@@ -36,7 +36,7 @@ namespace Sis457ConsultorioMedico.Controllers
             }
 
             var pago = await _context.Pagos
-                .Include(p => p.IdCitaNavigation)
+                .Include(p => p.IdCitaNavigation).ThenInclude(c => c.IdPacienteNavigation)
                 .Include(p => p.IdConceptoNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pago == null)
@@ -85,10 +85,23 @@ namespace Sis457ConsultorioMedico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdCita,IdConcepto,Efectivo,MontoPagado,Fecha,UsuarioRegistro,FechaRegistro,Estado")] Pago pago)
+        public async Task<IActionResult> Create(Pago pago)
         {
             pago.UsuarioRegistro = "admin";
             pago.Estado = 1;
+            var concepto = await _context.Conceptos.FindAsync(pago.IdConcepto);
+            if (concepto == null || pago.IdConcepto == 0)
+            {
+                ModelState.AddModelError(nameof(pago.IdConcepto), "Debe seleccionar un Concepto de Pago.");
+            }
+            else
+            {
+                if (pago.Efectivo < concepto.Costo)
+                {
+                    ModelState.AddModelError(nameof(pago.Efectivo), $"El monto pagado no puede ser menor al costo del concepto ({concepto.Costo:C}).");
+                }
+                pago.IdConceptoNavigation = concepto;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(pago);
