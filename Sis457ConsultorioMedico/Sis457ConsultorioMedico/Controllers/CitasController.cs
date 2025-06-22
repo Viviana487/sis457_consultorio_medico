@@ -113,7 +113,7 @@ namespace Sis457ConsultorioMedico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Cita cita)
         {
-            cita.UsuarioRegistro = "admin";
+            cita.UsuarioRegistro = User.Identity.Name;;
             cita.FechaRegistro = DateTime.Now;
             cita.Estado = 1;
             bool citaExistente = _context.Cita.Any(c =>
@@ -295,7 +295,7 @@ namespace Sis457ConsultorioMedico.Controllers
             }
 
             cita.Estado = -1;
-            cita.UsuarioRegistro = "admin";
+            cita.UsuarioRegistro = User.Identity.Name;;
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

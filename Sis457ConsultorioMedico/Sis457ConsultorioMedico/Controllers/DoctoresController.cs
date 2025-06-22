@@ -58,7 +58,7 @@ namespace Sis457ConsultorioMedico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Doctor doctor)
         {
-            doctor.UsuarioRegistro = "admin";
+            doctor.UsuarioRegistro = User.Identity.Name;
             doctor.FechaRegistro = DateTime.Now;
             doctor.Estado = 1;
             if (!string.IsNullOrWhiteSpace(doctor.CedulaIdentidad))
@@ -203,7 +203,7 @@ namespace Sis457ConsultorioMedico.Controllers
             if (doctor != null)
             {
                 doctor.Estado = -1;
-                doctor.UsuarioRegistro = "admin";
+                doctor.UsuarioRegistro = User.Identity.Name;
             }
 
             await _context.SaveChangesAsync();

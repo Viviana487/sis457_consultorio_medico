@@ -87,7 +87,7 @@ namespace Sis457ConsultorioMedico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Pago pago)
         {
-            pago.UsuarioRegistro = "admin";
+            pago.UsuarioRegistro = User.Identity.Name;
             pago.Estado = 1;
             var concepto = await _context.Conceptos.FindAsync(pago.IdConcepto);
             if (concepto == null || pago.IdConcepto == 0)
