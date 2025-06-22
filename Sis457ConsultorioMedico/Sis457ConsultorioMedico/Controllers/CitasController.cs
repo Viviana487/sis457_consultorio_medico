@@ -64,6 +64,7 @@ namespace Sis457ConsultorioMedico.Controllers
             }
 
             var cita = await _context.Cita
+                .Include(c => c.Pagos)
                 .Include(c => c.IdDoctorNavigation)
                 .Include(c => c.IdEspecialidadNavigation)
                 .Include(c => c.IdPacienteNavigation)
@@ -203,17 +204,17 @@ namespace Sis457ConsultorioMedico.Controllers
                 return NotFound();
             }
             bool citaExistente = _context.Cita.Any(c =>
-c.IdPaciente == cita.IdPaciente &&
-c.Fecha == cita.Fecha &&
-c.Estado == 1 && c.Id != cita.Id);
+                c.IdPaciente == cita.IdPaciente &&
+                c.Fecha == cita.Fecha &&
+                c.Estado == 1 && c.Id != cita.Id);
 
             if (citaExistente)
             {
                 ModelState.AddModelError("", "El paciente ya tiene una cita para esa fecha.");
                 var citaCompleta = _context.Cita
-         .Include(c => c.IdPacienteNavigation)
-         .Include(c => c.IdEspecialidadNavigation)
-         .FirstOrDefault(c => c.Id == cita.Id);
+                    .Include(c => c.IdPacienteNavigation)
+                    .Include(c => c.IdEspecialidadNavigation)
+                    .FirstOrDefault(c => c.Id == cita.Id);
 
                 CargarDatosVista();
                 return View(citaCompleta);

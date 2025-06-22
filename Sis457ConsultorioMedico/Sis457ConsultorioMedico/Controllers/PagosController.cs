@@ -23,7 +23,7 @@ namespace Sis457ConsultorioMedico.Controllers
         {
             var finalConsultorioMedicoContext = _context.Pagos.Include(p => p.IdCitaNavigation)
                 .ThenInclude(cita => cita.IdPacienteNavigation) 
-                .Include(p => p.IdConceptoNavigation).Include(p => p.IdConceptoNavigation);
+                .Include(p => p.IdConceptoNavigation).Include(p => p.IdConceptoNavigation).OrderByDescending(p => p.Fecha);
             return View(await finalConsultorioMedicoContext.ToListAsync());
         }
 
