@@ -9,7 +9,7 @@ using System.Text;
 using Sis457ConsultorioMedico.Controllers;
 using Sis457ConsultorioMedico.Models;
 
-namespace WebMinerva.Controllers
+namespace Sis457ConsultorioMedico.Controllers
 {
     [Authorize]
     public class AccountController : Controller

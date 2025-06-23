@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +12,7 @@ using Sis457ConsultorioMedico.Models;
 
 namespace Sis457ConsultorioMedico.Controllers
 {
+    [Authorize]
     public class CitasController : Controller
     {
         private readonly FinalConsultorioMedicoContext _context;
